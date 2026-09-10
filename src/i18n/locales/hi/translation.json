@@ -16,7 +16,8 @@
     "postProcessing": "पोस्ट प्रोसेस",
     "history": "इतिहास",
     "debug": "डिबग",
-    "about": "के बारे में"
+    "about": "के बारे में",
+    "notepad": "नोटपैड"
   },
   "onboarding": {
     "subtitle": "शुरू करने के लिए, एक ट्रांसक्रिप्शन मॉडल चुनें",
@@ -635,6 +636,15 @@
           "details": "Handy का लोकल स्पीच-टू-टेक्स्ट transcribe.cpp और ggml पर आधारित है. Georgi Gerganov और योगदान देने वालों के शानदार काम के लिए धन्यवाद."
         }
       }
+    },
+    "notepad": {
+      "title": "नोटपैड",
+      "description": "डिक्टेशन के लिए एक सतत नोटपैड, इतिहास से अलग।",
+      "captureTitle": "डिक्टेशन को नोटपैड में कैप्चर करें",
+      "captureDescription": "सामान्य पेस्ट या कॉपी के अतिरिक्त, हर ट्रांसक्रिप्शन को नोटपैड के डिफ़ॉल्ट नोट में जोड़ता है।",
+      "defaultNoteTitle": "डिफ़ॉल्ट नोट",
+      "defaultNoteDescription": "जहाँ कैप्चर किया गया डिक्टेशन जोड़ा जाता है।",
+      "openButton": "नोटपैड खोलें"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "इसे कैसे ठीक करें",
     "recorderBlocked": "अभी शॉर्टकट रिकॉर्ड नहीं किए जा सकते — macOS Secure Input कुंजी इवेंट ब्लॉक कर रहा है. पहले Secure Input चेतावनी हल करें.",
     "dismiss": "खारिज करें"
+  },
+  "notepad": {
+    "title": "नोटपैड",
+    "newNote": "नया नोट",
+    "searchPlaceholder": "नोट खोजें",
+    "defaultNote": "डिफ़ॉल्ट नोट",
+    "makeDefault": "डिफ़ॉल्ट नोट बनाएं",
+    "captureHint": "डिक्टेशन डिफ़ॉल्ट रूप से यहाँ जुड़ता है",
+    "untitledNote": "शीर्षकहीन नोट",
+    "noNotes": "अभी तक कोई नोट नहीं है।",
+    "noNotesMatch": "आपकी खोज से मेल खाने वाला कोई नोट नहीं है।",
+    "emptyNote": "यह नोट खाली है। शुरू करने के लिए बोलें या एक ब्लॉक जोड़ें।",
+    "blockCount_one": "{{count}} ब्लॉक",
+    "blockCount_other": "{{count}} ब्लॉक",
+    "updated": "{{time}} अपडेट किया गया",
+    "dictation": "डिक्टेशन",
+    "postProcessed": "पोस्ट-प्रोसेस्ड",
+    "manual": "मैन्युअल",
+    "capturing": "कैप्चर हो रहा है…",
+    "moveTo": "नोट में ले जाएं",
+    "moveToCurrent": "{{title}} (वर्तमान)",
+    "moveToNew": "नया नोट…",
+    "moveSelection": "चयन को नोट में ले जाएं",
+    "postProcessBlock": "इस ब्लॉक को पोस्ट-प्रोसेस करें",
+    "postProcessNote": "नोट को पोस्ट-प्रोसेस करें",
+    "postProcessing": "पोस्ट-प्रोसेसिंग हो रही है…",
+    "deleteBlock": "ब्लॉक हटाएं",
+    "addBlockPlaceholder": "मैन्युअल रूप से नोट जोड़ें…",
+    "add": "जोड़ें",
+    "moreOptions": "अधिक विकल्प",
+    "renameNote": "नोट का नाम बदलें",
+    "deleteNote": "नोट हटाएं",
+    "deleteNoteConfirm": "क्या \"{{title}}\" और उसके सभी ब्लॉक हटाएं?"
   }
 }

@@ -16,7 +16,8 @@
     "postProcessing": "Následné zpracování",
     "history": "Historie",
     "debug": "Ladění",
-    "about": "O aplikaci"
+    "about": "O aplikaci",
+    "notepad": "Poznámkový blok"
   },
   "onboarding": {
     "subtitle": "Pro začátek vyberte model pro přepis",
@@ -635,6 +636,15 @@
         "label": "Zobrazovat novinky",
         "description": "Zobrazovat poznámky k vydání po aktualizacích Handy"
       }
+    },
+    "notepad": {
+      "title": "Poznámkový blok",
+      "description": "Průběžný poznámkový blok pro diktování, oddělený od historie.",
+      "captureTitle": "Zachytávat diktování do poznámkového bloku",
+      "captureDescription": "Přidá každý přepis do výchozí poznámky poznámkového bloku, kromě běžného vkládání nebo kopírování.",
+      "defaultNoteTitle": "Výchozí poznámka",
+      "defaultNoteDescription": "Kam se přidává zachycené diktování.",
+      "openButton": "Otevřít poznámkový blok"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "Jak to vyřešit",
     "recorderBlocked": "Zkratky teď nelze nahrát — Secure Input v macOS blokuje události kláves. Nejprve vyřešte upozornění na Secure Input.",
     "dismiss": "Zavřít"
+  },
+  "notepad": {
+    "title": "Poznámkový blok",
+    "newNote": "Nová poznámka",
+    "searchPlaceholder": "Hledat poznámky",
+    "defaultNote": "Výchozí poznámka",
+    "makeDefault": "Nastavit jako výchozí poznámku",
+    "captureHint": "Diktování sem ve výchozím nastavení směřuje",
+    "untitledNote": "Poznámka bez názvu",
+    "noNotes": "Zatím žádné poznámky.",
+    "noNotesMatch": "Žádná poznámka neodpovídá hledání.",
+    "emptyNote": "Tato poznámka je prázdná. Začněte diktováním nebo přidáním bloku.",
+    "blockCount_one": "{{count}} blok",
+    "blockCount_other": "{{count}} bloků",
+    "updated": "Aktualizováno {{time}}",
+    "dictation": "Diktování",
+    "postProcessed": "Zpracováno",
+    "manual": "Ručně",
+    "capturing": "Probíhá zachytávání…",
+    "moveTo": "Přesunout do poznámky",
+    "moveToCurrent": "{{title}} (aktuální)",
+    "moveToNew": "Nová poznámka…",
+    "moveSelection": "Přesunout výběr do poznámky",
+    "postProcessBlock": "Zpracovat tento blok",
+    "postProcessNote": "Zpracovat poznámku",
+    "postProcessing": "Zpracovává se…",
+    "deleteBlock": "Odstranit blok",
+    "addBlockPlaceholder": "Přidat poznámku ručně…",
+    "add": "Přidat",
+    "moreOptions": "Další možnosti",
+    "renameNote": "Přejmenovat poznámku",
+    "deleteNote": "Odstranit poznámku",
+    "deleteNoteConfirm": "Odstranit „{{title}}“ a všechny její bloky?"
   }
 }

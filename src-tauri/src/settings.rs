@@ -514,6 +514,11 @@ pub struct AppSettings {
     /// `overlay_position` (position `none` → style `None`).
     #[serde(default = "default_overlay_style")]
     pub overlay_style: OverlayStyle,
+    /// Append every completed transcription (post-processed text if enabled)
+    /// as a new block onto the notepad's default note, independent of
+    /// whatever paste/clipboard behavior also runs for that transcription.
+    #[serde(default)]
+    pub capture_to_notepad: bool,
 }
 
 fn default_model() -> String {
@@ -970,6 +975,7 @@ pub fn get_default_settings() -> AppSettings {
         vad_enabled: default_vad_enabled(),
         vad_backend: VadBackend::default(),
         overlay_style: default_overlay_style(),
+        capture_to_notepad: false,
     }
 }
 

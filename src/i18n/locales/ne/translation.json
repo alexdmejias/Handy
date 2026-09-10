@@ -16,7 +16,8 @@
     "postProcessing": "पोस्ट प्रोसेस",
     "history": "हिस्ट्री",
     "debug": "डिबग",
-    "about": "बारेमा"
+    "about": "बारेमा",
+    "notepad": "नोटप्याड"
   },
   "onboarding": {
     "subtitle": "सुरु गर्न, एउटा ट्रान्सक्रिप्सन मोडेल छान्नुहोस्",
@@ -635,6 +636,15 @@
           "details": "Handy को स्थानीय स्पिच-टु-टेक्स्ट transcribe.cpp र ggml मा आधारित छ। Georgi Gerganov र योगदानकर्ताहरूको उत्कृष्ट कामका लागि धन्यवाद।"
         }
       }
+    },
+    "notepad": {
+      "title": "नोटप्याड",
+      "description": "इतिहासभन्दा फरक, डिक्टेशनको लागि निरन्तर चल्ने नोटप्याड।",
+      "captureTitle": "डिक्टेशनलाई नोटप्याडमा खिच्नुहोस्",
+      "captureDescription": "सामान्य पेस्ट वा कपी गर्नुको अतिरिक्त, प्रत्येक ट्रान्सक्रिप्सनलाई नोटप्याडको पूर्वनिर्धारित नोटमा थप्छ।",
+      "defaultNoteTitle": "पूर्वनिर्धारित नोट",
+      "defaultNoteDescription": "खिचिएको डिक्टेशन कहाँ थपिन्छ।",
+      "openButton": "नोटप्याड खोल्नुहोस्"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "यसलाई कसरी ठिक गर्ने",
     "recorderBlocked": "अहिले सर्टकट रेकर्ड गर्न सकिँदैन — macOS Secure Input ले कुञ्जी इभेन्टहरू रोकिरहेको छ। पहिले Secure Input चेतावनी समाधान गर्नुहोस्।",
     "dismiss": "हटाउनुहोस्"
+  },
+  "notepad": {
+    "title": "नोटप्याड",
+    "newNote": "नयाँ नोट",
+    "searchPlaceholder": "नोटहरू खोज्नुहोस्",
+    "defaultNote": "पूर्वनिर्धारित नोट",
+    "makeDefault": "पूर्वनिर्धारित नोटको रूपमा सेट गर्नुहोस्",
+    "captureHint": "डिक्टेशन पूर्वनिर्धारित रूपमा यहाँ थपिन्छ",
+    "untitledNote": "शीर्षकविहीन नोट",
+    "noNotes": "अहिलेसम्म कुनै नोट छैन।",
+    "noNotesMatch": "तपाईंको खोजसँग मेल खाने कुनै नोट छैन।",
+    "emptyNote": "यो नोट खाली छ। सुरु गर्न बोल्नुहोस् वा ब्लक थप्नुहोस्।",
+    "blockCount_one": "{{count}} ब्लक",
+    "blockCount_other": "{{count}} ब्लकहरू",
+    "updated": "{{time}} अपडेट गरियो",
+    "dictation": "डिक्टेशन",
+    "postProcessed": "पोस्ट-प्रशोधित",
+    "manual": "म्यानुअल",
+    "capturing": "खिच्दै…",
+    "moveTo": "नोटमा सार्नुहोस्",
+    "moveToCurrent": "{{title}} (हालको)",
+    "moveToNew": "नयाँ नोट…",
+    "moveSelection": "चयनलाई नोटमा सार्नुहोस्",
+    "postProcessBlock": "यो ब्लक पोस्ट-प्रशोधन गर्नुहोस्",
+    "postProcessNote": "नोट पोस्ट-प्रशोधन गर्नुहोस्",
+    "postProcessing": "पोस्ट-प्रशोधन हुँदै…",
+    "deleteBlock": "ब्लक मेटाउनुहोस्",
+    "addBlockPlaceholder": "म्यानुअल रूपमा नोट थप्नुहोस्…",
+    "add": "थप्नुहोस्",
+    "moreOptions": "थप विकल्पहरू",
+    "renameNote": "नोटको नाम बदल्नुहोस्",
+    "deleteNote": "नोट मेटाउनुहोस्",
+    "deleteNoteConfirm": "\"{{title}}\" र यसका सबै ब्लकहरू मेटाउने हो?"
   }
 }

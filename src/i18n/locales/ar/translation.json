@@ -16,7 +16,8 @@
     "history": "السجل",
     "debug": "تصحيح الأخطاء",
     "about": "حول",
-    "models": "النماذج"
+    "models": "النماذج",
+    "notepad": "المفكرة"
   },
   "onboarding": {
     "subtitle": "للبدء، اختر نموذج التفريغ الصوتي",
@@ -635,6 +636,15 @@
         "label": "إعادة الفحص",
         "tooltip": "إعادة الفحص بحثًا عن النماذج المضافة إلى مجلد النماذج أو ذاكرة Hugging Face التخزينية المؤقتة خارج Handy"
       }
+    },
+    "notepad": {
+      "title": "المفكرة",
+      "description": "مفكرة مستمرة للإملاء، منفصلة عن السجل.",
+      "captureTitle": "التقاط الإملاء في المفكرة",
+      "captureDescription": "يضيف كل نص مُفرّغ إلى الملاحظة الافتراضية في المفكرة، بالإضافة إلى اللصق أو النسخ المعتاد.",
+      "defaultNoteTitle": "الملاحظة الافتراضية",
+      "defaultNoteDescription": "المكان الذي يُضاف إليه الإملاء الملتقط.",
+      "openButton": "فتح المفكرة"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "كيفية الإصلاح",
     "recorderBlocked": "لا يمكن تسجيل الاختصارات الآن — يحجب Secure Input في macOS أحداث المفاتيح. عالج تحذير Secure Input أولاً.",
     "dismiss": "تجاهل"
+  },
+  "notepad": {
+    "title": "المفكرة",
+    "newNote": "ملاحظة جديدة",
+    "searchPlaceholder": "البحث في الملاحظات",
+    "defaultNote": "الملاحظة الافتراضية",
+    "makeDefault": "اجعلها الملاحظة الافتراضية",
+    "captureHint": "يُضاف الإملاء هنا افتراضيًا",
+    "untitledNote": "ملاحظة بلا عنوان",
+    "noNotes": "لا توجد ملاحظات بعد.",
+    "noNotesMatch": "لا توجد ملاحظات مطابقة لبحثك.",
+    "emptyNote": "هذه الملاحظة فارغة. أملِ أو أضف كتلة للبدء.",
+    "blockCount_one": "كتلة واحدة",
+    "blockCount_other": "{{count}} كتل",
+    "updated": "تم التحديث {{time}}",
+    "dictation": "إملاء",
+    "postProcessed": "معالج لاحقًا",
+    "manual": "يدوي",
+    "capturing": "جارٍ الالتقاط…",
+    "moveTo": "نقل إلى ملاحظة",
+    "moveToCurrent": "{{title}} (الحالية)",
+    "moveToNew": "ملاحظة جديدة…",
+    "moveSelection": "نقل التحديد إلى ملاحظة",
+    "postProcessBlock": "معالجة هذه الكتلة لاحقًا",
+    "postProcessNote": "معالجة الملاحظة لاحقًا",
+    "postProcessing": "جارٍ المعالجة اللاحقة…",
+    "deleteBlock": "حذف الكتلة",
+    "addBlockPlaceholder": "إضافة ملاحظة يدويًا…",
+    "add": "إضافة",
+    "moreOptions": "خيارات أخرى",
+    "renameNote": "إعادة تسمية الملاحظة",
+    "deleteNote": "حذف الملاحظة",
+    "deleteNoteConfirm": "هل تريد حذف \"{{title}}\" وجميع كتلها؟"
   }
 }

@@ -16,7 +16,8 @@
     "postProcessing": "Post-traitement",
     "history": "Historique",
     "debug": "Débogage",
-    "about": "À propos"
+    "about": "À propos",
+    "notepad": "Bloc-notes"
   },
   "onboarding": {
     "subtitle": "Pour commencer, choisissez un modèle de transcription",
@@ -635,6 +636,15 @@
         "label": "Afficher les nouveautés",
         "description": "Afficher les notes de version après les mises à jour de Handy"
       }
+    },
+    "notepad": {
+      "title": "Bloc-notes",
+      "description": "Un bloc-notes continu pour la dictée, distinct de l'historique.",
+      "captureTitle": "Capturer la dictée dans le bloc-notes",
+      "captureDescription": "Ajoute chaque transcription à la note par défaut du bloc-notes, en plus du collage ou de la copie habituels.",
+      "defaultNoteTitle": "Note par défaut",
+      "defaultNoteDescription": "Là où la dictée capturée est ajoutée.",
+      "openButton": "Ouvrir le bloc-notes"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "Comment résoudre ce problème",
     "recorderBlocked": "Impossible d'enregistrer un raccourci pour le moment : Secure Input de macOS bloque les événements clavier. Résolvez d'abord l'avertissement Secure Input.",
     "dismiss": "Ignorer"
+  },
+  "notepad": {
+    "title": "Bloc-notes",
+    "newNote": "Nouvelle note",
+    "searchPlaceholder": "Rechercher des notes",
+    "defaultNote": "Note par défaut",
+    "makeDefault": "Définir comme note par défaut",
+    "captureHint": "La dictée est ajoutée ici par défaut",
+    "untitledNote": "Note sans titre",
+    "noNotes": "Aucune note pour le moment.",
+    "noNotesMatch": "Aucune note ne correspond à votre recherche.",
+    "emptyNote": "Cette note est vide. Dictez ou ajoutez un bloc pour commencer.",
+    "blockCount_one": "{{count}} bloc",
+    "blockCount_other": "{{count}} blocs",
+    "updated": "Mis à jour {{time}}",
+    "dictation": "Dictée",
+    "postProcessed": "Post-traité",
+    "manual": "Manuel",
+    "capturing": "Capture en cours…",
+    "moveTo": "Déplacer vers une note",
+    "moveToCurrent": "{{title}} (actuelle)",
+    "moveToNew": "Nouvelle note…",
+    "moveSelection": "Déplacer la sélection vers une note",
+    "postProcessBlock": "Post-traiter ce bloc",
+    "postProcessNote": "Post-traiter la note",
+    "postProcessing": "Post-traitement…",
+    "deleteBlock": "Supprimer le bloc",
+    "addBlockPlaceholder": "Ajouter une note manuellement…",
+    "add": "Ajouter",
+    "moreOptions": "Plus d'options",
+    "renameNote": "Renommer la note",
+    "deleteNote": "Supprimer la note",
+    "deleteNoteConfirm": "Supprimer « {{title}} » et tous ses blocs ?"
   }
 }

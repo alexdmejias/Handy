@@ -16,7 +16,8 @@
     "postProcessing": "Son İşlem",
     "history": "Geçmiş",
     "debug": "Hata Ayıklama",
-    "about": "Hakkında"
+    "about": "Hakkında",
+    "notepad": "Not defteri"
   },
   "onboarding": {
     "subtitle": "Başlamak için bir transkripsiyon modeli seçin",
@@ -635,6 +636,15 @@
         "label": "Yenilikleri Göster",
         "description": "Handy güncellemelerinden sonra sürüm notlarını göster"
       }
+    },
+    "notepad": {
+      "title": "Not defteri",
+      "description": "Dikte için geçmişten ayrı, sürekli çalışan bir not defteri.",
+      "captureTitle": "Dikteyi not defterine yakala",
+      "captureDescription": "Her transkripti, her zamanki gibi yapıştırma veya kopyalamaya ek olarak not defterinin varsayılan notuna ekler.",
+      "defaultNoteTitle": "Varsayılan not",
+      "defaultNoteDescription": "Yakalanan diktenin ekleneceği yer.",
+      "openButton": "Not defterini aç"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "Bu nasıl düzeltilir",
     "recorderBlocked": "Şu anda kısayol kaydedilemiyor — macOS Secure Input tuş olaylarını engelliyor. Önce Secure Input uyarısını giderin.",
     "dismiss": "Kapat"
+  },
+  "notepad": {
+    "title": "Not defteri",
+    "newNote": "Yeni not",
+    "searchPlaceholder": "Notlarda ara",
+    "defaultNote": "Varsayılan not",
+    "makeDefault": "Varsayılan not olarak ayarla",
+    "captureHint": "Dikte varsayılan olarak buraya eklenir",
+    "untitledNote": "Başlıksız not",
+    "noNotes": "Henüz not yok.",
+    "noNotesMatch": "Aramanızla eşleşen not yok.",
+    "emptyNote": "Bu not boş. Başlamak için dikte edin veya bir blok ekleyin.",
+    "blockCount_one": "{{count}} blok",
+    "blockCount_other": "{{count}} blok",
+    "updated": "Güncellendi: {{time}}",
+    "dictation": "Dikte",
+    "postProcessed": "İşlendi",
+    "manual": "Manuel",
+    "capturing": "Yakalanıyor…",
+    "moveTo": "Nota taşı",
+    "moveToCurrent": "{{title}} (mevcut)",
+    "moveToNew": "Yeni not…",
+    "moveSelection": "Seçimi nota taşı",
+    "postProcessBlock": "Bu bloğu işle",
+    "postProcessNote": "Notu işle",
+    "postProcessing": "İşleniyor…",
+    "deleteBlock": "Bloğu sil",
+    "addBlockPlaceholder": "Manuel not ekle…",
+    "add": "Ekle",
+    "moreOptions": "Diğer seçenekler",
+    "renameNote": "Notu yeniden adlandır",
+    "deleteNote": "Notu sil",
+    "deleteNoteConfirm": "\"{{title}}\" ve tüm blokları silinsin mi?"
   }
 }

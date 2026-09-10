@@ -16,7 +16,8 @@
     "postProcessing": "Pós-Processamento",
     "history": "Histórico",
     "debug": "Depuração",
-    "about": "Sobre"
+    "about": "Sobre",
+    "notepad": "Bloco de notas"
   },
   "onboarding": {
     "subtitle": "Para começar, escolha um modelo de transcrição",
@@ -635,6 +636,15 @@
         "label": "Mostrar novidades",
         "description": "Mostrar notas de versão após atualizações do Handy"
       }
+    },
+    "notepad": {
+      "title": "Bloco de notas",
+      "description": "Um bloco de notas contínuo para ditado, separado do histórico.",
+      "captureTitle": "Capturar ditado no bloco de notas",
+      "captureDescription": "Adiciona cada transcrição à nota padrão do bloco de notas, além de colar ou copiar como de costume.",
+      "defaultNoteTitle": "Nota padrão",
+      "defaultNoteDescription": "Onde o ditado capturado é adicionado.",
+      "openButton": "Abrir bloco de notas"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "Como resolver isso",
     "recorderBlocked": "Não é possível gravar atalhos agora — o Secure Input do macOS está bloqueando os eventos de tecla. Resolva primeiro o aviso do Secure Input.",
     "dismiss": "Dispensar"
+  },
+  "notepad": {
+    "title": "Bloco de notas",
+    "newNote": "Nova nota",
+    "searchPlaceholder": "Pesquisar notas",
+    "defaultNote": "Nota padrão",
+    "makeDefault": "Definir como nota padrão",
+    "captureHint": "O ditado é adicionado aqui por padrão",
+    "untitledNote": "Nota sem título",
+    "noNotes": "Ainda não há notas.",
+    "noNotesMatch": "Nenhuma nota corresponde à sua pesquisa.",
+    "emptyNote": "Esta nota está vazia. Dite ou adicione um bloco para começar.",
+    "blockCount_one": "{{count}} bloco",
+    "blockCount_other": "{{count}} blocos",
+    "updated": "Atualizado {{time}}",
+    "dictation": "Ditado",
+    "postProcessed": "Pós-processado",
+    "manual": "Manual",
+    "capturing": "Capturando…",
+    "moveTo": "Mover para nota",
+    "moveToCurrent": "{{title}} (atual)",
+    "moveToNew": "Nova nota…",
+    "moveSelection": "Mover seleção para nota",
+    "postProcessBlock": "Pós-processar este bloco",
+    "postProcessNote": "Pós-processar nota",
+    "postProcessing": "Pós-processando…",
+    "deleteBlock": "Excluir bloco",
+    "addBlockPlaceholder": "Adicionar uma nota manualmente…",
+    "add": "Adicionar",
+    "moreOptions": "Mais opções",
+    "renameNote": "Renomear nota",
+    "deleteNote": "Excluir nota",
+    "deleteNoteConfirm": "Excluir \"{{title}}\" e todos os seus blocos?"
   }
 }

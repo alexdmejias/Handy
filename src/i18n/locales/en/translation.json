@@ -16,7 +16,8 @@
     "postProcessing": "Post Process",
     "history": "History",
     "debug": "Debug",
-    "about": "About"
+    "about": "About",
+    "notepad": "Notepad"
   },
   "onboarding": {
     "subtitle": "To get started, choose a transcription model",
@@ -635,6 +636,15 @@
           "details": "Handy's local speech-to-text is built on transcribe.cpp and ggml. Thanks to the amazing work by Georgi Gerganov and contributors."
         }
       }
+    },
+    "notepad": {
+      "title": "Notepad",
+      "description": "A running scratchpad for dictation, separate from history.",
+      "captureTitle": "Capture dictation to notepad",
+      "captureDescription": "Append every transcription to the notepad's default note, in addition to pasting or copying it as usual.",
+      "defaultNoteTitle": "Default note",
+      "defaultNoteDescription": "Where captured dictation is appended.",
+      "openButton": "Open Notepad"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "How to fix",
     "recorderBlocked": "Can't record shortcuts right now — macOS Secure Input is blocking key events. Resolve the Secure Input warning first.",
     "dismiss": "Dismiss"
+  },
+  "notepad": {
+    "title": "Notepad",
+    "newNote": "New note",
+    "searchPlaceholder": "Search notes",
+    "defaultNote": "Default note",
+    "makeDefault": "Make default note",
+    "captureHint": "Dictation lands here by default",
+    "untitledNote": "Untitled note",
+    "noNotes": "No notes yet.",
+    "noNotesMatch": "No notes match your search.",
+    "emptyNote": "This note is empty. Dictate or add a block to get started.",
+    "blockCount_one": "{{count}} block",
+    "blockCount_other": "{{count}} blocks",
+    "updated": "Updated {{time}}",
+    "dictation": "Dictation",
+    "postProcessed": "Post-processed",
+    "manual": "Manual",
+    "capturing": "Capturing…",
+    "moveTo": "Move to note",
+    "moveToCurrent": "{{title}} (current)",
+    "moveToNew": "New note…",
+    "moveSelection": "Move selection to note",
+    "postProcessBlock": "Post-process this block",
+    "postProcessNote": "Post-process note",
+    "postProcessing": "Post-processing…",
+    "deleteBlock": "Delete block",
+    "addBlockPlaceholder": "Add a note manually…",
+    "add": "Add",
+    "moreOptions": "More options",
+    "renameNote": "Rename note",
+    "deleteNote": "Delete note",
+    "deleteNoteConfirm": "Delete \"{{title}}\" and all of its blocks?"
   }
 }

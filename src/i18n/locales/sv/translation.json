@@ -16,7 +16,8 @@
     "postProcessing": "Efterbearbetning",
     "history": "Historik",
     "debug": "Felsökning",
-    "about": "Om"
+    "about": "Om",
+    "notepad": "Anteckningsblock"
   },
   "onboarding": {
     "subtitle": "För att komma igång, välj en transkriptionsmodell",
@@ -635,6 +636,15 @@
         "label": "Visa nyheter",
         "description": "Visa versionsinformation efter Handy-uppdateringar"
       }
+    },
+    "notepad": {
+      "title": "Anteckningsblock",
+      "description": "Ett löpande anteckningsblock för diktering, separat från historiken.",
+      "captureTitle": "Fånga diktering till anteckningsblock",
+      "captureDescription": "Lägger till varje transkription i anteckningsblockets standardanteckning, utöver vanlig inklistring eller kopiering.",
+      "defaultNoteTitle": "Standardanteckning",
+      "defaultNoteDescription": "Var infångad diktering läggs till.",
+      "openButton": "Öppna anteckningsblock"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "Så här löser du det",
     "recorderBlocked": "Det går inte att spela in kortkommandon just nu — macOS Secure Input blockerar tangenthändelser. Lös varningen om Secure Input först.",
     "dismiss": "Avfärda"
+  },
+  "notepad": {
+    "title": "Anteckningsblock",
+    "newNote": "Ny anteckning",
+    "searchPlaceholder": "Sök anteckningar",
+    "defaultNote": "Standardanteckning",
+    "makeDefault": "Ange som standardanteckning",
+    "captureHint": "Diktering hamnar här som standard",
+    "untitledNote": "Namnlös anteckning",
+    "noNotes": "Inga anteckningar än.",
+    "noNotesMatch": "Inga anteckningar matchar din sökning.",
+    "emptyNote": "Den här anteckningen är tom. Diktera eller lägg till ett block för att komma igång.",
+    "blockCount_one": "{{count}} block",
+    "blockCount_other": "{{count}} block",
+    "updated": "Uppdaterad {{time}}",
+    "dictation": "Diktering",
+    "postProcessed": "Efterbehandlad",
+    "manual": "Manuell",
+    "capturing": "Fångar…",
+    "moveTo": "Flytta till anteckning",
+    "moveToCurrent": "{{title}} (aktuell)",
+    "moveToNew": "Ny anteckning…",
+    "moveSelection": "Flytta markering till anteckning",
+    "postProcessBlock": "Efterbehandla det här blocket",
+    "postProcessNote": "Efterbehandla anteckning",
+    "postProcessing": "Efterbehandlar…",
+    "deleteBlock": "Ta bort block",
+    "addBlockPlaceholder": "Lägg till en anteckning manuellt…",
+    "add": "Lägg till",
+    "moreOptions": "Fler alternativ",
+    "renameNote": "Byt namn på anteckning",
+    "deleteNote": "Ta bort anteckning",
+    "deleteNoteConfirm": "Ta bort \"{{title}}\" och alla dess block?"
   }
 }

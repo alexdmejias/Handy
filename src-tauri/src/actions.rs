@@ -5,6 +5,7 @@ use crate::audio_toolkit::{is_microphone_access_denied, is_no_input_device_error
 use crate::managers::audio::AudioRecordingManager;
 use crate::managers::history::HistoryManager;
 use crate::managers::model::ModelManager;
+use crate::managers::notes::NotesManager;
 use crate::managers::transcription::StreamWorkKind;
 use crate::managers::transcription::TranscriptionManager;
 use crate::settings::{get_settings, AppSettings, OverlayStyle, APPLE_INTELLIGENCE_PROVIDER_ID};
@@ -645,6 +646,7 @@ impl ShortcutAction for TranscribeAction {
         let rm = Arc::clone(&app.state::<Arc<AudioRecordingManager>>());
         let tm = Arc::clone(&app.state::<Arc<TranscriptionManager>>());
         let hm = Arc::clone(&app.state::<Arc<HistoryManager>>());
+        let nm = Arc::clone(&app.state::<Arc<NotesManager>>());
 
         set_tray_state(app, TrayIconState::Transcribing);
         // Stop should give immediate visual feedback. Live streaming can keep
@@ -803,6 +805,18 @@ impl ShortcutAction for TranscribeAction {
                                     processed.post_process_prompt.clone(),
                                 ) {
                                     error!("Failed to save history entry: {}", err);
+                                }
+                            }
+
+                            // Notepad capture runs independently of paste/clipboard
+                            // handling below — it's a parallel destination, not a
+                            // substitute for either.
+                            if get_settings(&ah).capture_to_notepad {
+                                if let Err(err) = nm.append_to_default(
+                                    &processed.final_text,
+                                    processed.post_processed_text.is_some(),
+                                ) {
+                                    error!("Failed to append transcription to notepad: {}", err);
                                 }
                             }
 

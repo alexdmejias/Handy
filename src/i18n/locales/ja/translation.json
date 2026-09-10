@@ -16,7 +16,8 @@
     "postProcessing": "後処理",
     "history": "履歴",
     "debug": "デバッグ",
-    "about": "概要"
+    "about": "概要",
+    "notepad": "メモ帳"
   },
   "onboarding": {
     "subtitle": "開始するには、文字起こしのモデルを選択してください",
@@ -635,6 +636,15 @@
         "label": "新機能を表示",
         "description": "Handy のアップデート後にリリースノートを表示"
       }
+    },
+    "notepad": {
+      "title": "メモ帳",
+      "description": "履歴とは別の、音声入力用の常時稼働するメモ帳。",
+      "captureTitle": "音声入力をメモ帳に記録",
+      "captureDescription": "通常の貼り付けやコピーに加えて、すべての文字起こしをメモ帳のデフォルトのメモに追加します。",
+      "defaultNoteTitle": "デフォルトのメモ",
+      "defaultNoteDescription": "取得した音声入力の追加先。",
+      "openButton": "メモ帳を開く"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "解決方法",
     "recorderBlocked": "現在ショートカットを記録できません。macOS の Secure Input がキーイベントをブロックしています。先に Secure Input の警告を解消してください。",
     "dismiss": "閉じる"
+  },
+  "notepad": {
+    "title": "メモ帳",
+    "newNote": "新しいメモ",
+    "searchPlaceholder": "メモを検索",
+    "defaultNote": "デフォルトのメモ",
+    "makeDefault": "デフォルトのメモに設定",
+    "captureHint": "音声入力はデフォルトでここに追加されます",
+    "untitledNote": "無題のメモ",
+    "noNotes": "まだメモがありません。",
+    "noNotesMatch": "検索に一致するメモがありません。",
+    "emptyNote": "このメモは空です。音声入力するかブロックを追加して始めましょう。",
+    "blockCount_one": "{{count}} 個のブロック",
+    "blockCount_other": "{{count}} 個のブロック",
+    "updated": "{{time}}に更新",
+    "dictation": "音声入力",
+    "postProcessed": "後処理済み",
+    "manual": "手動",
+    "capturing": "取得中…",
+    "moveTo": "メモへ移動",
+    "moveToCurrent": "{{title}}（現在）",
+    "moveToNew": "新しいメモ…",
+    "moveSelection": "選択範囲をメモへ移動",
+    "postProcessBlock": "このブロックを後処理",
+    "postProcessNote": "メモを後処理",
+    "postProcessing": "後処理中…",
+    "deleteBlock": "ブロックを削除",
+    "addBlockPlaceholder": "手動でメモを追加…",
+    "add": "追加",
+    "moreOptions": "その他のオプション",
+    "renameNote": "メモの名前を変更",
+    "deleteNote": "メモを削除",
+    "deleteNoteConfirm": "「{{title}}」とそのすべてのブロックを削除しますか?"
   }
 }

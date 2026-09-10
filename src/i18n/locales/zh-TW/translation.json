@@ -16,7 +16,8 @@
     "postProcessing": "後處理",
     "history": "歷史紀錄",
     "debug": "偵錯",
-    "about": "關於"
+    "about": "關於",
+    "notepad": "記事本"
   },
   "onboarding": {
     "subtitle": "首先，請選擇一種模型",
@@ -635,6 +636,15 @@
         "label": "顯示新功能",
         "description": "Handy 更新後顯示版本資訊"
       }
+    },
+    "notepad": {
+      "title": "記事本",
+      "description": "獨立於歷史記錄之外、持續記錄口述內容的記事本。",
+      "captureTitle": "將口述內容擷取到記事本",
+      "captureDescription": "除了一如往常地貼上或複製外，還會將每筆轉錄內容加入記事本的預設筆記。",
+      "defaultNoteTitle": "預設筆記",
+      "defaultNoteDescription": "擷取的口述內容會加入此處。",
+      "openButton": "開啟記事本"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "如何解決",
     "recorderBlocked": "目前無法錄製快捷鍵——macOS 的 Secure Input 正在阻擋按鍵事件。請先解決 Secure Input 警告。",
     "dismiss": "關閉"
+  },
+  "notepad": {
+    "title": "記事本",
+    "newNote": "新增筆記",
+    "searchPlaceholder": "搜尋筆記",
+    "defaultNote": "預設筆記",
+    "makeDefault": "設為預設筆記",
+    "captureHint": "口述內容預設會加入這裡",
+    "untitledNote": "未命名筆記",
+    "noNotes": "尚無筆記。",
+    "noNotesMatch": "沒有符合搜尋的筆記。",
+    "emptyNote": "這則筆記是空的。開始口述或新增區塊。",
+    "blockCount_one": "{{count}} 個區塊",
+    "blockCount_other": "{{count}} 個區塊",
+    "updated": "於 {{time}} 更新",
+    "dictation": "口述",
+    "postProcessed": "已後製處理",
+    "manual": "手動",
+    "capturing": "擷取中…",
+    "moveTo": "移至筆記",
+    "moveToCurrent": "{{title}}（目前）",
+    "moveToNew": "新增筆記…",
+    "moveSelection": "將選取內容移至筆記",
+    "postProcessBlock": "後製處理此區塊",
+    "postProcessNote": "後製處理筆記",
+    "postProcessing": "後製處理中…",
+    "deleteBlock": "刪除區塊",
+    "addBlockPlaceholder": "手動新增筆記內容…",
+    "add": "新增",
+    "moreOptions": "更多選項",
+    "renameNote": "重新命名筆記",
+    "deleteNote": "刪除筆記",
+    "deleteNoteConfirm": "要刪除「{{title}}」及其所有區塊嗎?"
   }
 }

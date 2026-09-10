@@ -13,6 +13,7 @@ mod input;
 mod llm_client;
 mod managers;
 mod memory;
+mod notepad_window;
 mod overlay;
 mod paste_tx;
 pub mod portable;
@@ -35,6 +36,7 @@ use env_filter::Builder as EnvFilterBuilder;
 use managers::audio::AudioRecordingManager;
 use managers::history::HistoryManager;
 use managers::model::ModelManager;
+use managers::notes::NotesManager;
 use managers::transcription::TranscriptionManager;
 use std::sync::atomic::{AtomicBool, AtomicU8, Ordering};
 use std::sync::Arc;
@@ -204,6 +206,8 @@ fn initialize_core_logic(app_handle: &AppHandle) {
     );
     let history_manager =
         Arc::new(HistoryManager::new(app_handle).expect("Failed to initialize history manager"));
+    let notes_manager =
+        Arc::new(NotesManager::new(app_handle).expect("Failed to initialize notes manager"));
 
     // Initialize the transcribe-cpp native backend (logging + backend module
     // registration) once, before any whisper model is loaded.
@@ -217,6 +221,7 @@ fn initialize_core_logic(app_handle: &AppHandle) {
     app_handle.manage(model_manager.clone());
     app_handle.manage(transcription_manager.clone());
     app_handle.manage(history_manager.clone());
+    app_handle.manage(notes_manager.clone());
     app_handle.manage(tray::TrayState::new());
 
     // Note: Shortcuts are NOT initialized here.
@@ -763,10 +768,25 @@ pub fn run(cli_args: CliArgs) {
             commands::history::retry_history_entry_transcription,
             commands::history::update_history_limit,
             commands::history::update_recording_retention_period,
+            commands::notes::list_notes,
+            commands::notes::get_note,
+            commands::notes::create_note,
+            commands::notes::rename_note,
+            commands::notes::delete_note,
+            commands::notes::set_default_note,
+            commands::notes::create_block,
+            commands::notes::update_block,
+            commands::notes::delete_block,
+            commands::notes::move_block,
+            commands::notes::split_and_move_block,
+            commands::notes::post_process_block,
+            shortcut::change_capture_to_notepad_setting,
+            notepad_window::open_notepad_window,
             helpers::clamshell::is_laptop,
         ])
         .events(collect_events![
             managers::history::HistoryUpdatePayload,
+            managers::notes::NoteUpdatePayload,
             managers::transcription::StreamTextEvent,
             managers::transcription::StreamPhaseEvent,
         ]);

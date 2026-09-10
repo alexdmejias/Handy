@@ -16,7 +16,8 @@
     "postProcessing": "后处理",
     "history": "历史记录",
     "debug": "调试",
-    "about": "关于"
+    "about": "关于",
+    "notepad": "记事本"
   },
   "onboarding": {
     "subtitle": "请选择一个转录模型以开始使用",
@@ -635,6 +636,15 @@
         "label": "显示新功能",
         "description": "Handy 更新后显示发行说明"
       }
+    },
+    "notepad": {
+      "title": "记事本",
+      "description": "一个持续记录听写内容的记事本，与历史记录分开。",
+      "captureTitle": "将听写内容捕获到记事本",
+      "captureDescription": "除了照常粘贴或复制外，还会将每条转录内容添加到记事本的默认笔记中。",
+      "defaultNoteTitle": "默认笔记",
+      "defaultNoteDescription": "捕获的听写内容会添加到此处。",
+      "openButton": "打开记事本"
     }
   },
   "footer": {
@@ -713,5 +723,38 @@
     "learnMore": "如何解决",
     "recorderBlocked": "当前无法录制快捷键——macOS 的 Secure Input 正在阻止按键事件。请先解决 Secure Input 警告。",
     "dismiss": "关闭"
+  },
+  "notepad": {
+    "title": "记事本",
+    "newNote": "新建笔记",
+    "searchPlaceholder": "搜索笔记",
+    "defaultNote": "默认笔记",
+    "makeDefault": "设为默认笔记",
+    "captureHint": "听写内容默认会添加到这里",
+    "untitledNote": "无标题笔记",
+    "noNotes": "暂无笔记。",
+    "noNotesMatch": "没有与搜索匹配的笔记。",
+    "emptyNote": "此笔记为空。开始听写或添加内容块。",
+    "blockCount_one": "{{count}} 个内容块",
+    "blockCount_other": "{{count}} 个内容块",
+    "updated": "更新于 {{time}}",
+    "dictation": "听写",
+    "postProcessed": "已后处理",
+    "manual": "手动",
+    "capturing": "正在捕获…",
+    "moveTo": "移动到笔记",
+    "moveToCurrent": "{{title}}（当前）",
+    "moveToNew": "新建笔记…",
+    "moveSelection": "将所选内容移动到笔记",
+    "postProcessBlock": "后处理此内容块",
+    "postProcessNote": "后处理笔记",
+    "postProcessing": "后处理中…",
+    "deleteBlock": "删除内容块",
+    "addBlockPlaceholder": "手动添加内容…",
+    "add": "添加",
+    "moreOptions": "更多选项",
+    "renameNote": "重命名笔记",
+    "deleteNote": "删除笔记",
+    "deleteNoteConfirm": "删除“{{title}}”及其所有内容块?"
   }
 }
