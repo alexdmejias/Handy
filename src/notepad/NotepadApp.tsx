@@ -62,6 +62,11 @@ const NotepadApp: React.FC = () => {
     refreshActiveNote(activeNoteId);
   }, [activeNoteId, refreshActiveNote]);
 
+  // Cross-window / cross-process sync: the notepad window's own actions
+  // refresh themselves directly (see refreshAfterMutation below) rather than
+  // waiting on this round-trip, so this listener only needs to cover changes
+  // this window didn't cause itself — dictation capture running in the
+  // background being the main one.
   useEffect(() => {
     const unlisten = events.noteUpdatePayload.listen((event) => {
       const payload = event.payload;
@@ -77,6 +82,15 @@ const NotepadApp: React.FC = () => {
     return () => {
       unlisten.then((fn) => fn());
     };
+  }, [refreshNotes, refreshActiveNote]);
+
+  // Called after every successful mutation from this window so the UI
+  // updates immediately instead of depending on the emitted event round-trip.
+  const refreshAfterMutation = useCallback(async () => {
+    await refreshNotes();
+    if (activeNoteIdRef.current !== null) {
+      await refreshActiveNote(activeNoteIdRef.current);
+    }
   }, [refreshNotes, refreshActiveNote]);
 
   const withPostProcessing = useCallback(
@@ -96,51 +110,108 @@ const NotepadApp: React.FC = () => {
   );
 
   const handleCreateNote = async () => {
-    const result = await commands.createNote(t("notepad.untitledNote"));
-    if (result.status !== "ok") {
-      toast.error(String(result.error));
-      return;
+    try {
+      const result = await commands.createNote(t("notepad.untitledNote"));
+      if (result.status !== "ok") {
+        toast.error(String(result.error));
+        return;
+      }
+      await refreshNotes();
+      setActiveNoteId(result.data.id);
+    } catch (e) {
+      toast.error(String(e));
     }
-    setActiveNoteId(result.data.id);
   };
 
   const handleRename = async (id: number, title: string) => {
-    const result = await commands.renameNote(id, title);
-    if (result.status !== "ok") toast.error(String(result.error));
+    try {
+      const result = await commands.renameNote(id, title);
+      if (result.status !== "ok") {
+        toast.error(String(result.error));
+        return;
+      }
+      await refreshAfterMutation();
+    } catch (e) {
+      toast.error(String(e));
+    }
   };
 
   const handleDeleteNote = async (id: number) => {
-    const result = await commands.deleteNote(id);
-    if (result.status !== "ok") toast.error(String(result.error));
+    try {
+      const result = await commands.deleteNote(id);
+      if (result.status !== "ok") {
+        toast.error(String(result.error));
+        return;
+      }
+      await refreshNotes();
+    } catch (e) {
+      toast.error(String(e));
+    }
   };
 
   const handleMakeDefault = async (id: number) => {
-    const result = await commands.setDefaultNote(id);
-    if (result.status !== "ok") toast.error(String(result.error));
+    try {
+      const result = await commands.setDefaultNote(id);
+      if (result.status !== "ok") {
+        toast.error(String(result.error));
+        return;
+      }
+      await refreshAfterMutation();
+    } catch (e) {
+      toast.error(String(e));
+    }
   };
 
   const handleAddBlock = async (noteId: number, content: string) => {
-    const result = await commands.createBlock(noteId, content);
-    if (result.status !== "ok") toast.error(String(result.error));
+    try {
+      const result = await commands.createBlock(noteId, content);
+      if (result.status !== "ok") {
+        toast.error(String(result.error));
+        return;
+      }
+      await refreshAfterMutation();
+    } catch (e) {
+      toast.error(String(e));
+    }
   };
 
   const handleDeleteBlock = async (blockId: number) => {
-    const result = await commands.deleteBlock(blockId);
-    if (result.status !== "ok") toast.error(String(result.error));
+    try {
+      const result = await commands.deleteBlock(blockId);
+      if (result.status !== "ok") {
+        toast.error(String(result.error));
+        return;
+      }
+      await refreshAfterMutation();
+    } catch (e) {
+      toast.error(String(e));
+    }
   };
 
   const handleMoveBlock = async (blockId: number, targetNoteId: number) => {
-    const result = await commands.moveBlock(blockId, targetNoteId);
-    if (result.status !== "ok") toast.error(String(result.error));
+    try {
+      const result = await commands.moveBlock(blockId, targetNoteId);
+      if (result.status !== "ok") {
+        toast.error(String(result.error));
+        return;
+      }
+      await refreshAfterMutation();
+    } catch (e) {
+      toast.error(String(e));
+    }
   };
 
   const handleMoveBlockToNewNote = async (blockId: number) => {
-    const created = await commands.createNote(t("notepad.untitledNote"));
-    if (created.status !== "ok") {
-      toast.error(String(created.error));
-      return;
+    try {
+      const created = await commands.createNote(t("notepad.untitledNote"));
+      if (created.status !== "ok") {
+        toast.error(String(created.error));
+        return;
+      }
+      await handleMoveBlock(blockId, created.data.id);
+    } catch (e) {
+      toast.error(String(e));
     }
-    await handleMoveBlock(blockId, created.data.id);
   };
 
   const handleSplitMoveBlock = async (
@@ -149,13 +220,21 @@ const NotepadApp: React.FC = () => {
     end: number,
     targetNoteId: number,
   ) => {
-    const result = await commands.splitAndMoveBlock(
-      blockId,
-      start,
-      end,
-      targetNoteId,
-    );
-    if (result.status !== "ok") toast.error(String(result.error));
+    try {
+      const result = await commands.splitAndMoveBlock(
+        blockId,
+        start,
+        end,
+        targetNoteId,
+      );
+      if (result.status !== "ok") {
+        toast.error(String(result.error));
+        return;
+      }
+      await refreshAfterMutation();
+    } catch (e) {
+      toast.error(String(e));
+    }
   };
 
   const handleSplitMoveBlockToNewNote = async (
@@ -163,18 +242,30 @@ const NotepadApp: React.FC = () => {
     start: number,
     end: number,
   ) => {
-    const created = await commands.createNote(t("notepad.untitledNote"));
-    if (created.status !== "ok") {
-      toast.error(String(created.error));
-      return;
+    try {
+      const created = await commands.createNote(t("notepad.untitledNote"));
+      if (created.status !== "ok") {
+        toast.error(String(created.error));
+        return;
+      }
+      await handleSplitMoveBlock(blockId, start, end, created.data.id);
+    } catch (e) {
+      toast.error(String(e));
     }
-    await handleSplitMoveBlock(blockId, start, end, created.data.id);
   };
 
   const handlePostProcessBlock = (blockId: number) => {
     withPostProcessing(blockId, async () => {
-      const result = await commands.postProcessBlock(blockId);
-      if (result.status !== "ok") toast.error(String(result.error));
+      try {
+        const result = await commands.postProcessBlock(blockId);
+        if (result.status !== "ok") {
+          toast.error(String(result.error));
+          return;
+        }
+        await refreshAfterMutation();
+      } catch (e) {
+        toast.error(String(e));
+      }
     });
   };
 
