@@ -644,7 +644,9 @@
       "captureDescription": "除了照常粘贴或复制外，还会将每条转录内容添加到记事本的默认笔记中。",
       "defaultNoteTitle": "默认笔记",
       "defaultNoteDescription": "捕获的听写内容会添加到此处。",
-      "openButton": "打开记事本"
+      "openButton": "打开记事本",
+      "autoOpenTitle": "捕获时自动打开记事本",
+      "autoOpenDescription": "每当有听写内容添加到记事本时，将记事本窗口置于前台。"
     }
   },
   "footer": {

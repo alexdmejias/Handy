@@ -644,7 +644,9 @@
       "captureDescription": "מוסיף כל תמלול לפתק ברירת המחדל של הפנקס, בנוסף להדבקה או העתקה הרגילה.",
       "defaultNoteTitle": "פתק ברירת מחדל",
       "defaultNoteDescription": "היכן מתווספת ההכתבה שנלכדה.",
-      "openButton": "פתח את הפנקס"
+      "openButton": "פתח את הפנקס",
+      "autoOpenTitle": "פתח את הפנקס אוטומטית בעת לכידה",
+      "autoOpenDescription": "מציג את חלון הפנקס בחזית בכל פעם שהכתבה מתווספת אליו."
     }
   },
   "footer": {

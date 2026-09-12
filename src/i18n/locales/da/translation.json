@@ -644,7 +644,9 @@
       "captureDescription": "Tilføjer hver transskription til notesblokkens standardnote, ud over normal indsætning eller kopiering.",
       "defaultNoteTitle": "Standardnote",
       "defaultNoteDescription": "Hvor fanget diktering tilføjes.",
-      "openButton": "Åbn notesblok"
+      "openButton": "Åbn notesblok",
+      "autoOpenTitle": "Åbn notesblok automatisk ved fangst",
+      "autoOpenDescription": "Bringer notesblokvinduet frem, hver gang en diktering tilføjes til den."
     }
   },
   "footer": {

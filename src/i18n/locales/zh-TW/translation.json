@@ -644,7 +644,9 @@
       "captureDescription": "除了一如往常地貼上或複製外，還會將每筆轉錄內容加入記事本的預設筆記。",
       "defaultNoteTitle": "預設筆記",
       "defaultNoteDescription": "擷取的口述內容會加入此處。",
-      "openButton": "開啟記事本"
+      "openButton": "開啟記事本",
+      "autoOpenTitle": "擷取時自動開啟記事本",
+      "autoOpenDescription": "每當有口述內容加入記事本時，將記事本視窗顯示在最前方。"
     }
   },
   "footer": {

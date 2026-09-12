@@ -519,6 +519,10 @@ pub struct AppSettings {
     /// whatever paste/clipboard behavior also runs for that transcription.
     #[serde(default)]
     pub capture_to_notepad: bool,
+    /// When a capture actually appends a block, also show/focus the notepad
+    /// window. Meaningless (and ignored) while `capture_to_notepad` is off.
+    #[serde(default)]
+    pub auto_open_notepad_on_capture: bool,
 }
 
 fn default_model() -> String {
@@ -976,6 +980,7 @@ pub fn get_default_settings() -> AppSettings {
         vad_backend: VadBackend::default(),
         overlay_style: default_overlay_style(),
         capture_to_notepad: false,
+        auto_open_notepad_on_capture: false,
     }
 }
 

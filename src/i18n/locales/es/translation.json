@@ -644,7 +644,9 @@
       "captureDescription": "Añade cada transcripción a la nota predeterminada del bloc de notas, además de pegarla o copiarla como de costumbre.",
       "defaultNoteTitle": "Nota predeterminada",
       "defaultNoteDescription": "Dónde se añade el dictado capturado.",
-      "openButton": "Abrir bloc de notas"
+      "openButton": "Abrir bloc de notas",
+      "autoOpenTitle": "Abrir automáticamente el bloc de notas al capturar",
+      "autoOpenDescription": "Muestra la ventana del bloc de notas en primer plano cada vez que se le añade un dictado."
     }
   },
   "footer": {

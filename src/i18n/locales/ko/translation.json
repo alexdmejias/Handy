@@ -644,7 +644,9 @@
       "captureDescription": "붙여넣기나 복사와 별도로 모든 받아쓰기 내용을 메모장의 기본 메모에 추가합니다.",
       "defaultNoteTitle": "기본 메모",
       "defaultNoteDescription": "캡처된 받아쓰기가 추가되는 위치입니다.",
-      "openButton": "메모장 열기"
+      "openButton": "메모장 열기",
+      "autoOpenTitle": "캡처 시 메모장 자동으로 열기",
+      "autoOpenDescription": "받아쓰기가 메모장에 추가될 때마다 메모장 창을 앞으로 가져옵니다."
     }
   },
   "footer": {

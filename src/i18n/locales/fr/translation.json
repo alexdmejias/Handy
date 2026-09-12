@@ -644,7 +644,9 @@
       "captureDescription": "Ajoute chaque transcription à la note par défaut du bloc-notes, en plus du collage ou de la copie habituels.",
       "defaultNoteTitle": "Note par défaut",
       "defaultNoteDescription": "Là où la dictée capturée est ajoutée.",
-      "openButton": "Ouvrir le bloc-notes"
+      "openButton": "Ouvrir le bloc-notes",
+      "autoOpenTitle": "Ouvrir automatiquement le bloc-notes lors de la capture",
+      "autoOpenDescription": "Affiche la fenêtre du bloc-notes au premier plan chaque fois qu'une dictée y est ajoutée."
     }
   },
   "footer": {

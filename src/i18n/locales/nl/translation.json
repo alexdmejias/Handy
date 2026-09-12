@@ -644,7 +644,9 @@
       "captureDescription": "Voegt elke transcriptie toe aan de standaardnotitie van het kladblok, naast het gebruikelijke plakken of kopiëren.",
       "defaultNoteTitle": "Standaardnotitie",
       "defaultNoteDescription": "Waar vastgelegd dictaat aan wordt toegevoegd.",
-      "openButton": "Kladblok openen"
+      "openButton": "Kladblok openen",
+      "autoOpenTitle": "Kladblok automatisch openen bij vastleggen",
+      "autoOpenDescription": "Brengt het kladblokvenster naar voren zodra er een dictaat aan wordt toegevoegd."
     }
   },
   "footer": {

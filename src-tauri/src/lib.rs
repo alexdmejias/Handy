@@ -781,6 +781,7 @@ pub fn run(cli_args: CliArgs) {
             commands::notes::split_and_move_block,
             commands::notes::post_process_block,
             shortcut::change_capture_to_notepad_setting,
+            shortcut::change_auto_open_notepad_on_capture_setting,
             notepad_window::open_notepad_window,
             helpers::clamshell::is_laptop,
         ])

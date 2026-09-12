@@ -644,7 +644,9 @@
       "captureDescription": "Lägger till varje transkription i anteckningsblockets standardanteckning, utöver vanlig inklistring eller kopiering.",
       "defaultNoteTitle": "Standardanteckning",
       "defaultNoteDescription": "Var infångad diktering läggs till.",
-      "openButton": "Öppna anteckningsblock"
+      "openButton": "Öppna anteckningsblock",
+      "autoOpenTitle": "Öppna anteckningsblock automatiskt vid infångning",
+      "autoOpenDescription": "Tar fram anteckningsblockets fönster varje gång en diktering läggs till i det."
     }
   },
   "footer": {

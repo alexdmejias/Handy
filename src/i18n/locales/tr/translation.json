@@ -644,7 +644,9 @@
       "captureDescription": "Her transkripti, her zamanki gibi yapıştırma veya kopyalamaya ek olarak not defterinin varsayılan notuna ekler.",
       "defaultNoteTitle": "Varsayılan not",
       "defaultNoteDescription": "Yakalanan diktenin ekleneceği yer.",
-      "openButton": "Not defterini aç"
+      "openButton": "Not defterini aç",
+      "autoOpenTitle": "Yakalamada not defterini otomatik aç",
+      "autoOpenDescription": "Not defterine her dikte eklendiğinde not defteri penceresini öne getirir."
     }
   },
   "footer": {

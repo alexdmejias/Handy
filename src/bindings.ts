@@ -1023,6 +1023,14 @@ async changeCaptureToNotepadSetting(enabled: boolean) : Promise<Result<null, str
     else return { status: "error", error: e  as any };
 }
 },
+async changeAutoOpenNotepadOnCaptureSetting(enabled: boolean) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("change_auto_open_notepad_on_capture_setting", { enabled }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
 /**
  * Opens the notepad window, creating it the first time and focusing it on
  * every call after. Unlike the recording overlay this is an ordinary
@@ -1142,7 +1150,12 @@ overlay_style?: OverlayStyle;
  * as a new block onto the notepad's default note, independent of
  * whatever paste/clipboard behavior also runs for that transcription.
  */
-capture_to_notepad?: boolean }
+capture_to_notepad?: boolean;
+/**
+ * When a capture actually appends a block, also show/focus the notepad
+ * window. Meaningless (and ignored) while `capture_to_notepad` is off.
+ */
+auto_open_notepad_on_capture?: boolean }
 export type AudioDevice = { index: string; name: string; is_default: boolean }
 export type AutoSubmitKey = "enter" | "ctrl_enter" | "cmd_enter"
 export type AvailableAccelerators = { transcribe: string[]; ort: string[]; gpu_devices: GpuDeviceOption[] }

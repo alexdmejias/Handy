@@ -644,7 +644,9 @@
       "captureDescription": "Append every transcription to the notepad's default note, in addition to pasting or copying it as usual.",
       "defaultNoteTitle": "Default note",
       "defaultNoteDescription": "Where captured dictation is appended.",
-      "openButton": "Open Notepad"
+      "openButton": "Open Notepad",
+      "autoOpenTitle": "Automatically open notepad on capture",
+      "autoOpenDescription": "Bring the notepad window to the front whenever a dictation is added to it."
     }
   },
   "footer": {

@@ -644,7 +644,9 @@
       "captureDescription": "Dodaje każdą transkrypcję do domyślnej notatki notatnika, oprócz zwykłego wklejania lub kopiowania.",
       "defaultNoteTitle": "Domyślna notatka",
       "defaultNoteDescription": "Gdzie dodawane jest przechwycone dyktowanie.",
-      "openButton": "Otwórz notatnik"
+      "openButton": "Otwórz notatnik",
+      "autoOpenTitle": "Automatycznie otwieraj notatnik przy przechwytywaniu",
+      "autoOpenDescription": "Wysuwa okno notatnika na pierwszy plan za każdym razem, gdy dodawane jest do niego dyktowanie."
     }
   },
   "footer": {

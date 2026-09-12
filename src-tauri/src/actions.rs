@@ -811,12 +811,44 @@ impl ShortcutAction for TranscribeAction {
                             // Notepad capture runs independently of paste/clipboard
                             // handling below — it's a parallel destination, not a
                             // substitute for either.
-                            if get_settings(&ah).capture_to_notepad {
-                                if let Err(err) = nm.append_to_default(
+                            let notepad_settings = get_settings(&ah);
+                            if notepad_settings.capture_to_notepad {
+                                match nm.append_to_default(
                                     &processed.final_text,
                                     processed.post_processed_text.is_some(),
                                 ) {
-                                    error!("Failed to append transcription to notepad: {}", err);
+                                    // Only bring the window up when a block was
+                                    // actually appended (blank transcriptions are a
+                                    // no-op, per append_to_default).
+                                    Ok(Some(_))
+                                        if notepad_settings.auto_open_notepad_on_capture =>
+                                    {
+                                        let ah_for_notepad = ah.clone();
+                                        // Window creation/show must happen on the
+                                        // main thread; this hook runs on a spawned
+                                        // background task.
+                                        if let Err(e) = ah.run_on_main_thread(move || {
+                                            if let Err(err) =
+                                                crate::notepad_window::show_notepad_window(
+                                                    &ah_for_notepad,
+                                                )
+                                            {
+                                                error!("Failed to open notepad window: {}", err);
+                                            }
+                                        }) {
+                                            error!(
+                                                "Failed to schedule opening notepad window: {}",
+                                                e
+                                            );
+                                        }
+                                    }
+                                    Ok(_) => {}
+                                    Err(err) => {
+                                        error!(
+                                            "Failed to append transcription to notepad: {}",
+                                            err
+                                        );
+                                    }
                                 }
                             }
 

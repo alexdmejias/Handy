@@ -644,7 +644,9 @@
       "captureDescription": "Přidá každý přepis do výchozí poznámky poznámkového bloku, kromě běžného vkládání nebo kopírování.",
       "defaultNoteTitle": "Výchozí poznámka",
       "defaultNoteDescription": "Kam se přidává zachycené diktování.",
-      "openButton": "Otevřít poznámkový blok"
+      "openButton": "Otevřít poznámkový blok",
+      "autoOpenTitle": "Automaticky otevřít poznámkový blok při zachycení",
+      "autoOpenDescription": "Přenese okno poznámkového bloku do popředí pokaždé, když je do něj přidáno diktování."
     }
   },
   "footer": {

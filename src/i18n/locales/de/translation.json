@@ -644,7 +644,9 @@
       "captureDescription": "Fügt jede Transkription zusätzlich zur üblichen Einfüge- oder Kopierfunktion der Standardnotiz des Notizblocks hinzu.",
       "defaultNoteTitle": "Standardnotiz",
       "defaultNoteDescription": "Wohin erfasstes Diktat angehängt wird.",
-      "openButton": "Notizblock öffnen"
+      "openButton": "Notizblock öffnen",
+      "autoOpenTitle": "Notizblock bei Erfassung automatisch öffnen",
+      "autoOpenDescription": "Bringt das Notizblock-Fenster in den Vordergrund, sobald ein Diktat hinzugefügt wird."
     }
   },
   "footer": {

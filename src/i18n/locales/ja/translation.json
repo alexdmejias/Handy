@@ -644,7 +644,9 @@
       "captureDescription": "通常の貼り付けやコピーに加えて、すべての文字起こしをメモ帳のデフォルトのメモに追加します。",
       "defaultNoteTitle": "デフォルトのメモ",
       "defaultNoteDescription": "取得した音声入力の追加先。",
-      "openButton": "メモ帳を開く"
+      "openButton": "メモ帳を開く",
+      "autoOpenTitle": "キャプチャ時にメモ帳を自動的に開く",
+      "autoOpenDescription": "音声入力がメモ帳に追加されるたびに、メモ帳ウィンドウを前面に表示します。"
     }
   },
   "footer": {

@@ -13,6 +13,7 @@ export const NotepadSettings: React.FC = () => {
   const [defaultNote, setDefaultNote] = useState<NoteSummary | null>(null);
 
   const enabled = getSetting("capture_to_notepad") ?? false;
+  const autoOpen = getSetting("auto_open_notepad_on_capture") ?? false;
 
   useEffect(() => {
     let cancelled = false;
@@ -34,6 +35,17 @@ export const NotepadSettings: React.FC = () => {
           isUpdating={isUpdating("capture_to_notepad")}
           label={t("settings.notepad.captureTitle")}
           description={t("settings.notepad.captureDescription")}
+          grouped={true}
+        />
+        <ToggleSwitch
+          checked={autoOpen}
+          onChange={(value) =>
+            updateSetting("auto_open_notepad_on_capture", value)
+          }
+          isUpdating={isUpdating("auto_open_notepad_on_capture")}
+          disabled={!enabled}
+          label={t("settings.notepad.autoOpenTitle")}
+          description={t("settings.notepad.autoOpenDescription")}
           grouped={true}
         />
         <div className="flex items-center justify-between min-h-12 px-4 p-2">

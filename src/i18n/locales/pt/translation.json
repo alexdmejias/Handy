@@ -644,7 +644,9 @@
       "captureDescription": "Adiciona cada transcrição à nota padrão do bloco de notas, além de colar ou copiar como de costume.",
       "defaultNoteTitle": "Nota padrão",
       "defaultNoteDescription": "Onde o ditado capturado é adicionado.",
-      "openButton": "Abrir bloco de notas"
+      "openButton": "Abrir bloco de notas",
+      "autoOpenTitle": "Abrir automaticamente o bloco de notas ao capturar",
+      "autoOpenDescription": "Traz a janela do bloco de notas para a frente sempre que um ditado é adicionado a ela."
     }
   },
   "footer": {

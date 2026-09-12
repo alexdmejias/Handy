@@ -644,7 +644,9 @@
       "captureDescription": "Thêm mỗi bản chép lời vào ghi chú mặc định của sổ tay, ngoài việc dán hoặc sao chép như thường lệ.",
       "defaultNoteTitle": "Ghi chú mặc định",
       "defaultNoteDescription": "Nơi nội dung đọc chính tả đã ghi được thêm vào.",
-      "openButton": "Mở sổ tay"
+      "openButton": "Mở sổ tay",
+      "autoOpenTitle": "Tự động mở sổ tay khi ghi",
+      "autoOpenDescription": "Đưa cửa sổ sổ tay lên trước mỗi khi có nội dung đọc chính tả được thêm vào."
     }
   },
   "footer": {

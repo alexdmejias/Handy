@@ -644,7 +644,9 @@
       "captureDescription": "Aggiunge ogni trascrizione alla nota predefinita del blocco note, oltre a incollarla o copiarla come al solito.",
       "defaultNoteTitle": "Nota predefinita",
       "defaultNoteDescription": "Dove viene aggiunta la dettatura acquisita.",
-      "openButton": "Apri blocco note"
+      "openButton": "Apri blocco note",
+      "autoOpenTitle": "Apri automaticamente il blocco note alla cattura",
+      "autoOpenDescription": "Porta in primo piano la finestra del blocco note ogni volta che vi viene aggiunta una dettatura."
     }
   },
   "footer": {
