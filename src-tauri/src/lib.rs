@@ -1047,7 +1047,14 @@ pub fn run(cli_args: CliArgs) {
             Ok(())
         })
         .on_window_event(|window, event| match event {
-            tauri::WindowEvent::CloseRequested { api, .. } => {
+            // Only the main settings window hides-to-tray on close — it's the
+            // app's tray-resident singleton. Other windows (e.g. the notepad)
+            // have no such requirement and should close normally: a hidden
+            // rather than destroyed notepad window would keep its React app
+            // mounted indefinitely, so reopening it via `open_notepad_window`
+            // would just re-show stale state instead of remounting and
+            // refetching (#found while debugging notepad capture visibility).
+            tauri::WindowEvent::CloseRequested { api, .. } if window.label() == "main" => {
                 api.prevent_close();
                 let _res = window.hide();
 
