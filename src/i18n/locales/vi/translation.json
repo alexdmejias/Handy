@@ -755,6 +755,8 @@
     "moreOptions": "Tùy chọn khác",
     "renameNote": "Đổi tên ghi chú",
     "deleteNote": "Xóa ghi chú",
-    "deleteNoteConfirm": "Xóa \"{{title}}\" và tất cả các khối của nó?"
+    "deleteNoteConfirm": "Xóa \"{{title}}\" và tất cả các khối của nó?",
+    "showOldestFirst": "Hiển thị cũ nhất trước",
+    "showNewestFirst": "Hiển thị mới nhất trước"
   }
 }

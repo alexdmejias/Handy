@@ -755,6 +755,8 @@
     "moreOptions": "更多選項",
     "renameNote": "重新命名筆記",
     "deleteNote": "刪除筆記",
-    "deleteNoteConfirm": "要刪除「{{title}}」及其所有區塊嗎?"
+    "deleteNoteConfirm": "要刪除「{{title}}」及其所有區塊嗎?",
+    "showOldestFirst": "先顯示最舊的",
+    "showNewestFirst": "先顯示最新的"
   }
 }

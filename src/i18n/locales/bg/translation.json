@@ -755,6 +755,8 @@
     "moreOptions": "Още опции",
     "renameNote": "Преименуване на бележка",
     "deleteNote": "Изтриване на бележка",
-    "deleteNoteConfirm": "Да се изтрие ли „{{title}}“ и всичките ѝ блокове?"
+    "deleteNoteConfirm": "Да се изтрие ли „{{title}}“ и всичките ѝ блокове?",
+    "showOldestFirst": "Показвай първо най-старите",
+    "showNewestFirst": "Показвай първо най-новите"
   }
 }

@@ -755,6 +755,8 @@
     "moreOptions": "Ещё",
     "renameNote": "Переименовать заметку",
     "deleteNote": "Удалить заметку",
-    "deleteNoteConfirm": "Удалить «{{title}}» и все её блоки?"
+    "deleteNoteConfirm": "Удалить «{{title}}» и все её блоки?",
+    "showOldestFirst": "Сначала старые",
+    "showNewestFirst": "Сначала новые"
   }
 }

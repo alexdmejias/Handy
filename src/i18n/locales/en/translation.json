@@ -755,6 +755,8 @@
     "moreOptions": "More options",
     "renameNote": "Rename note",
     "deleteNote": "Delete note",
-    "deleteNoteConfirm": "Delete \"{{title}}\" and all of its blocks?"
+    "deleteNoteConfirm": "Delete \"{{title}}\" and all of its blocks?",
+    "showOldestFirst": "Show oldest first",
+    "showNewestFirst": "Show newest first"
   }
 }

@@ -755,6 +755,8 @@
     "moreOptions": "Fler alternativ",
     "renameNote": "Byt namn på anteckning",
     "deleteNote": "Ta bort anteckning",
-    "deleteNoteConfirm": "Ta bort \"{{title}}\" och alla dess block?"
+    "deleteNoteConfirm": "Ta bort \"{{title}}\" och alla dess block?",
+    "showOldestFirst": "Visa äldst först",
+    "showNewestFirst": "Visa nyast först"
   }
 }

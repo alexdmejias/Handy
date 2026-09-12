@@ -755,6 +755,8 @@
     "moreOptions": "Diğer seçenekler",
     "renameNote": "Notu yeniden adlandır",
     "deleteNote": "Notu sil",
-    "deleteNoteConfirm": "\"{{title}}\" ve tüm blokları silinsin mi?"
+    "deleteNoteConfirm": "\"{{title}}\" ve tüm blokları silinsin mi?",
+    "showOldestFirst": "Önce en eskiyi göster",
+    "showNewestFirst": "Önce en yeniyi göster"
   }
 }

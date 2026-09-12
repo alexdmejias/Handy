@@ -755,6 +755,8 @@
     "moreOptions": "Weitere Optionen",
     "renameNote": "Notiz umbenennen",
     "deleteNote": "Notiz löschen",
-    "deleteNoteConfirm": "„{{title}}“ und alle zugehörigen Blöcke löschen?"
+    "deleteNoteConfirm": "„{{title}}“ und alle zugehörigen Blöcke löschen?",
+    "showOldestFirst": "Älteste zuerst anzeigen",
+    "showNewestFirst": "Neueste zuerst anzeigen"
   }
 }

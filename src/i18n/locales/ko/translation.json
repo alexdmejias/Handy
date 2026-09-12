@@ -755,6 +755,8 @@
     "moreOptions": "더 보기",
     "renameNote": "메모 이름 바꾸기",
     "deleteNote": "메모 삭제",
-    "deleteNoteConfirm": "\"{{title}}\" 및 모든 블록을 삭제하시겠습니까?"
+    "deleteNoteConfirm": "\"{{title}}\" 및 모든 블록을 삭제하시겠습니까?",
+    "showOldestFirst": "오래된 순으로 표시",
+    "showNewestFirst": "최신 순으로 표시"
   }
 }

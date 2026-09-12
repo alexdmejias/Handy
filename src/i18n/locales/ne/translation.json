@@ -755,6 +755,8 @@
     "moreOptions": "थप विकल्पहरू",
     "renameNote": "नोटको नाम बदल्नुहोस्",
     "deleteNote": "नोट मेटाउनुहोस्",
-    "deleteNoteConfirm": "\"{{title}}\" र यसका सबै ब्लकहरू मेटाउने हो?"
+    "deleteNoteConfirm": "\"{{title}}\" र यसका सबै ब्लकहरू मेटाउने हो?",
+    "showOldestFirst": "पुरानो पहिले देखाउनुहोस्",
+    "showNewestFirst": "नयाँ पहिले देखाउनुहोस्"
   }
 }

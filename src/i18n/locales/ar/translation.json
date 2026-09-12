@@ -755,6 +755,8 @@
     "moreOptions": "خيارات أخرى",
     "renameNote": "إعادة تسمية الملاحظة",
     "deleteNote": "حذف الملاحظة",
-    "deleteNoteConfirm": "هل تريد حذف \"{{title}}\" وجميع كتلها؟"
+    "deleteNoteConfirm": "هل تريد حذف \"{{title}}\" وجميع كتلها؟",
+    "showOldestFirst": "إظهار الأقدم أولاً",
+    "showNewestFirst": "إظهار الأحدث أولاً"
   }
 }

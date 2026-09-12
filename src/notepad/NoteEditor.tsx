@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Sparkles, MoreVertical, Pin, Plus } from "lucide-react";
+import { Sparkles, MoreVertical, Pin, Plus, ArrowUpDown } from "lucide-react";
 import type { NoteBlock, NoteSummary, NoteWithBlocks } from "@/bindings";
 import { formatRelativeTime } from "@/utils/dateFormat";
 import Block from "./Block";
@@ -52,6 +52,9 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
   const [titleDraft, setTitleDraft] = useState(note.note.title);
   const [showMenu, setShowMenu] = useState(false);
   const [draft, setDraft] = useState("");
+  // Blocks are stored (and returned by the backend) oldest-first, the order
+  // moves/splits append into — newest-first is purely a display reversal.
+  const [newestFirst, setNewestFirst] = useState(true);
 
   useEffect(() => {
     setTitleDraft(note.note.title);
@@ -78,6 +81,11 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
 
   const anyPostProcessing = note.blocks.some((b) =>
     postProcessingIds.has(b.id),
+  );
+
+  const displayBlocks = useMemo(
+    () => (newestFirst ? [...note.blocks].reverse() : note.blocks),
+    [note.blocks, newestFirst],
   );
 
   return (
@@ -141,6 +149,17 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
             <Sparkles width={15} height={15} />
             {t("notepad.postProcessNote")}
           </button>
+          <button
+            onClick={() => setNewestFirst((v) => !v)}
+            title={
+              newestFirst
+                ? t("notepad.showOldestFirst")
+                : t("notepad.showNewestFirst")
+            }
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-text/50 hover:bg-mid-gray/10 hover:text-text cursor-pointer"
+          >
+            <ArrowUpDown width={15} height={15} />
+          </button>
           <div className="relative">
             <button
               onClick={() => setShowMenu((v) => !v)}
@@ -192,7 +211,7 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
           </div>
         ) : (
           <div className="flex flex-col gap-3">
-            {note.blocks.map((block: NoteBlock) => (
+            {displayBlocks.map((block: NoteBlock) => (
               <Block
                 key={block.id}
                 block={block}

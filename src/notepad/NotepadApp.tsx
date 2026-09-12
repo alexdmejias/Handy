@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast, Toaster } from "sonner";
+import { getCurrentWindow } from "@tauri-apps/api/window";
 import {
   commands,
   events,
@@ -9,6 +10,12 @@ import {
 } from "@/bindings";
 import NoteList from "./NoteList";
 import NoteEditor from "./NoteEditor";
+
+// Polling interval for the "live while the notepad is active" fallback —
+// the emitted note-update-payload event is the fast path, this just bounds
+// how stale the window can get if that round-trip is ever missed while the
+// window stays open without regaining focus.
+const LIVE_POLL_MS = 4000;
 
 const NotepadApp: React.FC = () => {
   const { t } = useTranslation();
@@ -63,7 +70,7 @@ const NotepadApp: React.FC = () => {
   }, [activeNoteId, refreshActiveNote]);
 
   // Cross-window / cross-process sync: the notepad window's own actions
-  // refresh themselves directly (see refreshAfterMutation below) rather than
+  // refresh themselves directly (see refreshAll below) rather than
   // waiting on this round-trip, so this listener only needs to cover changes
   // this window didn't cause itself — dictation capture running in the
   // background being the main one.
@@ -84,14 +91,34 @@ const NotepadApp: React.FC = () => {
     };
   }, [refreshNotes, refreshActiveNote]);
 
-  // Called after every successful mutation from this window so the UI
-  // updates immediately instead of depending on the emitted event round-trip.
-  const refreshAfterMutation = useCallback(async () => {
+  // Refreshes both the note list and whichever note is currently open.
+  // Used after a local mutation confirms success, when the window regains
+  // focus ("brought up"), and on a light poll while it stays open — three
+  // independent paths to the same end so a live update never depends on
+  // exactly one of them landing.
+  const refreshAll = useCallback(async () => {
     await refreshNotes();
     if (activeNoteIdRef.current !== null) {
       await refreshActiveNote(activeNoteIdRef.current);
     }
   }, [refreshNotes, refreshActiveNote]);
+
+  useEffect(() => {
+    let unlisten: (() => void) | undefined;
+    getCurrentWindow()
+      .onFocusChanged(({ payload: focused }) => {
+        if (focused) refreshAll();
+      })
+      .then((fn) => {
+        unlisten = fn;
+      });
+    return () => unlisten?.();
+  }, [refreshAll]);
+
+  useEffect(() => {
+    const interval = setInterval(refreshAll, LIVE_POLL_MS);
+    return () => clearInterval(interval);
+  }, [refreshAll]);
 
   const withPostProcessing = useCallback(
     async (blockId: number, run: () => Promise<void>) => {
@@ -130,7 +157,7 @@ const NotepadApp: React.FC = () => {
         toast.error(String(result.error));
         return;
       }
-      await refreshAfterMutation();
+      await refreshAll();
     } catch (e) {
       toast.error(String(e));
     }
@@ -156,7 +183,7 @@ const NotepadApp: React.FC = () => {
         toast.error(String(result.error));
         return;
       }
-      await refreshAfterMutation();
+      await refreshAll();
     } catch (e) {
       toast.error(String(e));
     }
@@ -169,7 +196,7 @@ const NotepadApp: React.FC = () => {
         toast.error(String(result.error));
         return;
       }
-      await refreshAfterMutation();
+      await refreshAll();
     } catch (e) {
       toast.error(String(e));
     }
@@ -182,7 +209,7 @@ const NotepadApp: React.FC = () => {
         toast.error(String(result.error));
         return;
       }
-      await refreshAfterMutation();
+      await refreshAll();
     } catch (e) {
       toast.error(String(e));
     }
@@ -195,7 +222,7 @@ const NotepadApp: React.FC = () => {
         toast.error(String(result.error));
         return;
       }
-      await refreshAfterMutation();
+      await refreshAll();
     } catch (e) {
       toast.error(String(e));
     }
@@ -231,7 +258,7 @@ const NotepadApp: React.FC = () => {
         toast.error(String(result.error));
         return;
       }
-      await refreshAfterMutation();
+      await refreshAll();
     } catch (e) {
       toast.error(String(e));
     }
@@ -262,7 +289,7 @@ const NotepadApp: React.FC = () => {
           toast.error(String(result.error));
           return;
         }
-        await refreshAfterMutation();
+        await refreshAll();
       } catch (e) {
         toast.error(String(e));
       }

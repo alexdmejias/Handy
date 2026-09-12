@@ -755,6 +755,8 @@
     "moreOptions": "Більше опцій",
     "renameNote": "Перейменувати нотатку",
     "deleteNote": "Видалити нотатку",
-    "deleteNoteConfirm": "Видалити «{{title}}» та всі її блоки?"
+    "deleteNoteConfirm": "Видалити «{{title}}» та всі її блоки?",
+    "showOldestFirst": "Спочатку старі",
+    "showNewestFirst": "Спочатку нові"
   }
 }

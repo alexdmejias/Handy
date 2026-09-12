@@ -755,6 +755,8 @@
     "moreOptions": "更多选项",
     "renameNote": "重命名笔记",
     "deleteNote": "删除笔记",
-    "deleteNoteConfirm": "删除“{{title}}”及其所有内容块?"
+    "deleteNoteConfirm": "删除“{{title}}”及其所有内容块?",
+    "showOldestFirst": "先显示最旧的",
+    "showNewestFirst": "先显示最新的"
   }
 }

@@ -755,6 +755,8 @@
     "moreOptions": "עוד אפשרויות",
     "renameNote": "שנה שם לפתק",
     "deleteNote": "מחק פתק",
-    "deleteNoteConfirm": "למחוק את \"{{title}}\" ואת כל הבלוקים שלו?"
+    "deleteNoteConfirm": "למחוק את \"{{title}}\" ואת כל הבלוקים שלו?",
+    "showOldestFirst": "הצג את הישנים ביותר קודם",
+    "showNewestFirst": "הצג את החדשים ביותר קודם"
   }
 }

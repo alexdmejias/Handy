@@ -755,6 +755,8 @@
     "moreOptions": "Další možnosti",
     "renameNote": "Přejmenovat poznámku",
     "deleteNote": "Odstranit poznámku",
-    "deleteNoteConfirm": "Odstranit „{{title}}“ a všechny její bloky?"
+    "deleteNoteConfirm": "Odstranit „{{title}}“ a všechny její bloky?",
+    "showOldestFirst": "Zobrazit nejstarší jako první",
+    "showNewestFirst": "Zobrazit nejnovější jako první"
   }
 }

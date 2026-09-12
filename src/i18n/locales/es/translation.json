@@ -755,6 +755,8 @@
     "moreOptions": "Más opciones",
     "renameNote": "Renombrar nota",
     "deleteNote": "Eliminar nota",
-    "deleteNoteConfirm": "¿Eliminar «{{title}}» y todos sus bloques?"
+    "deleteNoteConfirm": "¿Eliminar «{{title}}» y todos sus bloques?",
+    "showOldestFirst": "Mostrar primero lo más antiguo",
+    "showNewestFirst": "Mostrar primero lo más reciente"
   }
 }

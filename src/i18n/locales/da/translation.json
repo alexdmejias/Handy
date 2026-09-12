@@ -755,6 +755,8 @@
     "moreOptions": "Flere valgmuligheder",
     "renameNote": "Omdøb note",
     "deleteNote": "Slet note",
-    "deleteNoteConfirm": "Slet \"{{title}}\" og alle dens blokke?"
+    "deleteNoteConfirm": "Slet \"{{title}}\" og alle dens blokke?",
+    "showOldestFirst": "Vis ældste først",
+    "showNewestFirst": "Vis nyeste først"
   }
 }

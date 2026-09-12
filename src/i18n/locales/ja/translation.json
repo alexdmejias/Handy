@@ -755,6 +755,8 @@
     "moreOptions": "その他のオプション",
     "renameNote": "メモの名前を変更",
     "deleteNote": "メモを削除",
-    "deleteNoteConfirm": "「{{title}}」とそのすべてのブロックを削除しますか?"
+    "deleteNoteConfirm": "「{{title}}」とそのすべてのブロックを削除しますか?",
+    "showOldestFirst": "古い順に表示",
+    "showNewestFirst": "新しい順に表示"
   }
 }

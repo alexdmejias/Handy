@@ -755,6 +755,8 @@
     "moreOptions": "Meer opties",
     "renameNote": "Notitie hernoemen",
     "deleteNote": "Notitie verwijderen",
-    "deleteNoteConfirm": "\"{{title}}\" en alle bijbehorende blokken verwijderen?"
+    "deleteNoteConfirm": "\"{{title}}\" en alle bijbehorende blokken verwijderen?",
+    "showOldestFirst": "Oudste eerst weergeven",
+    "showNewestFirst": "Nieuwste eerst weergeven"
   }
 }

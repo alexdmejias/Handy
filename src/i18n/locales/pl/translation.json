@@ -755,6 +755,8 @@
     "moreOptions": "Więcej opcji",
     "renameNote": "Zmień nazwę notatki",
     "deleteNote": "Usuń notatkę",
-    "deleteNoteConfirm": "Usunąć „{{title}}” i wszystkie jej bloki?"
+    "deleteNoteConfirm": "Usunąć „{{title}}” i wszystkie jej bloki?",
+    "showOldestFirst": "Pokaż najstarsze najpierw",
+    "showNewestFirst": "Pokaż najnowsze najpierw"
   }
 }
