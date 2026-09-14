@@ -509,6 +509,13 @@ fn build_menu(app: &AppHandle, inputs: &MenuInputs) -> tauri::Result<(Menu<tauri
         true,
         None::<&str>,
     )?;
+    let open_notepad_i = MenuItem::with_id(
+        app,
+        "open_notepad",
+        &strings.open_notepad,
+        true,
+        None::<&str>,
+    )?;
     let quit_i = MenuItem::with_id(app, "quit", &strings.quit, true, quit_accelerator)?;
     let separator = || PredefinedMenuItem::separator(app);
 
@@ -522,6 +529,7 @@ fn build_menu(app: &AppHandle, inputs: &MenuInputs) -> tauri::Result<(Menu<tauri
                 &cancel_i,
                 &separator()?,
                 &copy_last_transcript_i,
+                &open_notepad_i,
                 &separator()?,
                 &settings_i,
                 &check_updates_i,
@@ -560,6 +568,7 @@ fn build_menu(app: &AppHandle, inputs: &MenuInputs) -> tauri::Result<(Menu<tauri
                 &version_i,
                 &separator()?,
                 &copy_last_transcript_i,
+                &open_notepad_i,
                 &separator()?,
                 &model_submenu,
                 &unload_model_i,

@@ -7,7 +7,8 @@
     "model": "Modèle",
     "quit": "Quitter",
     "cancel": "Annuler",
-    "secureInputWarning": "⚠ Raccourcis bloqués par Secure Input"
+    "secureInputWarning": "⚠ Raccourcis bloqués par Secure Input",
+    "openNotepad": "Ouvrir le bloc-notes"
   },
   "sidebar": {
     "general": "Général",

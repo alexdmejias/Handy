@@ -7,7 +7,8 @@
     "model": "模型",
     "quit": "退出",
     "cancel": "取消",
-    "secureInputWarning": "⚠ 快捷键被 Secure Input 阻止"
+    "secureInputWarning": "⚠ 快捷键被 Secure Input 阻止",
+    "openNotepad": "打开记事本"
   },
   "sidebar": {
     "general": "通用",

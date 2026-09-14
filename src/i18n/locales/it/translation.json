@@ -7,7 +7,8 @@
     "model": "Modello",
     "quit": "Esci",
     "cancel": "Annulla",
-    "secureInputWarning": "⚠ Scorciatoie bloccate da Secure Input"
+    "secureInputWarning": "⚠ Scorciatoie bloccate da Secure Input",
+    "openNotepad": "Apri blocco note"
   },
   "sidebar": {
     "general": "Generale",

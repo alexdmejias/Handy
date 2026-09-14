@@ -307,6 +307,11 @@ fn initialize_core_logic(app_handle: &AppHandle) {
             "copy_last_transcript" => {
                 tray::copy_last_transcript(app);
             }
+            "open_notepad" => {
+                if let Err(err) = notepad_window::show_notepad_window(app) {
+                    log::error!("Failed to open notepad window from tray: {}", err);
+                }
+            }
             "unload_model" => {
                 let transcription_manager = app.state::<Arc<TranscriptionManager>>();
                 if !transcription_manager.is_model_loaded() {

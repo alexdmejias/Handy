@@ -7,7 +7,8 @@
     "model": "Модел",
     "quit": "Изход",
     "cancel": "Отказ",
-    "secureInputWarning": "⚠ Бързите клавиши са блокирани от Secure Input"
+    "secureInputWarning": "⚠ Бързите клавиши са блокирани от Secure Input",
+    "openNotepad": "Отвори тефтера"
   },
   "sidebar": {
     "general": "Общи",

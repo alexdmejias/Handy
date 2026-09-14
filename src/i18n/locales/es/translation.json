@@ -7,7 +7,8 @@
     "model": "Modelo",
     "quit": "Salir",
     "cancel": "Cancelar",
-    "secureInputWarning": "⚠ Atajos bloqueados por Secure Input"
+    "secureInputWarning": "⚠ Atajos bloqueados por Secure Input",
+    "openNotepad": "Abrir bloc de notas"
   },
   "sidebar": {
     "general": "General",

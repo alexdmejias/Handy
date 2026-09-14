@@ -7,7 +7,8 @@
     "model": "모델",
     "quit": "종료",
     "cancel": "취소",
-    "secureInputWarning": "⚠ Secure Input으로 단축키가 차단됨"
+    "secureInputWarning": "⚠ Secure Input으로 단축키가 차단됨",
+    "openNotepad": "메모장 열기"
   },
   "sidebar": {
     "general": "일반",

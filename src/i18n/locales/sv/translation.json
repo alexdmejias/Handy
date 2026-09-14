@@ -7,7 +7,8 @@
     "model": "Modell",
     "quit": "Avsluta",
     "cancel": "Avbryt",
-    "secureInputWarning": "⚠ Kortkommandon blockeras av Secure Input"
+    "secureInputWarning": "⚠ Kortkommandon blockeras av Secure Input",
+    "openNotepad": "Öppna anteckningsblock"
   },
   "sidebar": {
     "general": "Allmänt",

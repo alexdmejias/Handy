@@ -7,7 +7,8 @@
     "model": "Model",
     "quit": "Ukončit",
     "cancel": "Zrušit",
-    "secureInputWarning": "⚠ Zkratky blokuje Secure Input"
+    "secureInputWarning": "⚠ Zkratky blokuje Secure Input",
+    "openNotepad": "Otevřít poznámkový blok"
   },
   "sidebar": {
     "general": "Obecné",
