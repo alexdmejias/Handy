@@ -181,6 +181,10 @@
           "transcribe_with_post_process": {
             "name": "후처리 단축키",
             "description": "선택 사항: 항상 AI 후처리를 적용하는 전용 단축키입니다."
+          },
+          "open_notepad": {
+            "name": "메모장 열기",
+            "description": "메모장 창을 표시하고 포커스를 맞춥니다."
           }
         },
         "errors": {

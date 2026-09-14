@@ -225,6 +225,54 @@ impl NotesManager {
         Ok(rows.collect::<std::result::Result<Vec<_>, _>>()?)
     }
 
+    /// Notes whose title or any block's content contains `query`
+    /// (case-insensitive, SQLite's default for ASCII `LIKE`). The snippet
+    /// shows the matching block when one matched on content, falling back to
+    /// the note's most recent block when only the title matched. An empty
+    /// (after trimming) query is equivalent to `list_notes`.
+    pub fn search(&self, query: &str) -> Result<Vec<NoteSummary>> {
+        let trimmed = query.trim();
+        if trimmed.is_empty() {
+            return self.list_notes();
+        }
+
+        let conn = self.get_connection()?;
+        let pattern = format!("%{}%", escape_like(trimmed));
+
+        let mut stmt = conn.prepare(
+            "SELECT
+                n.id, n.title, n.is_default, n.updated_at,
+                (SELECT COUNT(*) FROM note_blocks b WHERE b.note_id = n.id) AS block_count,
+                COALESCE(
+                    (SELECT content FROM note_blocks b WHERE b.note_id = n.id
+                     AND b.content LIKE ?1 ESCAPE '\\' ORDER BY b.position DESC LIMIT 1),
+                    (SELECT content FROM note_blocks b WHERE b.note_id = n.id
+                     ORDER BY b.position DESC LIMIT 1)
+                ) AS snippet_source
+             FROM notes n
+             WHERE n.title LIKE ?1 ESCAPE '\\'
+                OR EXISTS (
+                    SELECT 1 FROM note_blocks b
+                    WHERE b.note_id = n.id AND b.content LIKE ?1 ESCAPE '\\'
+                )
+             ORDER BY n.is_default DESC, n.updated_at DESC",
+        )?;
+
+        let rows = stmt.query_map(params![pattern], |row| {
+            let snippet_source: Option<String> = row.get("snippet_source")?;
+            Ok(NoteSummary {
+                id: row.get("id")?,
+                title: row.get("title")?,
+                is_default: row.get("is_default")?,
+                updated_at: row.get("updated_at")?,
+                block_count: row.get("block_count")?,
+                snippet: truncate_snippet(snippet_source.as_deref().unwrap_or("")),
+            })
+        })?;
+
+        Ok(rows.collect::<std::result::Result<Vec<_>, _>>()?)
+    }
+
     pub fn get_note(&self, note_id: i64) -> Result<Option<NoteWithBlocks>> {
         let conn = self.get_connection()?;
         let note = conn
@@ -644,6 +692,15 @@ impl NotesManager {
         }
         Ok(new_block)
     }
+}
+
+/// Escapes SQLite `LIKE` wildcards (`%`, `_`) and the escape character
+/// itself so a search query is matched literally rather than as a pattern.
+/// Pair with `ESCAPE '\\'` in the query.
+fn escape_like(s: &str) -> String {
+    s.replace('\\', "\\\\")
+        .replace('%', "\\%")
+        .replace('_', "\\_")
 }
 
 fn truncate_snippet(text: &str) -> String {

@@ -181,6 +181,10 @@
           "transcribe_with_post_process": {
             "name": "Sneltoets voor naverwerking",
             "description": "Optioneel: Een specifieke sneltoets die altijd AI-naverwerking toepast op je transcriptie."
+          },
+          "open_notepad": {
+            "name": "Kladblok openen",
+            "description": "Toont het kladblokvenster en geeft het de focus."
           }
         },
         "errors": {

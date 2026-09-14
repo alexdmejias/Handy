@@ -948,6 +948,21 @@ impl ShortcutAction for CancelAction {
     }
 }
 
+// Open Notepad Action
+struct OpenNotepadAction;
+
+impl ShortcutAction for OpenNotepadAction {
+    fn start(&self, app: &AppHandle, _binding_id: &str, _shortcut_str: &str) {
+        if let Err(err) = crate::notepad_window::show_notepad_window(app) {
+            error!("Failed to open notepad window from shortcut: {}", err);
+        }
+    }
+
+    fn stop(&self, _app: &AppHandle, _binding_id: &str, _shortcut_str: &str) {
+        // A press just opens the window; nothing to do on release.
+    }
+}
+
 // Test Action
 struct TestAction;
 
@@ -987,6 +1002,10 @@ pub static ACTION_MAP: Lazy<HashMap<String, Arc<dyn ShortcutAction>>> = Lazy::ne
     map.insert(
         "cancel".to_string(),
         Arc::new(CancelAction) as Arc<dyn ShortcutAction>,
+    );
+    map.insert(
+        "open_notepad".to_string(),
+        Arc::new(OpenNotepadAction) as Arc<dyn ShortcutAction>,
     );
     map.insert(
         "test".to_string(),

@@ -201,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Phím tắt xử lý sau",
             "description": "Tùy chọn: Phím tắt chuyên dụng luôn áp dụng xử lý sau bằng AI cho bản chuyển đổi của bạn."
+          },
+          "open_notepad": {
+            "name": "Mở sổ tay",
+            "description": "Hiển thị và đưa cửa sổ sổ tay lên tiêu điểm."
           }
         },
         "errors": {

@@ -201,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Nachbearbeitungs-Tastenkürzel",
             "description": "Optional: Ein dediziertes Tastenkürzel, das immer die KI-Nachbearbeitung auf deine Transkription anwendet."
+          },
+          "open_notepad": {
+            "name": "Notizblock öffnen",
+            "description": "Zeigt das Notizblock-Fenster an und fokussiert es."
           }
         },
         "errors": {

@@ -201,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Skrót postprocessingu",
             "description": "Opcjonalnie: Dedykowany skrót klawiszowy, który zawsze stosuje postprocessing AI do transkrypcji."
+          },
+          "open_notepad": {
+            "name": "Otwórz notatnik",
+            "description": "Pokazuje i aktywuje okno notatnika."
           }
         },
         "errors": {

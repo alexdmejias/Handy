@@ -774,6 +774,7 @@ pub fn run(cli_args: CliArgs) {
             commands::history::update_history_limit,
             commands::history::update_recording_retention_period,
             commands::notes::list_notes,
+            commands::notes::search_notes,
             commands::notes::get_note,
             commands::notes::create_note,
             commands::notes::rename_note,
@@ -882,6 +883,10 @@ pub fn run(cli_args: CliArgs) {
                 signal_handle::send_transcription_input(app, "transcribe_with_post_process", "CLI");
             } else if args.iter().any(|a| a == "--cancel") {
                 crate::utils::cancel_current_operation(app);
+            } else if args.iter().any(|a| a == "--open-notepad") {
+                if let Err(err) = notepad_window::show_notepad_window(app) {
+                    log::error!("Failed to open notepad window from CLI: {}", err);
+                }
             } else {
                 // A second process was launched without remote-control flags
                 // (e.g. the binary run from a shell). On macOS, relaunching the

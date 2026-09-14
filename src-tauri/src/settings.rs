@@ -915,6 +915,18 @@ pub fn get_default_settings() -> AppSettings {
             current_binding: "escape".to_string(),
         },
     );
+    // Unbound by default (every convenient combo on every platform is already
+    // claimed above) — the user opts in from Settings > Notepad if they want it.
+    bindings.insert(
+        "open_notepad".to_string(),
+        ShortcutBinding {
+            id: "open_notepad".to_string(),
+            name: "Open Notepad".to_string(),
+            description: "Shows and focuses the notepad window.".to_string(),
+            default_binding: "".to_string(),
+            current_binding: "".to_string(),
+        },
+    );
 
     AppSettings {
         settings_schema_version: default_settings_schema_version(),

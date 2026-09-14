@@ -915,6 +915,21 @@ async listNotes() : Promise<Result<NoteSummary[], string>> {
     else return { status: "error", error: e  as any };
 }
 },
+/**
+ * Notes whose title or any block's content contains `query`
+ * (case-insensitive, SQLite's default for ASCII `LIKE`). The snippet
+ * shows the matching block when one matched on content, falling back to
+ * the note's most recent block when only the title matched. An empty
+ * (after trimming) query is equivalent to `list_notes`.
+ */
+async searchNotes(query: string) : Promise<Result<NoteSummary[], string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("search_notes", { query }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
 async getNote(id: number) : Promise<Result<NoteWithBlocks | null, string>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("get_note", { id }) };

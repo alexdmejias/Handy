@@ -201,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Tasto di post-elaborazione",
             "description": "Facoltativo: Un tasto di scelta rapida dedicato che applica sempre la post-elaborazione IA alla trascrizione."
+          },
+          "open_notepad": {
+            "name": "Apri blocco note",
+            "description": "Mostra e porta in primo piano la finestra del blocco note."
           }
         },
         "errors": {

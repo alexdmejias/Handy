@@ -5,6 +5,7 @@ import { commands, type NoteSummary } from "@/bindings";
 import { ToggleSwitch } from "../../ui/ToggleSwitch";
 import { Button } from "../../ui/Button";
 import { SettingsGroup } from "../../ui/SettingsGroup";
+import { ShortcutInput } from "../ShortcutInput";
 import { useSettings } from "../../../hooks/useSettings";
 
 export const NotepadSettings: React.FC = () => {
@@ -69,6 +70,7 @@ export const NotepadSettings: React.FC = () => {
             <span>{t("settings.notepad.openButton")}</span>
           </Button>
         </div>
+        <ShortcutInput shortcutId="open_notepad" grouped={true} />
       </SettingsGroup>
     </div>
   );

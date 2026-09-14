@@ -201,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Son İşlem Kısayolu",
             "description": "İsteğe bağlı: Transkripsiyonunuza her zaman yapay zekâ ile son işlem uygulayan özel bir kısayol tuşu."
+          },
+          "open_notepad": {
+            "name": "Not defterini aç",
+            "description": "Not defteri penceresini gösterir ve odaklar."
           }
         },
         "errors": {

@@ -201,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Raccourci de post-traitement",
             "description": "Facultatif : Un raccourci dédié qui applique toujours le post-traitement IA à votre transcription."
+          },
+          "open_notepad": {
+            "name": "Ouvrir le bloc-notes",
+            "description": "Affiche et active la fenêtre du bloc-notes."
           }
         },
         "errors": {

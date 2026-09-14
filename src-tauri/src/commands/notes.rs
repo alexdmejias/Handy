@@ -13,6 +13,15 @@ pub async fn list_notes(
 
 #[tauri::command]
 #[specta::specta]
+pub async fn search_notes(
+    notes_manager: State<'_, Arc<NotesManager>>,
+    query: String,
+) -> Result<Vec<NoteSummary>, String> {
+    notes_manager.search(&query).map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+#[specta::specta]
 pub async fn get_note(
     notes_manager: State<'_, Arc<NotesManager>>,
     id: i64,

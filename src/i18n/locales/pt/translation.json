@@ -181,6 +181,10 @@
           "transcribe_with_post_process": {
             "name": "Tecla de Pós-Processamento",
             "description": "Opcional: Uma tecla de atalho dedicada que sempre aplica pós-processamento com IA à sua transcrição."
+          },
+          "open_notepad": {
+            "name": "Abrir bloco de notas",
+            "description": "Mostra e coloca em foco a janela do bloco de notas."
           }
         },
         "errors": {

@@ -201,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Tecla de post procesamiento",
             "description": "Opcional: Una tecla de acceso rápido dedicada que siempre aplica post procesamiento con IA a tu transcripción."
+          },
+          "open_notepad": {
+            "name": "Abrir bloc de notas",
+            "description": "Muestra y enfoca la ventana del bloc de notas."
           }
         },
         "errors": {

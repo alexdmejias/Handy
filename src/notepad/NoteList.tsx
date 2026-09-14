@@ -1,8 +1,10 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Plus, Search, Pin } from "lucide-react";
-import type { NoteSummary } from "@/bindings";
+import { commands, type NoteSummary } from "@/bindings";
 import { formatRelativeTime } from "@/utils/dateFormat";
+
+const SEARCH_DEBOUNCE_MS = 200;
 
 interface NoteListProps {
   notes: NoteSummary[];
@@ -19,16 +21,37 @@ const NoteList: React.FC<NoteListProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const [query, setQuery] = useState("");
+  // null = not searching, show the live `notes` list as-is. Non-null = the
+  // last completed full-text search result (title + every block's content,
+  // not just the current note's snippet).
+  const [searchResults, setSearchResults] = useState<NoteSummary[] | null>(
+    null,
+  );
+  const requestIdRef = useRef(0);
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return notes;
-    return notes.filter(
-      (n) =>
-        n.title.toLowerCase().includes(q) ||
-        n.snippet.toLowerCase().includes(q),
-    );
-  }, [notes, query]);
+  useEffect(() => {
+    const trimmed = query.trim();
+    if (!trimmed) {
+      requestIdRef.current += 1;
+      setSearchResults(null);
+      return;
+    }
+
+    const requestId = ++requestIdRef.current;
+    const timer = setTimeout(async () => {
+      const result = await commands.searchNotes(trimmed);
+      if (requestIdRef.current !== requestId) return; // superseded
+      if (result.status === "ok") {
+        setSearchResults(result.data);
+      } else {
+        console.error("Failed to search notes:", result.error);
+      }
+    }, SEARCH_DEBOUNCE_MS);
+
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  const displayed = searchResults ?? notes;
 
   return (
     <div className="flex h-full w-[280px] shrink-0 flex-col border-e border-mid-gray/20">
@@ -59,12 +82,12 @@ const NoteList: React.FC<NoteListProps> = ({
       </div>
 
       <div className="flex-1 overflow-y-auto px-2 pb-2">
-        {filtered.length === 0 ? (
+        {displayed.length === 0 ? (
           <div className="px-3 py-3 text-center text-xs text-text/50">
             {query ? t("notepad.noNotesMatch") : t("notepad.noNotes")}
           </div>
         ) : (
-          filtered.map((note) => {
+          displayed.map((note) => {
             const isActive = note.id === activeNoteId;
             return (
               <div
