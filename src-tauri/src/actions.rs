@@ -251,8 +251,11 @@ async fn post_process_transcription(settings: &AppSettings, transcription: &str)
             #[cfg(all(target_os = "macos", target_arch = "aarch64"))]
             {
                 if !apple_intelligence::check_apple_intelligence_availability() {
+                    let reason = apple_intelligence::unavailable_reason()
+                        .unwrap_or_else(|| "unknown reason".to_string());
                     debug!(
-                        "Apple Intelligence selected but not currently available on this device"
+                        "Apple Intelligence selected but not currently available on this device: {}",
+                        reason
                     );
                     return None;
                 }

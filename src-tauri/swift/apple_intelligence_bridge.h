@@ -16,6 +16,13 @@ typedef struct {
 // Check if Apple Intelligence is available on the device
 int is_apple_intelligence_available(void);
 
+// Human-readable reason Apple Intelligence is currently unavailable, or NULL
+// if it's available.
+char* apple_intelligence_unavailable_reason(void);
+
+// Free a string returned by apple_intelligence_unavailable_reason
+void free_apple_intelligence_reason(char* reason);
+
 // Process text using Apple's on-device LLM with separate system prompt and user content
 AppleLLMResponse* process_text_with_system_prompt_apple(const char* system_prompt, const char* user_content, int max_tokens);
 

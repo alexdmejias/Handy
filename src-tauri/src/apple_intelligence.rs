@@ -20,6 +20,27 @@ pub fn check_apple_intelligence_availability() -> bool {
     unsafe { is_apple_intelligence_available() == 1 }
 }
 
+extern "C" {
+    fn apple_intelligence_unavailable_reason() -> *mut c_char;
+    fn free_apple_intelligence_reason(ptr: *mut c_char);
+}
+
+/// Human-readable reason `check_apple_intelligence_availability` returned
+/// false — distinguishes "not enabled", "still downloading", "device
+/// ineligible", and "macOS too old" instead of a bare unavailable/available
+/// bit. Returns `None` when Apple Intelligence is available.
+pub fn unavailable_reason() -> Option<String> {
+    let ptr = unsafe { apple_intelligence_unavailable_reason() };
+    if ptr.is_null() {
+        return None;
+    }
+    let reason = unsafe { CStr::from_ptr(ptr) }
+        .to_string_lossy()
+        .into_owned();
+    unsafe { free_apple_intelligence_reason(ptr) };
+    Some(reason)
+}
+
 // Link to the Swift function for system prompt support
 extern "C" {
     pub fn process_text_with_system_prompt_apple(

@@ -136,6 +136,23 @@ pub fn check_apple_intelligence_available() -> bool {
     }
 }
 
+/// Human-readable reason Apple Intelligence is currently unavailable (not
+/// enabled, still downloading, device ineligible, macOS too old), or `None`
+/// when it's available. Lets the UI show something more actionable than a
+/// bare yes/no.
+#[specta::specta]
+#[tauri::command]
+pub fn get_apple_intelligence_unavailable_reason() -> Option<String> {
+    #[cfg(all(target_os = "macos", target_arch = "aarch64"))]
+    {
+        crate::apple_intelligence::unavailable_reason()
+    }
+    #[cfg(not(all(target_os = "macos", target_arch = "aarch64")))]
+    {
+        None
+    }
+}
+
 /// Try to initialize Enigo (keyboard/mouse simulation).
 /// On macOS, this will return an error if accessibility permissions are not granted.
 #[specta::specta]

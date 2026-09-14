@@ -608,6 +608,15 @@ async checkAppleIntelligenceAvailable() : Promise<boolean> {
     return await TAURI_INVOKE("check_apple_intelligence_available");
 },
 /**
+ * Human-readable reason Apple Intelligence is currently unavailable (not
+ * enabled, still downloading, device ineligible, macOS too old), or `None`
+ * when it's available. Lets the UI show something more actionable than a
+ * bare yes/no.
+ */
+async getAppleIntelligenceUnavailableReason() : Promise<string | null> {
+    return await TAURI_INVOKE("get_apple_intelligence_unavailable_reason");
+},
+/**
  * Try to initialize Enigo (keyboard/mouse simulation).
  * On macOS, this will return an error if accessibility permissions are not granted.
  */

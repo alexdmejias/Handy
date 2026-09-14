@@ -11,6 +11,7 @@ type PostProcessProviderState = {
   isCustomProvider: boolean;
   isAppleProvider: boolean;
   appleIntelligenceUnavailable: boolean;
+  appleIntelligenceUnavailableReason: string | null;
   baseUrl: string;
   handleBaseUrlChange: (value: string) => void;
   isBaseUrlUpdating: boolean;
@@ -57,8 +58,12 @@ export const usePostProcessProviderState = (): PostProcessProviderState => {
   }, [providers, selectedProviderId]);
 
   const isAppleProvider = selectedProvider?.id === APPLE_PROVIDER_ID;
-  const [appleIntelligenceUnavailable, setAppleIntelligenceUnavailable] =
-    useState(false);
+  const [
+    appleIntelligenceUnavailableReason,
+    setAppleIntelligenceUnavailableReason,
+  ] = useState<string | null>(null);
+  const appleIntelligenceUnavailable =
+    appleIntelligenceUnavailableReason !== null;
 
   // Re-check availability any time Apple Intelligence is the active
   // provider, not just at the moment it's selected. Availability can change
@@ -70,8 +75,8 @@ export const usePostProcessProviderState = (): PostProcessProviderState => {
   useEffect(() => {
     if (!isAppleProvider) return;
     let cancelled = false;
-    commands.checkAppleIntelligenceAvailable().then((available) => {
-      if (!cancelled) setAppleIntelligenceUnavailable(!available);
+    commands.getAppleIntelligenceUnavailableReason().then((reason) => {
+      if (!cancelled) setAppleIntelligenceUnavailableReason(reason);
     });
     return () => {
       cancelled = true;
@@ -223,6 +228,7 @@ export const usePostProcessProviderState = (): PostProcessProviderState => {
     isCustomProvider,
     isAppleProvider,
     appleIntelligenceUnavailable,
+    appleIntelligenceUnavailableReason,
     baseUrl,
     handleBaseUrlChange,
     isBaseUrlUpdating,

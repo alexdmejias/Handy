@@ -11,6 +11,17 @@ public func isAppleIntelligenceAvailable() -> Int32 {
     return 0
 }
 
+@_cdecl("apple_intelligence_unavailable_reason")
+public func appleIntelligenceUnavailableReason() -> UnsafeMutablePointer<CChar>? {
+    return strdup("Apple Intelligence is not available in this build (SDK requirement not met).")
+}
+
+@_cdecl("free_apple_intelligence_reason")
+public func freeAppleIntelligenceReason(_ ptr: UnsafeMutablePointer<CChar>?) {
+    guard let ptr = ptr else { return }
+    free(ptr)
+}
+
 @_cdecl("process_text_with_system_prompt_apple")
 public func processTextWithSystemPrompt(
     _ systemPrompt: UnsafePointer<CChar>,
