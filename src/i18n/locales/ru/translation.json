@@ -7,7 +7,8 @@
     "model": "Модель",
     "quit": "Выход",
     "cancel": "Отмена",
-    "secureInputWarning": "⚠ Сочетания клавиш заблокированы Secure Input"
+    "secureInputWarning": "⚠ Сочетания клавиш заблокированы Secure Input",
+    "openNotepad": "Открыть блокнот"
   },
   "sidebar": {
     "general": "Общие",
@@ -16,7 +17,8 @@
     "postProcessing": "Постобработка",
     "history": "История",
     "debug": "Отладка",
-    "about": "О программе"
+    "about": "О программе",
+    "notepad": "Блокнот"
   },
   "onboarding": {
     "subtitle": "Для начала выберите модель транскрипции",
@@ -199,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Горячая клавиша постобработки",
             "description": "Специальное сочетание клавиш для ИИ-постобработки вашей транскрипции."
+          },
+          "open_notepad": {
+            "name": "Открыть блокнот",
+            "description": "Показывает и делает активным окно блокнота."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "Показывать новинки",
         "description": "Показывать примечания к выпуску после обновлений Handy"
       }
+    },
+    "notepad": {
+      "title": "Блокнот",
+      "description": "Постоянный блокнот для надиктованного текста, отдельно от истории.",
+      "captureTitle": "Сохранять надиктованный текст в блокнот",
+      "captureDescription": "Добавляет каждую расшифровку в заметку по умолчанию блокнота, в дополнение к обычной вставке или копированию.",
+      "defaultNoteTitle": "Заметка по умолчанию",
+      "defaultNoteDescription": "Куда добавляется надиктованный текст.",
+      "openButton": "Открыть блокнот",
+      "autoOpenTitle": "Автоматически открывать блокнот при захвате",
+      "autoOpenDescription": "Выводит окно блокнота на передний план каждый раз, когда в него добавляется надиктованный текст."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "Загрузка...",
     "delete": "Удалить",
+    "cancel": "Cancel",
     "close": "Закрывать",
     "open": "Открыть",
     "copy": "Копировать",
@@ -713,5 +731,41 @@
     "learnMore": "Как это исправить",
     "recorderBlocked": "Сейчас нельзя записать сочетание клавиш — Secure Input в macOS блокирует события клавиш. Сначала устраните предупреждение о Secure Input.",
     "dismiss": "Скрыть"
+  },
+  "notepad": {
+    "title": "Блокнот",
+    "newNote": "Новая заметка",
+    "searchPlaceholder": "Поиск заметок",
+    "defaultNote": "Заметка по умолчанию",
+    "makeDefault": "Сделать заметкой по умолчанию",
+    "captureHint": "Надиктованный текст по умолчанию попадает сюда",
+    "untitledNote": "Заметка без названия",
+    "noNotes": "Пока нет заметок.",
+    "noNotesMatch": "Нет заметок, соответствующих запросу.",
+    "emptyNote": "Эта заметка пуста. Надиктуйте текст или добавьте блок, чтобы начать.",
+    "blockCount_one": "{{count}} блок",
+    "blockCount_other": "{{count}} блоков",
+    "updated": "Обновлено {{time}}",
+    "dictation": "Надиктовано",
+    "postProcessed": "Обработано",
+    "manual": "Вручную",
+    "capturing": "Идёт запись…",
+    "moveTo": "Переместить в заметку",
+    "moveToCurrent": "{{title}} (текущая)",
+    "moveToNew": "Новая заметка…",
+    "moveSelection": "Переместить выделенное в заметку",
+    "postProcessBlock": "Обработать этот блок",
+    "postProcessNote": "Обработать заметку",
+    "postProcessing": "Обработка…",
+    "deleteBlock": "Удалить блок",
+    "addBlockPlaceholder": "Добавить заметку вручную…",
+    "add": "Добавить",
+    "moreOptions": "Ещё",
+    "renameNote": "Переименовать заметку",
+    "deleteNote": "Удалить заметку",
+    "deleteNoteConfirm": "Удалить «{{title}}» и все её блоки?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "Сначала старые",
+    "showNewestFirst": "Сначала новые"
   }
 }

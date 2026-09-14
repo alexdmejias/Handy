@@ -7,7 +7,8 @@
     "model": "Model",
     "quit": "Çıkış",
     "cancel": "İptal",
-    "secureInputWarning": "⚠ Kısayollar Secure Input tarafından engelleniyor"
+    "secureInputWarning": "⚠ Kısayollar Secure Input tarafından engelleniyor",
+    "openNotepad": "Not defterini aç"
   },
   "sidebar": {
     "general": "Genel",
@@ -16,7 +17,8 @@
     "postProcessing": "Son İşlem",
     "history": "Geçmiş",
     "debug": "Hata Ayıklama",
-    "about": "Hakkında"
+    "about": "Hakkında",
+    "notepad": "Not defteri"
   },
   "onboarding": {
     "subtitle": "Başlamak için bir transkripsiyon modeli seçin",
@@ -199,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Son İşlem Kısayolu",
             "description": "İsteğe bağlı: Transkripsiyonunuza her zaman yapay zekâ ile son işlem uygulayan özel bir kısayol tuşu."
+          },
+          "open_notepad": {
+            "name": "Not defterini aç",
+            "description": "Not defteri penceresini gösterir ve odaklar."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "Yenilikleri Göster",
         "description": "Handy güncellemelerinden sonra sürüm notlarını göster"
       }
+    },
+    "notepad": {
+      "title": "Not defteri",
+      "description": "Dikte için geçmişten ayrı, sürekli çalışan bir not defteri.",
+      "captureTitle": "Dikteyi not defterine yakala",
+      "captureDescription": "Her transkripti, her zamanki gibi yapıştırma veya kopyalamaya ek olarak not defterinin varsayılan notuna ekler.",
+      "defaultNoteTitle": "Varsayılan not",
+      "defaultNoteDescription": "Yakalanan diktenin ekleneceği yer.",
+      "openButton": "Not defterini aç",
+      "autoOpenTitle": "Yakalamada not defterini otomatik aç",
+      "autoOpenDescription": "Not defterine her dikte eklendiğinde not defteri penceresini öne getirir."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "Yükleniyor...",
     "delete": "Sil",
+    "cancel": "Cancel",
     "close": "Kapat",
     "open": "Aç",
     "copy": "Kopyala",
@@ -713,5 +731,41 @@
     "learnMore": "Bu nasıl düzeltilir",
     "recorderBlocked": "Şu anda kısayol kaydedilemiyor — macOS Secure Input tuş olaylarını engelliyor. Önce Secure Input uyarısını giderin.",
     "dismiss": "Kapat"
+  },
+  "notepad": {
+    "title": "Not defteri",
+    "newNote": "Yeni not",
+    "searchPlaceholder": "Notlarda ara",
+    "defaultNote": "Varsayılan not",
+    "makeDefault": "Varsayılan not olarak ayarla",
+    "captureHint": "Dikte varsayılan olarak buraya eklenir",
+    "untitledNote": "Başlıksız not",
+    "noNotes": "Henüz not yok.",
+    "noNotesMatch": "Aramanızla eşleşen not yok.",
+    "emptyNote": "Bu not boş. Başlamak için dikte edin veya bir blok ekleyin.",
+    "blockCount_one": "{{count}} blok",
+    "blockCount_other": "{{count}} blok",
+    "updated": "Güncellendi: {{time}}",
+    "dictation": "Dikte",
+    "postProcessed": "İşlendi",
+    "manual": "Manuel",
+    "capturing": "Yakalanıyor…",
+    "moveTo": "Nota taşı",
+    "moveToCurrent": "{{title}} (mevcut)",
+    "moveToNew": "Yeni not…",
+    "moveSelection": "Seçimi nota taşı",
+    "postProcessBlock": "Bu bloğu işle",
+    "postProcessNote": "Notu işle",
+    "postProcessing": "İşleniyor…",
+    "deleteBlock": "Bloğu sil",
+    "addBlockPlaceholder": "Manuel not ekle…",
+    "add": "Ekle",
+    "moreOptions": "Diğer seçenekler",
+    "renameNote": "Notu yeniden adlandır",
+    "deleteNote": "Notu sil",
+    "deleteNoteConfirm": "\"{{title}}\" ve tüm blokları silinsin mi?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "Önce en eskiyi göster",
+    "showNewestFirst": "Önce en yeniyi göster"
   }
 }

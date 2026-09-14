@@ -7,7 +7,8 @@
     "model": "Modell",
     "quit": "Beenden",
     "cancel": "Abbrechen",
-    "secureInputWarning": "⚠ Tastenkürzel durch Secure Input blockiert"
+    "secureInputWarning": "⚠ Tastenkürzel durch Secure Input blockiert",
+    "openNotepad": "Notizblock öffnen"
   },
   "sidebar": {
     "general": "Allgemein",
@@ -16,7 +17,8 @@
     "postProcessing": "Nachbearbeitung",
     "history": "Verlauf",
     "debug": "Debug",
-    "about": "Info"
+    "about": "Info",
+    "notepad": "Notizblock"
   },
   "onboarding": {
     "subtitle": "Wähle ein Transkriptionsmodell, um loszulegen",
@@ -199,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Nachbearbeitungs-Tastenkürzel",
             "description": "Optional: Ein dediziertes Tastenkürzel, das immer die KI-Nachbearbeitung auf deine Transkription anwendet."
+          },
+          "open_notepad": {
+            "name": "Notizblock öffnen",
+            "description": "Zeigt das Notizblock-Fenster an und fokussiert es."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "Neuerungen anzeigen",
         "description": "Versionshinweise nach Handy-Updates anzeigen"
       }
+    },
+    "notepad": {
+      "title": "Notizblock",
+      "description": "Ein fortlaufender Notizblock für Diktate, getrennt vom Verlauf.",
+      "captureTitle": "Diktat im Notizblock erfassen",
+      "captureDescription": "Fügt jede Transkription zusätzlich zur üblichen Einfüge- oder Kopierfunktion der Standardnotiz des Notizblocks hinzu.",
+      "defaultNoteTitle": "Standardnotiz",
+      "defaultNoteDescription": "Wohin erfasstes Diktat angehängt wird.",
+      "openButton": "Notizblock öffnen",
+      "autoOpenTitle": "Notizblock bei Erfassung automatisch öffnen",
+      "autoOpenDescription": "Bringt das Notizblock-Fenster in den Vordergrund, sobald ein Diktat hinzugefügt wird."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "Wird geladen...",
     "delete": "Löschen",
+    "cancel": "Cancel",
     "close": "Schließen",
     "open": "Öffnen",
     "copy": "Kopieren",
@@ -713,5 +731,41 @@
     "learnMore": "So behebst du das",
     "recorderBlocked": "Tastenkürzel können gerade nicht aufgezeichnet werden — macOS Secure Input blockiert Tastenereignisse. Behebe zuerst die Secure-Input-Warnung.",
     "dismiss": "Ausblenden"
+  },
+  "notepad": {
+    "title": "Notizblock",
+    "newNote": "Neue Notiz",
+    "searchPlaceholder": "Notizen durchsuchen",
+    "defaultNote": "Standardnotiz",
+    "makeDefault": "Als Standardnotiz festlegen",
+    "captureHint": "Diktate landen hier standardmäßig",
+    "untitledNote": "Unbenannte Notiz",
+    "noNotes": "Noch keine Notizen.",
+    "noNotesMatch": "Keine Notizen entsprechen deiner Suche.",
+    "emptyNote": "Diese Notiz ist leer. Diktiere oder füge einen Block hinzu, um zu beginnen.",
+    "blockCount_one": "{{count}} Block",
+    "blockCount_other": "{{count}} Blöcke",
+    "updated": "Aktualisiert {{time}}",
+    "dictation": "Diktat",
+    "postProcessed": "Nachbearbeitet",
+    "manual": "Manuell",
+    "capturing": "Erfassung läuft…",
+    "moveTo": "In Notiz verschieben",
+    "moveToCurrent": "{{title}} (aktuell)",
+    "moveToNew": "Neue Notiz…",
+    "moveSelection": "Auswahl in Notiz verschieben",
+    "postProcessBlock": "Diesen Block nachbearbeiten",
+    "postProcessNote": "Notiz nachbearbeiten",
+    "postProcessing": "Wird nachbearbeitet…",
+    "deleteBlock": "Block löschen",
+    "addBlockPlaceholder": "Notiz manuell hinzufügen…",
+    "add": "Hinzufügen",
+    "moreOptions": "Weitere Optionen",
+    "renameNote": "Notiz umbenennen",
+    "deleteNote": "Notiz löschen",
+    "deleteNoteConfirm": "„{{title}}“ und alle zugehörigen Blöcke löschen?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "Älteste zuerst anzeigen",
+    "showNewestFirst": "Neueste zuerst anzeigen"
   }
 }

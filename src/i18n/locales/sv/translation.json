@@ -7,7 +7,8 @@
     "model": "Modell",
     "quit": "Avsluta",
     "cancel": "Avbryt",
-    "secureInputWarning": "⚠ Kortkommandon blockeras av Secure Input"
+    "secureInputWarning": "⚠ Kortkommandon blockeras av Secure Input",
+    "openNotepad": "Öppna anteckningsblock"
   },
   "sidebar": {
     "general": "Allmänt",
@@ -16,7 +17,8 @@
     "postProcessing": "Efterbearbetning",
     "history": "Historik",
     "debug": "Felsökning",
-    "about": "Om"
+    "about": "Om",
+    "notepad": "Anteckningsblock"
   },
   "onboarding": {
     "subtitle": "För att komma igång, välj en transkriptionsmodell",
@@ -179,6 +181,10 @@
           "transcribe_with_post_process": {
             "name": "Snabbkommando för efterbearbetning",
             "description": "Valfritt: En dedikerad snabbknapp som alltid tillämpar AI-efterbearbetning på din transkription."
+          },
+          "open_notepad": {
+            "name": "Öppna anteckningsblock",
+            "description": "Visar och fokuserar anteckningsblockets fönster."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "Visa nyheter",
         "description": "Visa versionsinformation efter Handy-uppdateringar"
       }
+    },
+    "notepad": {
+      "title": "Anteckningsblock",
+      "description": "Ett löpande anteckningsblock för diktering, separat från historiken.",
+      "captureTitle": "Fånga diktering till anteckningsblock",
+      "captureDescription": "Lägger till varje transkription i anteckningsblockets standardanteckning, utöver vanlig inklistring eller kopiering.",
+      "defaultNoteTitle": "Standardanteckning",
+      "defaultNoteDescription": "Var infångad diktering läggs till.",
+      "openButton": "Öppna anteckningsblock",
+      "autoOpenTitle": "Öppna anteckningsblock automatiskt vid infångning",
+      "autoOpenDescription": "Tar fram anteckningsblockets fönster varje gång en diktering läggs till i det."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "Laddar...",
     "delete": "Ta bort",
+    "cancel": "Cancel",
     "close": "Stäng",
     "open": "Öppna",
     "copy": "Kopiera",
@@ -713,5 +731,41 @@
     "learnMore": "Så här löser du det",
     "recorderBlocked": "Det går inte att spela in kortkommandon just nu — macOS Secure Input blockerar tangenthändelser. Lös varningen om Secure Input först.",
     "dismiss": "Avfärda"
+  },
+  "notepad": {
+    "title": "Anteckningsblock",
+    "newNote": "Ny anteckning",
+    "searchPlaceholder": "Sök anteckningar",
+    "defaultNote": "Standardanteckning",
+    "makeDefault": "Ange som standardanteckning",
+    "captureHint": "Diktering hamnar här som standard",
+    "untitledNote": "Namnlös anteckning",
+    "noNotes": "Inga anteckningar än.",
+    "noNotesMatch": "Inga anteckningar matchar din sökning.",
+    "emptyNote": "Den här anteckningen är tom. Diktera eller lägg till ett block för att komma igång.",
+    "blockCount_one": "{{count}} block",
+    "blockCount_other": "{{count}} block",
+    "updated": "Uppdaterad {{time}}",
+    "dictation": "Diktering",
+    "postProcessed": "Efterbehandlad",
+    "manual": "Manuell",
+    "capturing": "Fångar…",
+    "moveTo": "Flytta till anteckning",
+    "moveToCurrent": "{{title}} (aktuell)",
+    "moveToNew": "Ny anteckning…",
+    "moveSelection": "Flytta markering till anteckning",
+    "postProcessBlock": "Efterbehandla det här blocket",
+    "postProcessNote": "Efterbehandla anteckning",
+    "postProcessing": "Efterbehandlar…",
+    "deleteBlock": "Ta bort block",
+    "addBlockPlaceholder": "Lägg till en anteckning manuellt…",
+    "add": "Lägg till",
+    "moreOptions": "Fler alternativ",
+    "renameNote": "Byt namn på anteckning",
+    "deleteNote": "Ta bort anteckning",
+    "deleteNoteConfirm": "Ta bort \"{{title}}\" och alla dess block?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "Visa äldst först",
+    "showNewestFirst": "Visa nyast först"
   }
 }

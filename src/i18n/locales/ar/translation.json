@@ -7,7 +7,8 @@
     "model": "النموذج",
     "quit": "إنهاء",
     "cancel": "إلغاء",
-    "secureInputWarning": "⚠ الاختصارات محجوبة بواسطة Secure Input"
+    "secureInputWarning": "⚠ الاختصارات محجوبة بواسطة Secure Input",
+    "openNotepad": "فتح المفكرة"
   },
   "sidebar": {
     "general": "عام",
@@ -16,7 +17,8 @@
     "history": "السجل",
     "debug": "تصحيح الأخطاء",
     "about": "حول",
-    "models": "النماذج"
+    "models": "النماذج",
+    "notepad": "المفكرة"
   },
   "onboarding": {
     "subtitle": "للبدء، اختر نموذج التفريغ الصوتي",
@@ -176,6 +178,10 @@
           "transcribe_with_post_process": {
             "name": "مفتاح المعالجة اللاحقة",
             "description": "اختياري: مفتاح اختصار مخصص يطبق دائماً المعالجة اللاحقة بالذكاء الاصطناعي على التفريغ الصوتي."
+          },
+          "open_notepad": {
+            "name": "فتح المفكرة",
+            "description": "يعرض نافذة المفكرة ويركز عليها."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "إعادة الفحص",
         "tooltip": "إعادة الفحص بحثًا عن النماذج المضافة إلى مجلد النماذج أو ذاكرة Hugging Face التخزينية المؤقتة خارج Handy"
       }
+    },
+    "notepad": {
+      "title": "المفكرة",
+      "description": "مفكرة مستمرة للإملاء، منفصلة عن السجل.",
+      "captureTitle": "التقاط الإملاء في المفكرة",
+      "captureDescription": "يضيف كل نص مُفرّغ إلى الملاحظة الافتراضية في المفكرة، بالإضافة إلى اللصق أو النسخ المعتاد.",
+      "defaultNoteTitle": "الملاحظة الافتراضية",
+      "defaultNoteDescription": "المكان الذي يُضاف إليه الإملاء الملتقط.",
+      "openButton": "فتح المفكرة",
+      "autoOpenTitle": "فتح المفكرة تلقائيًا عند الالتقاط",
+      "autoOpenDescription": "يعرض نافذة المفكرة في المقدمة في كل مرة يُضاف فيها إملاء إليها."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "...جاري التحميل",
     "delete": "حذف",
+    "cancel": "Cancel",
     "close": "إغلاق",
     "open": "فتح",
     "copy": "نسخ",
@@ -713,5 +731,41 @@
     "learnMore": "كيفية الإصلاح",
     "recorderBlocked": "لا يمكن تسجيل الاختصارات الآن — يحجب Secure Input في macOS أحداث المفاتيح. عالج تحذير Secure Input أولاً.",
     "dismiss": "تجاهل"
+  },
+  "notepad": {
+    "title": "المفكرة",
+    "newNote": "ملاحظة جديدة",
+    "searchPlaceholder": "البحث في الملاحظات",
+    "defaultNote": "الملاحظة الافتراضية",
+    "makeDefault": "اجعلها الملاحظة الافتراضية",
+    "captureHint": "يُضاف الإملاء هنا افتراضيًا",
+    "untitledNote": "ملاحظة بلا عنوان",
+    "noNotes": "لا توجد ملاحظات بعد.",
+    "noNotesMatch": "لا توجد ملاحظات مطابقة لبحثك.",
+    "emptyNote": "هذه الملاحظة فارغة. أملِ أو أضف كتلة للبدء.",
+    "blockCount_one": "كتلة واحدة",
+    "blockCount_other": "{{count}} كتل",
+    "updated": "تم التحديث {{time}}",
+    "dictation": "إملاء",
+    "postProcessed": "معالج لاحقًا",
+    "manual": "يدوي",
+    "capturing": "جارٍ الالتقاط…",
+    "moveTo": "نقل إلى ملاحظة",
+    "moveToCurrent": "{{title}} (الحالية)",
+    "moveToNew": "ملاحظة جديدة…",
+    "moveSelection": "نقل التحديد إلى ملاحظة",
+    "postProcessBlock": "معالجة هذه الكتلة لاحقًا",
+    "postProcessNote": "معالجة الملاحظة لاحقًا",
+    "postProcessing": "جارٍ المعالجة اللاحقة…",
+    "deleteBlock": "حذف الكتلة",
+    "addBlockPlaceholder": "إضافة ملاحظة يدويًا…",
+    "add": "إضافة",
+    "moreOptions": "خيارات أخرى",
+    "renameNote": "إعادة تسمية الملاحظة",
+    "deleteNote": "حذف الملاحظة",
+    "deleteNoteConfirm": "هل تريد حذف \"{{title}}\" وجميع كتلها؟",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "إظهار الأقدم أولاً",
+    "showNewestFirst": "إظهار الأحدث أولاً"
   }
 }

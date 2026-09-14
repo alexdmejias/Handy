@@ -13,6 +13,7 @@ mod input;
 mod llm_client;
 mod managers;
 mod memory;
+mod notepad_window;
 mod overlay;
 mod paste_tx;
 pub mod portable;
@@ -35,6 +36,7 @@ use env_filter::Builder as EnvFilterBuilder;
 use managers::audio::AudioRecordingManager;
 use managers::history::HistoryManager;
 use managers::model::ModelManager;
+use managers::notes::NotesManager;
 use managers::transcription::TranscriptionManager;
 use std::sync::atomic::{AtomicBool, AtomicU8, Ordering};
 use std::sync::Arc;
@@ -204,6 +206,8 @@ fn initialize_core_logic(app_handle: &AppHandle) {
     );
     let history_manager =
         Arc::new(HistoryManager::new(app_handle).expect("Failed to initialize history manager"));
+    let notes_manager =
+        Arc::new(NotesManager::new(app_handle).expect("Failed to initialize notes manager"));
 
     // Initialize the transcribe-cpp native backend (logging + backend module
     // registration) once, before any whisper model is loaded.
@@ -217,6 +221,7 @@ fn initialize_core_logic(app_handle: &AppHandle) {
     app_handle.manage(model_manager.clone());
     app_handle.manage(transcription_manager.clone());
     app_handle.manage(history_manager.clone());
+    app_handle.manage(notes_manager.clone());
     app_handle.manage(tray::TrayState::new());
 
     // Note: Shortcuts are NOT initialized here.
@@ -301,6 +306,11 @@ fn initialize_core_logic(app_handle: &AppHandle) {
             }
             "copy_last_transcript" => {
                 tray::copy_last_transcript(app);
+            }
+            "open_notepad" => {
+                if let Err(err) = notepad_window::show_notepad_window(app) {
+                    log::error!("Failed to open notepad window from tray: {}", err);
+                }
             }
             "unload_model" => {
                 let transcription_manager = app.state::<Arc<TranscriptionManager>>();
@@ -724,6 +734,7 @@ pub fn run(cli_args: CliArgs) {
             commands::open_log_dir,
             commands::open_app_data_dir,
             commands::check_apple_intelligence_available,
+            commands::get_apple_intelligence_unavailable_reason,
             commands::initialize_enigo,
             commands::initialize_shortcuts,
             commands::models::get_available_models,
@@ -763,10 +774,27 @@ pub fn run(cli_args: CliArgs) {
             commands::history::retry_history_entry_transcription,
             commands::history::update_history_limit,
             commands::history::update_recording_retention_period,
+            commands::notes::list_notes,
+            commands::notes::search_notes,
+            commands::notes::get_note,
+            commands::notes::create_note,
+            commands::notes::rename_note,
+            commands::notes::delete_note,
+            commands::notes::set_default_note,
+            commands::notes::create_block,
+            commands::notes::update_block,
+            commands::notes::delete_block,
+            commands::notes::move_block,
+            commands::notes::split_and_move_block,
+            commands::notes::post_process_block,
+            shortcut::change_capture_to_notepad_setting,
+            shortcut::change_auto_open_notepad_on_capture_setting,
+            notepad_window::open_notepad_window,
             helpers::clamshell::is_laptop,
         ])
         .events(collect_events![
             managers::history::HistoryUpdatePayload,
+            managers::notes::NoteUpdatePayload,
             managers::transcription::StreamTextEvent,
             managers::transcription::StreamPhaseEvent,
         ]);
@@ -856,6 +884,10 @@ pub fn run(cli_args: CliArgs) {
                 signal_handle::send_transcription_input(app, "transcribe_with_post_process", "CLI");
             } else if args.iter().any(|a| a == "--cancel") {
                 crate::utils::cancel_current_operation(app);
+            } else if args.iter().any(|a| a == "--open-notepad") {
+                if let Err(err) = notepad_window::show_notepad_window(app) {
+                    log::error!("Failed to open notepad window from CLI: {}", err);
+                }
             } else {
                 // A second process was launched without remote-control flags
                 // (e.g. the binary run from a shell). On macOS, relaunching the
@@ -1027,7 +1059,14 @@ pub fn run(cli_args: CliArgs) {
             Ok(())
         })
         .on_window_event(|window, event| match event {
-            tauri::WindowEvent::CloseRequested { api, .. } => {
+            // Only the main settings window hides-to-tray on close — it's the
+            // app's tray-resident singleton. Other windows (e.g. the notepad)
+            // have no such requirement and should close normally: a hidden
+            // rather than destroyed notepad window would keep its React app
+            // mounted indefinitely, so reopening it via `open_notepad_window`
+            // would just re-show stale state instead of remounting and
+            // refetching (#found while debugging notepad capture visibility).
+            tauri::WindowEvent::CloseRequested { api, .. } if window.label() == "main" => {
                 api.prevent_close();
                 let _res = window.hide();
 

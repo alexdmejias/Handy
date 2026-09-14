@@ -7,7 +7,8 @@
     "model": "モデル",
     "quit": "終了",
     "cancel": "キャンセル",
-    "secureInputWarning": "⚠ Secure Input でショートカットがブロック中"
+    "secureInputWarning": "⚠ Secure Input でショートカットがブロック中",
+    "openNotepad": "メモ帳を開く"
   },
   "sidebar": {
     "general": "一般",
@@ -16,7 +17,8 @@
     "postProcessing": "後処理",
     "history": "履歴",
     "debug": "デバッグ",
-    "about": "概要"
+    "about": "概要",
+    "notepad": "メモ帳"
   },
   "onboarding": {
     "subtitle": "開始するには、文字起こしのモデルを選択してください",
@@ -199,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "後処理のショートカット",
             "description": "文字起こしに常に AI 後処理を適用するキーボードショートカット。 (任意)"
+          },
+          "open_notepad": {
+            "name": "メモ帳を開く",
+            "description": "メモ帳ウィンドウを表示してフォーカスします。"
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "新機能を表示",
         "description": "Handy のアップデート後にリリースノートを表示"
       }
+    },
+    "notepad": {
+      "title": "メモ帳",
+      "description": "履歴とは別の、音声入力用の常時稼働するメモ帳。",
+      "captureTitle": "音声入力をメモ帳に記録",
+      "captureDescription": "通常の貼り付けやコピーに加えて、すべての文字起こしをメモ帳のデフォルトのメモに追加します。",
+      "defaultNoteTitle": "デフォルトのメモ",
+      "defaultNoteDescription": "取得した音声入力の追加先。",
+      "openButton": "メモ帳を開く",
+      "autoOpenTitle": "キャプチャ時にメモ帳を自動的に開く",
+      "autoOpenDescription": "音声入力がメモ帳に追加されるたびに、メモ帳ウィンドウを前面に表示します。"
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "読み込み中…",
     "delete": "削除",
+    "cancel": "Cancel",
     "close": "閉じる",
     "open": "開く",
     "copy": "コピー",
@@ -713,5 +731,41 @@
     "learnMore": "解決方法",
     "recorderBlocked": "現在ショートカットを記録できません。macOS の Secure Input がキーイベントをブロックしています。先に Secure Input の警告を解消してください。",
     "dismiss": "閉じる"
+  },
+  "notepad": {
+    "title": "メモ帳",
+    "newNote": "新しいメモ",
+    "searchPlaceholder": "メモを検索",
+    "defaultNote": "デフォルトのメモ",
+    "makeDefault": "デフォルトのメモに設定",
+    "captureHint": "音声入力はデフォルトでここに追加されます",
+    "untitledNote": "無題のメモ",
+    "noNotes": "まだメモがありません。",
+    "noNotesMatch": "検索に一致するメモがありません。",
+    "emptyNote": "このメモは空です。音声入力するかブロックを追加して始めましょう。",
+    "blockCount_one": "{{count}} 個のブロック",
+    "blockCount_other": "{{count}} 個のブロック",
+    "updated": "{{time}}に更新",
+    "dictation": "音声入力",
+    "postProcessed": "後処理済み",
+    "manual": "手動",
+    "capturing": "取得中…",
+    "moveTo": "メモへ移動",
+    "moveToCurrent": "{{title}}（現在）",
+    "moveToNew": "新しいメモ…",
+    "moveSelection": "選択範囲をメモへ移動",
+    "postProcessBlock": "このブロックを後処理",
+    "postProcessNote": "メモを後処理",
+    "postProcessing": "後処理中…",
+    "deleteBlock": "ブロックを削除",
+    "addBlockPlaceholder": "手動でメモを追加…",
+    "add": "追加",
+    "moreOptions": "その他のオプション",
+    "renameNote": "メモの名前を変更",
+    "deleteNote": "メモを削除",
+    "deleteNoteConfirm": "「{{title}}」とそのすべてのブロックを削除しますか?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "古い順に表示",
+    "showNewestFirst": "新しい順に表示"
   }
 }

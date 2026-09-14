@@ -7,7 +7,8 @@
     "model": "מודל",
     "quit": "יציאה",
     "cancel": "ביטול",
-    "secureInputWarning": "⚠ קיצורי המקשים חסומים על ידי Secure Input"
+    "secureInputWarning": "⚠ קיצורי המקשים חסומים על ידי Secure Input",
+    "openNotepad": "פתח את הפנקס"
   },
   "sidebar": {
     "general": "כללי",
@@ -16,7 +17,8 @@
     "postProcessing": "עיבוד משלים",
     "history": "היסטוריה",
     "debug": "ניפוי שגיאות",
-    "about": "אודות"
+    "about": "אודות",
+    "notepad": "פנקס"
   },
   "onboarding": {
     "subtitle": "כדי להתחיל, בחר מודל תמלול",
@@ -179,6 +181,10 @@
           "transcribe_with_post_process": {
             "name": "קיצור לעיבוד משלים",
             "description": "אופציונלי: קיצור מקשים ייעודי שתמיד מפעיל עיבוד AI על התמלול."
+          },
+          "open_notepad": {
+            "name": "פתח את הפנקס",
+            "description": "מציג את חלון הפנקס ומעביר אליו את הפוקוס."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "הצג מה חדש",
         "description": "הצג הערות גרסה לאחר עדכוני Handy"
       }
+    },
+    "notepad": {
+      "title": "פנקס",
+      "description": "פנקס רץ להכתבה, נפרד מההיסטוריה.",
+      "captureTitle": "הכתב אל הפנקס",
+      "captureDescription": "מוסיף כל תמלול לפתק ברירת המחדל של הפנקס, בנוסף להדבקה או העתקה הרגילה.",
+      "defaultNoteTitle": "פתק ברירת מחדל",
+      "defaultNoteDescription": "היכן מתווספת ההכתבה שנלכדה.",
+      "openButton": "פתח את הפנקס",
+      "autoOpenTitle": "פתח את הפנקס אוטומטית בעת לכידה",
+      "autoOpenDescription": "מציג את חלון הפנקס בחזית בכל פעם שהכתבה מתווספת אליו."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "טוען...",
     "delete": "מחק",
+    "cancel": "Cancel",
     "close": "סגור",
     "open": "פתח",
     "copy": "העתק",
@@ -713,5 +731,41 @@
     "learnMore": "איך לתקן את זה",
     "recorderBlocked": "לא ניתן להקליט קיצורים כרגע — Secure Input של macOS חוסם אירועי מקשים. פתור תחילה את אזהרת Secure Input.",
     "dismiss": "התעלם"
+  },
+  "notepad": {
+    "title": "פנקס",
+    "newNote": "פתק חדש",
+    "searchPlaceholder": "חיפוש פתקים",
+    "defaultNote": "פתק ברירת מחדל",
+    "makeDefault": "הגדר כפתק ברירת המחדל",
+    "captureHint": "ההכתבה מתווספת לכאן כברירת מחדל",
+    "untitledNote": "פתק ללא כותרת",
+    "noNotes": "עדיין אין פתקים.",
+    "noNotesMatch": "אין פתקים התואמים לחיפוש שלך.",
+    "emptyNote": "הפתק הזה ריק. הכתב טקסט או הוסף בלוק כדי להתחיל.",
+    "blockCount_one": "בלוק אחד",
+    "blockCount_other": "{{count}} בלוקים",
+    "updated": "עודכן {{time}}",
+    "dictation": "הכתבה",
+    "postProcessed": "עבר עיבוד",
+    "manual": "ידני",
+    "capturing": "מקליט…",
+    "moveTo": "העבר לפתק",
+    "moveToCurrent": "{{title}} (נוכחי)",
+    "moveToNew": "פתק חדש…",
+    "moveSelection": "העבר את הבחירה לפתק",
+    "postProcessBlock": "עבד את הבלוק הזה",
+    "postProcessNote": "עבד את הפתק",
+    "postProcessing": "מתבצע עיבוד…",
+    "deleteBlock": "מחק בלוק",
+    "addBlockPlaceholder": "הוסף פתק ידנית…",
+    "add": "הוסף",
+    "moreOptions": "עוד אפשרויות",
+    "renameNote": "שנה שם לפתק",
+    "deleteNote": "מחק פתק",
+    "deleteNoteConfirm": "למחוק את \"{{title}}\" ואת כל הבלוקים שלו?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "הצג את הישנים ביותר קודם",
+    "showNewestFirst": "הצג את החדשים ביותר קודם"
   }
 }

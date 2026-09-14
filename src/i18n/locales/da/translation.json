@@ -7,7 +7,8 @@
     "model": "Model",
     "quit": "Afslut",
     "cancel": "Annuller",
-    "secureInputWarning": "⚠ Genveje blokeret af Secure Input"
+    "secureInputWarning": "⚠ Genveje blokeret af Secure Input",
+    "openNotepad": "Åbn notesblok"
   },
   "sidebar": {
     "general": "Generelt",
@@ -16,7 +17,8 @@
     "postProcessing": "Efterbehandling",
     "history": "Historik",
     "debug": "Fejlfinding",
-    "about": "Om"
+    "about": "Om",
+    "notepad": "Notesblok"
   },
   "onboarding": {
     "subtitle": "For at komme i gang skal du vælge en transskriptionsmodel",
@@ -179,6 +181,10 @@
           "transcribe_with_post_process": {
             "name": "Genvej til efterbehandling",
             "description": "Valgfrit: En dedikeret genvej, der altid anvender AI-efterbehandling på din transskription."
+          },
+          "open_notepad": {
+            "name": "Åbn notesblok",
+            "description": "Viser og fokuserer notesblokvinduet."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
           "details": "Handys lokale tale-til-tekst funktionalitet er bygget på transcribe.cpp og ggml. Tak for det fantastiske arbejde af Georgi Gerganov og bidragyderne."
         }
       }
+    },
+    "notepad": {
+      "title": "Notesblok",
+      "description": "En løbende notesblok til diktering, adskilt fra historikken.",
+      "captureTitle": "Fang diktering i notesblok",
+      "captureDescription": "Tilføjer hver transskription til notesblokkens standardnote, ud over normal indsætning eller kopiering.",
+      "defaultNoteTitle": "Standardnote",
+      "defaultNoteDescription": "Hvor fanget diktering tilføjes.",
+      "openButton": "Åbn notesblok",
+      "autoOpenTitle": "Åbn notesblok automatisk ved fangst",
+      "autoOpenDescription": "Bringer notesblokvinduet frem, hver gang en diktering tilføjes til den."
     }
   },
   "footer": {
@@ -658,6 +675,7 @@
   "common": {
     "loading": "Indlæser...",
     "delete": "Slet",
+    "cancel": "Cancel",
     "close": "Luk",
     "open": "Åbn",
     "copy": "Kopiér",
@@ -713,5 +731,41 @@
     "learnMore": "Sådan løser du det",
     "recorderBlocked": "Genveje kan ikke optages lige nu — macOS Secure Input blokerer tastehændelser. Løs advarslen om Secure Input først.",
     "dismiss": "Afvis"
+  },
+  "notepad": {
+    "title": "Notesblok",
+    "newNote": "Ny note",
+    "searchPlaceholder": "Søg i noter",
+    "defaultNote": "Standardnote",
+    "makeDefault": "Angiv som standardnote",
+    "captureHint": "Diktering havner her som standard",
+    "untitledNote": "Unavngiven note",
+    "noNotes": "Ingen noter endnu.",
+    "noNotesMatch": "Ingen noter matcher din søgning.",
+    "emptyNote": "Denne note er tom. Diktér eller tilføj en blok for at komme i gang.",
+    "blockCount_one": "{{count}} blok",
+    "blockCount_other": "{{count}} blokke",
+    "updated": "Opdateret {{time}}",
+    "dictation": "Diktering",
+    "postProcessed": "Efterbehandlet",
+    "manual": "Manuel",
+    "capturing": "Fanger…",
+    "moveTo": "Flyt til note",
+    "moveToCurrent": "{{title}} (aktuel)",
+    "moveToNew": "Ny note…",
+    "moveSelection": "Flyt markering til note",
+    "postProcessBlock": "Efterbehandl denne blok",
+    "postProcessNote": "Efterbehandl note",
+    "postProcessing": "Efterbehandler…",
+    "deleteBlock": "Slet blok",
+    "addBlockPlaceholder": "Tilføj en note manuelt…",
+    "add": "Tilføj",
+    "moreOptions": "Flere valgmuligheder",
+    "renameNote": "Omdøb note",
+    "deleteNote": "Slet note",
+    "deleteNoteConfirm": "Slet \"{{title}}\" og alle dens blokke?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "Vis ældste først",
+    "showNewestFirst": "Vis nyeste først"
   }
 }

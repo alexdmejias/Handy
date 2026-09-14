@@ -47,7 +47,8 @@ const PostProcessingSettingsApiComponent: React.FC = () => {
       {state.isAppleProvider ? (
         state.appleIntelligenceUnavailable ? (
           <Alert variant="error" contained>
-            {t("settings.postProcessing.api.appleIntelligence.unavailable")}
+            {state.appleIntelligenceUnavailableReason ??
+              t("settings.postProcessing.api.appleIntelligence.unavailable")}
           </Alert>
         ) : null
       ) : (

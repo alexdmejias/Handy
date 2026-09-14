@@ -608,6 +608,15 @@ async checkAppleIntelligenceAvailable() : Promise<boolean> {
     return await TAURI_INVOKE("check_apple_intelligence_available");
 },
 /**
+ * Human-readable reason Apple Intelligence is currently unavailable (not
+ * enabled, still downloading, device ineligible, macOS too old), or `None`
+ * when it's available. Lets the UI show something more actionable than a
+ * bare yes/no.
+ */
+async getAppleIntelligenceUnavailableReason() : Promise<string | null> {
+    return await TAURI_INVOKE("get_apple_intelligence_unavailable_reason");
+},
+/**
  * Try to initialize Enigo (keyboard/mouse simulation).
  * On macOS, this will return an error if accessibility permissions are not granted.
  */
@@ -907,6 +916,159 @@ async updateRecordingRetentionPeriod(period: string) : Promise<Result<null, stri
     else return { status: "error", error: e  as any };
 }
 },
+async listNotes() : Promise<Result<NoteSummary[], string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("list_notes") };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Notes whose title or any block's content contains `query`
+ * (case-insensitive, SQLite's default for ASCII `LIKE`). The snippet
+ * shows the matching block when one matched on content, falling back to
+ * the note's most recent block when only the title matched. An empty
+ * (after trimming) query is equivalent to `list_notes`.
+ */
+async searchNotes(query: string) : Promise<Result<NoteSummary[], string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("search_notes", { query }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async getNote(id: number) : Promise<Result<NoteWithBlocks | null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("get_note", { id }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async createNote(title: string) : Promise<Result<Note, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("create_note", { title }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async renameNote(id: number, title: string) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("rename_note", { id, title }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async deleteNote(id: number) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("delete_note", { id }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async setDefaultNote(id: number) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("set_default_note", { id }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async createBlock(noteId: number, content: string) : Promise<Result<NoteBlock, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("create_block", { noteId, content }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async updateBlock(id: number, content: string) : Promise<Result<NoteBlock, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("update_block", { id, content }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async deleteBlock(id: number) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("delete_block", { id }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async moveBlock(id: number, targetNoteId: number) : Promise<Result<NoteBlock, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("move_block", { id, targetNoteId }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Move a `[start, end)` character range out of `id` into `target_note_id`
+ * as its own block, leaving the trimmed remainder behind (or deleting the
+ * block if nothing is left). Offsets are character offsets, not UTF-16
+ * code units or bytes — the frontend must convert `Selection` offsets from
+ * JS string indices to `Array.from(text)` char indices before calling this.
+ */
+async splitAndMoveBlock(id: number, start: number, end: number, targetNoteId: number) : Promise<Result<NoteBlock, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("split_and_move_block", { id, start, end, targetNoteId }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Runs the block's content through the user's configured post-processing
+ * provider/prompt (the same pipeline a live transcription uses) and
+ * replaces the block's content with the result in place.
+ */
+async postProcessBlock(id: number) : Promise<Result<NoteBlock, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("post_process_block", { id }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async changeCaptureToNotepadSetting(enabled: boolean) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("change_capture_to_notepad_setting", { enabled }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async changeAutoOpenNotepadOnCaptureSetting(enabled: boolean) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("change_auto_open_notepad_on_capture_setting", { enabled }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Opens the notepad window, creating it the first time and focusing it on
+ * every call after. Unlike the recording overlay this is an ordinary
+ * decorated, resizable window — it's a workspace the user keeps around
+ * alongside other apps, not a transient HUD.
+ */
+async openNotepadWindow() : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("open_notepad_window") };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
 /**
  * Checks if the Mac is a laptop by detecting battery presence
  * 
@@ -928,10 +1090,12 @@ async isLaptop() : Promise<Result<boolean, string>> {
 
 export const events = __makeEvents__<{
 historyUpdatePayload: HistoryUpdatePayload,
+noteUpdatePayload: NoteUpdatePayload,
 streamPhaseEvent: StreamPhaseEvent,
 streamTextEvent: StreamTextEvent
 }>({
 historyUpdatePayload: "history-update-payload",
+noteUpdatePayload: "note-update-payload",
 streamPhaseEvent: "stream-phase-event",
 streamTextEvent: "stream-text-event"
 })
@@ -1004,7 +1168,18 @@ vad_backend?: VadBackend;
  * not gated on this — that follows model capability. Migrated from the old
  * `overlay_position` (position `none` → style `None`).
  */
-overlay_style?: OverlayStyle }
+overlay_style?: OverlayStyle;
+/**
+ * Append every completed transcription (post-processed text if enabled)
+ * as a new block onto the notepad's default note, independent of
+ * whatever paste/clipboard behavior also runs for that transcription.
+ */
+capture_to_notepad?: boolean;
+/**
+ * When a capture actually appends a block, also show/focus the notepad
+ * window. Meaningless (and ignored) while `capture_to_notepad` is off.
+ */
+auto_open_notepad_on_capture?: boolean }
 export type AudioDevice = { index: string; name: string; is_default: boolean }
 export type AutoSubmitKey = "enter" | "ctrl_enter" | "cmd_enter"
 export type AvailableAccelerators = { transcribe: string[]; ort: string[]; gpu_devices: GpuDeviceOption[] }
@@ -1064,6 +1239,11 @@ sha256: string | null } } |
  */
 "Local"
 export type ModelUnloadTimeout = "never" | "immediately" | "min_2" | "min_5" | "min_10" | "min_15" | "hour_1" | "sec_15"
+export type Note = { id: number; title: string; is_default: boolean; created_at: number; updated_at: number }
+export type NoteBlock = { id: number; note_id: number; position: number; content: string; source: string; created_at: number }
+export type NoteSummary = { id: number; title: string; is_default: boolean; updated_at: number; block_count: number; snippet: string }
+export type NoteUpdatePayload = { action: "notes_changed" } | { action: "note_changed"; note_id: number }
+export type NoteWithBlocks = { note: Note; blocks: NoteBlock[] }
 export type OrtAcceleratorSetting = "auto" | "cpu" | "cuda" | "directml" | "rocm"
 export type OverlayPosition = "top" | "bottom"
 /**

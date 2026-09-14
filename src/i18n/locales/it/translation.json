@@ -7,7 +7,8 @@
     "model": "Modello",
     "quit": "Esci",
     "cancel": "Annulla",
-    "secureInputWarning": "⚠ Scorciatoie bloccate da Secure Input"
+    "secureInputWarning": "⚠ Scorciatoie bloccate da Secure Input",
+    "openNotepad": "Apri blocco note"
   },
   "sidebar": {
     "general": "Generale",
@@ -16,7 +17,8 @@
     "postProcessing": "Post-Elaborazione",
     "history": "Cronologia",
     "debug": "Debug",
-    "about": "Informazioni"
+    "about": "Informazioni",
+    "notepad": "Blocco note"
   },
   "onboarding": {
     "subtitle": "Per cominciare, scegli un modello di riconoscimento vocale",
@@ -199,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Tasto di post-elaborazione",
             "description": "Facoltativo: Un tasto di scelta rapida dedicato che applica sempre la post-elaborazione IA alla trascrizione."
+          },
+          "open_notepad": {
+            "name": "Apri blocco note",
+            "description": "Mostra e porta in primo piano la finestra del blocco note."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "Mostra novità",
         "description": "Mostra le note di rilascio dopo gli aggiornamenti di Handy"
       }
+    },
+    "notepad": {
+      "title": "Blocco note",
+      "description": "Un blocco note continuo per la dettatura, separato dalla cronologia.",
+      "captureTitle": "Acquisisci dettatura nel blocco note",
+      "captureDescription": "Aggiunge ogni trascrizione alla nota predefinita del blocco note, oltre a incollarla o copiarla come al solito.",
+      "defaultNoteTitle": "Nota predefinita",
+      "defaultNoteDescription": "Dove viene aggiunta la dettatura acquisita.",
+      "openButton": "Apri blocco note",
+      "autoOpenTitle": "Apri automaticamente il blocco note alla cattura",
+      "autoOpenDescription": "Porta in primo piano la finestra del blocco note ogni volta che vi viene aggiunta una dettatura."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "Caricamento...",
     "delete": "Elimina",
+    "cancel": "Cancel",
     "close": "Chiudi",
     "open": "Apri",
     "copy": "Copia",
@@ -713,5 +731,41 @@
     "learnMore": "Come risolvere",
     "recorderBlocked": "Non è possibile registrare scorciatoie in questo momento: Secure Input di macOS sta bloccando gli eventi dei tasti. Risolvi prima l'avviso di Secure Input.",
     "dismiss": "Ignora"
+  },
+  "notepad": {
+    "title": "Blocco note",
+    "newNote": "Nuova nota",
+    "searchPlaceholder": "Cerca note",
+    "defaultNote": "Nota predefinita",
+    "makeDefault": "Imposta come nota predefinita",
+    "captureHint": "La dettatura viene aggiunta qui per impostazione predefinita",
+    "untitledNote": "Nota senza titolo",
+    "noNotes": "Nessuna nota ancora.",
+    "noNotesMatch": "Nessuna nota corrisponde alla ricerca.",
+    "emptyNote": "Questa nota è vuota. Detta o aggiungi un blocco per iniziare.",
+    "blockCount_one": "{{count}} blocco",
+    "blockCount_other": "{{count}} blocchi",
+    "updated": "Aggiornato {{time}}",
+    "dictation": "Dettatura",
+    "postProcessed": "Post-elaborato",
+    "manual": "Manuale",
+    "capturing": "Acquisizione in corso…",
+    "moveTo": "Sposta in nota",
+    "moveToCurrent": "{{title}} (corrente)",
+    "moveToNew": "Nuova nota…",
+    "moveSelection": "Sposta selezione in nota",
+    "postProcessBlock": "Post-elabora questo blocco",
+    "postProcessNote": "Post-elabora nota",
+    "postProcessing": "Post-elaborazione…",
+    "deleteBlock": "Elimina blocco",
+    "addBlockPlaceholder": "Aggiungi una nota manualmente…",
+    "add": "Aggiungi",
+    "moreOptions": "Altre opzioni",
+    "renameNote": "Rinomina nota",
+    "deleteNote": "Elimina nota",
+    "deleteNoteConfirm": "Eliminare \"{{title}}\" e tutti i suoi blocchi?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "Mostra prima i più vecchi",
+    "showNewestFirst": "Mostra prima i più recenti"
   }
 }

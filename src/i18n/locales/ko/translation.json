@@ -7,7 +7,8 @@
     "model": "모델",
     "quit": "종료",
     "cancel": "취소",
-    "secureInputWarning": "⚠ Secure Input으로 단축키가 차단됨"
+    "secureInputWarning": "⚠ Secure Input으로 단축키가 차단됨",
+    "openNotepad": "메모장 열기"
   },
   "sidebar": {
     "general": "일반",
@@ -16,7 +17,8 @@
     "postProcessing": "후처리",
     "history": "히스토리",
     "debug": "디버그",
-    "about": "정보"
+    "about": "정보",
+    "notepad": "메모장"
   },
   "onboarding": {
     "subtitle": "시작하려면 음성 인식 모델을 선택하세요",
@@ -179,6 +181,10 @@
           "transcribe_with_post_process": {
             "name": "후처리 단축키",
             "description": "선택 사항: 항상 AI 후처리를 적용하는 전용 단축키입니다."
+          },
+          "open_notepad": {
+            "name": "메모장 열기",
+            "description": "메모장 창을 표시하고 포커스를 맞춥니다."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "새 소식 표시",
         "description": "Handy 업데이트 후 릴리스 노트를 표시합니다"
       }
+    },
+    "notepad": {
+      "title": "메모장",
+      "description": "기록과 별개로, 받아쓰기를 위한 상시 메모장입니다.",
+      "captureTitle": "받아쓰기를 메모장에 캡처",
+      "captureDescription": "붙여넣기나 복사와 별도로 모든 받아쓰기 내용을 메모장의 기본 메모에 추가합니다.",
+      "defaultNoteTitle": "기본 메모",
+      "defaultNoteDescription": "캡처된 받아쓰기가 추가되는 위치입니다.",
+      "openButton": "메모장 열기",
+      "autoOpenTitle": "캡처 시 메모장 자동으로 열기",
+      "autoOpenDescription": "받아쓰기가 메모장에 추가될 때마다 메모장 창을 앞으로 가져옵니다."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "로딩 중...",
     "delete": "삭제",
+    "cancel": "Cancel",
     "close": "닫기",
     "open": "열기",
     "copy": "복사",
@@ -713,5 +731,41 @@
     "learnMore": "해결 방법",
     "recorderBlocked": "지금은 단축키를 등록할 수 없습니다. macOS Secure Input이 키 이벤트를 차단하고 있습니다. Secure Input 경고를 먼저 해결하세요.",
     "dismiss": "닫기"
+  },
+  "notepad": {
+    "title": "메모장",
+    "newNote": "새 메모",
+    "searchPlaceholder": "메모 검색",
+    "defaultNote": "기본 메모",
+    "makeDefault": "기본 메모로 설정",
+    "captureHint": "받아쓰기는 기본적으로 여기에 추가됩니다",
+    "untitledNote": "제목 없는 메모",
+    "noNotes": "아직 메모가 없습니다.",
+    "noNotesMatch": "검색과 일치하는 메모가 없습니다.",
+    "emptyNote": "이 메모는 비어 있습니다. 받아쓰기를 하거나 블록을 추가해 시작하세요.",
+    "blockCount_one": "블록 {{count}}개",
+    "blockCount_other": "블록 {{count}}개",
+    "updated": "{{time}} 업데이트됨",
+    "dictation": "받아쓰기",
+    "postProcessed": "후처리됨",
+    "manual": "수동",
+    "capturing": "캡처 중…",
+    "moveTo": "메모로 이동",
+    "moveToCurrent": "{{title}} (현재)",
+    "moveToNew": "새 메모…",
+    "moveSelection": "선택 항목을 메모로 이동",
+    "postProcessBlock": "이 블록 후처리",
+    "postProcessNote": "메모 후처리",
+    "postProcessing": "후처리 중…",
+    "deleteBlock": "블록 삭제",
+    "addBlockPlaceholder": "수동으로 메모 추가…",
+    "add": "추가",
+    "moreOptions": "더 보기",
+    "renameNote": "메모 이름 바꾸기",
+    "deleteNote": "메모 삭제",
+    "deleteNoteConfirm": "\"{{title}}\" 및 모든 블록을 삭제하시겠습니까?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "오래된 순으로 표시",
+    "showNewestFirst": "최신 순으로 표시"
   }
 }

@@ -50,6 +50,46 @@ public func isAppleIntelligenceAvailable() -> Int32 {
     }
 }
 
+// Human-readable explanation for why `isAppleIntelligenceAvailable` returned
+// 0, so the app can show something more actionable than a bare "unavailable"
+// (e.g. distinguishing "not turned on" from "still downloading" from "this
+// Mac can't run it at all"). Returns nil (a null pointer) when available.
+@_cdecl("apple_intelligence_unavailable_reason")
+public func appleIntelligenceUnavailableReason() -> UnsafeMutablePointer<CChar>? {
+    guard #available(macOS 26.0, *) else {
+        return duplicateCString(
+            "This Mac's macOS version is older than macOS 26, which Apple Intelligence requires."
+        )
+    }
+
+    let model = SystemLanguageModel.default
+    switch model.availability {
+    case .available:
+        return nil
+    case .unavailable(let reason):
+        switch reason {
+        case .deviceNotEligible:
+            return duplicateCString("This device does not support Apple Intelligence.")
+        case .appleIntelligenceNotEnabled:
+            return duplicateCString(
+                "Apple Intelligence is turned off for this Mac. Enable it in System Settings > Apple Intelligence & Siri."
+            )
+        case .modelNotReady:
+            return duplicateCString(
+                "The on-device Apple Intelligence model isn't ready yet (still downloading, or Siri setup isn't complete). Check System Settings > Apple Intelligence & Siri."
+            )
+        @unknown default:
+            return duplicateCString("Apple Intelligence is unavailable for an unrecognized reason.")
+        }
+    }
+}
+
+@_cdecl("free_apple_intelligence_reason")
+public func freeAppleIntelligenceReason(_ ptr: UnsafeMutablePointer<CChar>?) {
+    guard let ptr = ptr else { return }
+    free(ptr)
+}
+
 @_cdecl("process_text_with_system_prompt_apple")
 public func processTextWithSystemPrompt(
     _ systemPrompt: UnsafePointer<CChar>,

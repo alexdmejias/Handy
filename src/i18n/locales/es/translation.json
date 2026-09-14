@@ -7,7 +7,8 @@
     "model": "Modelo",
     "quit": "Salir",
     "cancel": "Cancelar",
-    "secureInputWarning": "⚠ Atajos bloqueados por Secure Input"
+    "secureInputWarning": "⚠ Atajos bloqueados por Secure Input",
+    "openNotepad": "Abrir bloc de notas"
   },
   "sidebar": {
     "general": "General",
@@ -16,7 +17,8 @@
     "postProcessing": "Post proceso",
     "history": "Historial",
     "debug": "Depuración",
-    "about": "Acerca de"
+    "about": "Acerca de",
+    "notepad": "Bloc de notas"
   },
   "onboarding": {
     "subtitle": "Para comenzar, elige un modelo de transcripción",
@@ -199,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Tecla de post procesamiento",
             "description": "Opcional: Una tecla de acceso rápido dedicada que siempre aplica post procesamiento con IA a tu transcripción."
+          },
+          "open_notepad": {
+            "name": "Abrir bloc de notas",
+            "description": "Muestra y enfoca la ventana del bloc de notas."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "Mostrar novedades",
         "description": "Mostrar notas de la versión después de las actualizaciones de Handy"
       }
+    },
+    "notepad": {
+      "title": "Bloc de notas",
+      "description": "Un bloc de notas continuo para el dictado, independiente del historial.",
+      "captureTitle": "Capturar dictado en el bloc de notas",
+      "captureDescription": "Añade cada transcripción a la nota predeterminada del bloc de notas, además de pegarla o copiarla como de costumbre.",
+      "defaultNoteTitle": "Nota predeterminada",
+      "defaultNoteDescription": "Dónde se añade el dictado capturado.",
+      "openButton": "Abrir bloc de notas",
+      "autoOpenTitle": "Abrir automáticamente el bloc de notas al capturar",
+      "autoOpenDescription": "Muestra la ventana del bloc de notas en primer plano cada vez que se le añade un dictado."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "Cargando...",
     "delete": "Eliminar",
+    "cancel": "Cancel",
     "close": "Cerrar",
     "open": "Abrir",
     "copy": "Copiar",
@@ -713,5 +731,41 @@
     "learnMore": "Cómo solucionarlo",
     "recorderBlocked": "Ahora mismo no se pueden grabar atajos: Secure Input de macOS está bloqueando los eventos de teclado. Resuelve primero el aviso de Secure Input.",
     "dismiss": "Descartar"
+  },
+  "notepad": {
+    "title": "Bloc de notas",
+    "newNote": "Nueva nota",
+    "searchPlaceholder": "Buscar notas",
+    "defaultNote": "Nota predeterminada",
+    "makeDefault": "Establecer como nota predeterminada",
+    "captureHint": "El dictado se añade aquí de forma predeterminada",
+    "untitledNote": "Nota sin título",
+    "noNotes": "Aún no hay notas.",
+    "noNotesMatch": "Ninguna nota coincide con tu búsqueda.",
+    "emptyNote": "Esta nota está vacía. Dicta o añade un bloque para empezar.",
+    "blockCount_one": "{{count}} bloque",
+    "blockCount_other": "{{count}} bloques",
+    "updated": "Actualizado {{time}}",
+    "dictation": "Dictado",
+    "postProcessed": "Post-procesado",
+    "manual": "Manual",
+    "capturing": "Capturando…",
+    "moveTo": "Mover a nota",
+    "moveToCurrent": "{{title}} (actual)",
+    "moveToNew": "Nueva nota…",
+    "moveSelection": "Mover selección a nota",
+    "postProcessBlock": "Post-procesar este bloque",
+    "postProcessNote": "Post-procesar nota",
+    "postProcessing": "Post-procesando…",
+    "deleteBlock": "Eliminar bloque",
+    "addBlockPlaceholder": "Añadir una nota manualmente…",
+    "add": "Añadir",
+    "moreOptions": "Más opciones",
+    "renameNote": "Renombrar nota",
+    "deleteNote": "Eliminar nota",
+    "deleteNoteConfirm": "¿Eliminar «{{title}}» y todos sus bloques?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "Mostrar primero lo más antiguo",
+    "showNewestFirst": "Mostrar primero lo más reciente"
   }
 }

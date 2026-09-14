@@ -514,6 +514,15 @@ pub struct AppSettings {
     /// `overlay_position` (position `none` → style `None`).
     #[serde(default = "default_overlay_style")]
     pub overlay_style: OverlayStyle,
+    /// Append every completed transcription (post-processed text if enabled)
+    /// as a new block onto the notepad's default note, independent of
+    /// whatever paste/clipboard behavior also runs for that transcription.
+    #[serde(default)]
+    pub capture_to_notepad: bool,
+    /// When a capture actually appends a block, also show/focus the notepad
+    /// window. Meaningless (and ignored) while `capture_to_notepad` is off.
+    #[serde(default)]
+    pub auto_open_notepad_on_capture: bool,
 }
 
 fn default_model() -> String {
@@ -906,6 +915,18 @@ pub fn get_default_settings() -> AppSettings {
             current_binding: "escape".to_string(),
         },
     );
+    // Unbound by default (every convenient combo on every platform is already
+    // claimed above) — the user opts in from Settings > Notepad if they want it.
+    bindings.insert(
+        "open_notepad".to_string(),
+        ShortcutBinding {
+            id: "open_notepad".to_string(),
+            name: "Open Notepad".to_string(),
+            description: "Shows and focuses the notepad window.".to_string(),
+            default_binding: "".to_string(),
+            current_binding: "".to_string(),
+        },
+    );
 
     AppSettings {
         settings_schema_version: default_settings_schema_version(),
@@ -970,6 +991,8 @@ pub fn get_default_settings() -> AppSettings {
         vad_enabled: default_vad_enabled(),
         vad_backend: VadBackend::default(),
         overlay_style: default_overlay_style(),
+        capture_to_notepad: false,
+        auto_open_notepad_on_capture: false,
     }
 }
 

@@ -7,7 +7,8 @@
     "model": "Модел",
     "quit": "Изход",
     "cancel": "Отказ",
-    "secureInputWarning": "⚠ Бързите клавиши са блокирани от Secure Input"
+    "secureInputWarning": "⚠ Бързите клавиши са блокирани от Secure Input",
+    "openNotepad": "Отвори тефтера"
   },
   "sidebar": {
     "general": "Общи",
@@ -16,7 +17,8 @@
     "postProcessing": "Постобработка",
     "history": "История",
     "debug": "Отстраняване",
-    "about": "За приложението"
+    "about": "За приложението",
+    "notepad": "Тефтер"
   },
   "onboarding": {
     "subtitle": "За да започнете, изберете модел за транскрипция",
@@ -179,6 +181,10 @@
           "transcribe_with_post_process": {
             "name": "Бърз клавиш за постобработка",
             "description": "По избор: отделна комбинация, която винаги прилага ИИ постобработка върху транскрипцията."
+          },
+          "open_notepad": {
+            "name": "Отвори тефтера",
+            "description": "Показва и фокусира прозореца на тефтера."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "Показвай новостите",
         "description": "Показвай бележки към изданието след актуализации на Handy"
       }
+    },
+    "notepad": {
+      "title": "Тефтер",
+      "description": "Постоянен тефтер за диктовка, отделен от историята.",
+      "captureTitle": "Записвай диктовка в тефтера",
+      "captureDescription": "Добавя всяка транскрипция към бележката по подразбиране на тефтера, в допълнение към обичайното поставяне или копиране.",
+      "defaultNoteTitle": "Бележка по подразбиране",
+      "defaultNoteDescription": "Къде се добавя заснетата диктовка.",
+      "openButton": "Отвори тефтера",
+      "autoOpenTitle": "Автоматично отваряне на тефтера при заснемане",
+      "autoOpenDescription": "Извежда прозореца на тефтера на преден план всеки път, когато към него се добави диктовка."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "Зареждане...",
     "delete": "Изтриване",
+    "cancel": "Cancel",
     "close": "Затваряне",
     "open": "Отваряне",
     "copy": "Копиране",
@@ -713,5 +731,41 @@
     "learnMore": "Как да поправите това",
     "recorderBlocked": "В момента не могат да се записват бързи клавиши — Secure Input на macOS блокира клавишните събития. Първо отстранете предупреждението за Secure Input.",
     "dismiss": "Отхвърляне"
+  },
+  "notepad": {
+    "title": "Тефтер",
+    "newNote": "Нова бележка",
+    "searchPlaceholder": "Търсене на бележки",
+    "defaultNote": "Бележка по подразбиране",
+    "makeDefault": "Задай като бележка по подразбиране",
+    "captureHint": "Диктуваният текст по подразбиране попада тук",
+    "untitledNote": "Бележка без заглавие",
+    "noNotes": "Все още няма бележки.",
+    "noNotesMatch": "Няма бележки, отговарящи на търсенето.",
+    "emptyNote": "Тази бележка е празна. Продиктувайте текст или добавете блок, за да започнете.",
+    "blockCount_one": "{{count}} блок",
+    "blockCount_other": "{{count}} блока",
+    "updated": "Обновено {{time}}",
+    "dictation": "Диктовка",
+    "postProcessed": "Обработено",
+    "manual": "Ръчно",
+    "capturing": "Заснемане…",
+    "moveTo": "Преместване в бележка",
+    "moveToCurrent": "{{title}} (текуща)",
+    "moveToNew": "Нова бележка…",
+    "moveSelection": "Преместване на избраното в бележка",
+    "postProcessBlock": "Обработи този блок",
+    "postProcessNote": "Обработи бележката",
+    "postProcessing": "Обработва се…",
+    "deleteBlock": "Изтриване на блок",
+    "addBlockPlaceholder": "Добавяне на бележка ръчно…",
+    "add": "Добави",
+    "moreOptions": "Още опции",
+    "renameNote": "Преименуване на бележка",
+    "deleteNote": "Изтриване на бележка",
+    "deleteNoteConfirm": "Да се изтрие ли „{{title}}“ и всичките ѝ блокове?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "Показвай първо най-старите",
+    "showNewestFirst": "Показвай първо най-новите"
   }
 }

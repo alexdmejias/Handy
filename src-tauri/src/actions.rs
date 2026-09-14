@@ -5,6 +5,7 @@ use crate::audio_toolkit::{is_microphone_access_denied, is_no_input_device_error
 use crate::managers::audio::AudioRecordingManager;
 use crate::managers::history::HistoryManager;
 use crate::managers::model::ModelManager;
+use crate::managers::notes::NotesManager;
 use crate::managers::transcription::StreamWorkKind;
 use crate::managers::transcription::TranscriptionManager;
 use crate::settings::{get_settings, AppSettings, OverlayStyle, APPLE_INTELLIGENCE_PROVIDER_ID};
@@ -118,6 +119,55 @@ fn should_use_streaming_overlay(style: OverlayStyle, is_streaming: bool) -> bool
     style == OverlayStyle::Live && is_streaming
 }
 
+/// Checks the same configuration `post_process_transcription` silently no-ops
+/// on, and returns a human-readable reason when post-processing can't run.
+/// The main dictation pipeline is fine falling back to the original text
+/// without explanation, but callers that expect post-processing to visibly
+/// change something (e.g. the notepad's "post-process this block" action)
+/// need to tell the difference between "ran and produced identical text" and
+/// "didn't run at all".
+pub(crate) fn post_process_readiness_error(settings: &AppSettings) -> Option<String> {
+    let provider = match settings.active_post_process_provider() {
+        Some(provider) => provider,
+        None => {
+            return Some(
+                "No post-processing provider is selected in Settings > Post Process.".to_string(),
+            )
+        }
+    };
+
+    let model = settings
+        .post_process_models
+        .get(&provider.id)
+        .cloned()
+        .unwrap_or_default();
+    if model.trim().is_empty() {
+        return Some(format!(
+            "No model is configured for the '{}' provider in Settings > Post Process.",
+            provider.id
+        ));
+    }
+
+    let selected_prompt_id = match &settings.post_process_selected_prompt_id {
+        Some(id) => id,
+        None => {
+            return Some("No prompt is selected in Settings > Post Process.".to_string());
+        }
+    };
+
+    match settings
+        .post_process_prompts
+        .iter()
+        .find(|prompt| &prompt.id == selected_prompt_id)
+    {
+        None => Some("The selected post-processing prompt no longer exists.".to_string()),
+        Some(prompt) if prompt.prompt.trim().is_empty() => {
+            Some("The selected post-processing prompt is empty.".to_string())
+        }
+        Some(_) => None,
+    }
+}
+
 async fn post_process_transcription(settings: &AppSettings, transcription: &str) -> Option<String> {
     if is_blank_transcription(transcription) {
         debug!("Post-processing skipped because the transcription is empty");
@@ -201,8 +251,11 @@ async fn post_process_transcription(settings: &AppSettings, transcription: &str)
             #[cfg(all(target_os = "macos", target_arch = "aarch64"))]
             {
                 if !apple_intelligence::check_apple_intelligence_availability() {
+                    let reason = apple_intelligence::unavailable_reason()
+                        .unwrap_or_else(|| "unknown reason".to_string());
                     debug!(
-                        "Apple Intelligence selected but not currently available on this device"
+                        "Apple Intelligence selected but not currently available on this device: {}",
+                        reason
                     );
                     return None;
                 }
@@ -645,6 +698,7 @@ impl ShortcutAction for TranscribeAction {
         let rm = Arc::clone(&app.state::<Arc<AudioRecordingManager>>());
         let tm = Arc::clone(&app.state::<Arc<TranscriptionManager>>());
         let hm = Arc::clone(&app.state::<Arc<HistoryManager>>());
+        let nm = Arc::clone(&app.state::<Arc<NotesManager>>());
 
         set_tray_state(app, TrayIconState::Transcribing);
         // Stop should give immediate visual feedback. Live streaming can keep
@@ -806,6 +860,50 @@ impl ShortcutAction for TranscribeAction {
                                 }
                             }
 
+                            // Notepad capture runs independently of paste/clipboard
+                            // handling below — it's a parallel destination, not a
+                            // substitute for either.
+                            let notepad_settings = get_settings(&ah);
+                            if notepad_settings.capture_to_notepad {
+                                match nm.append_to_default(
+                                    &processed.final_text,
+                                    processed.post_processed_text.is_some(),
+                                ) {
+                                    // Only bring the window up when a block was
+                                    // actually appended (blank transcriptions are a
+                                    // no-op, per append_to_default).
+                                    Ok(Some(_))
+                                        if notepad_settings.auto_open_notepad_on_capture =>
+                                    {
+                                        let ah_for_notepad = ah.clone();
+                                        // Window creation/show must happen on the
+                                        // main thread; this hook runs on a spawned
+                                        // background task.
+                                        if let Err(e) = ah.run_on_main_thread(move || {
+                                            if let Err(err) =
+                                                crate::notepad_window::show_notepad_window(
+                                                    &ah_for_notepad,
+                                                )
+                                            {
+                                                error!("Failed to open notepad window: {}", err);
+                                            }
+                                        }) {
+                                            error!(
+                                                "Failed to schedule opening notepad window: {}",
+                                                e
+                                            );
+                                        }
+                                    }
+                                    Ok(_) => {}
+                                    Err(err) => {
+                                        error!(
+                                            "Failed to append transcription to notepad: {}",
+                                            err
+                                        );
+                                    }
+                                }
+                            }
+
                             if processed.final_text.is_empty() {
                                 utils::hide_recording_overlay(&ah);
                                 set_tray_state(&ah, TrayIconState::Idle);
@@ -902,6 +1000,21 @@ impl ShortcutAction for CancelAction {
     }
 }
 
+// Open Notepad Action
+struct OpenNotepadAction;
+
+impl ShortcutAction for OpenNotepadAction {
+    fn start(&self, app: &AppHandle, _binding_id: &str, _shortcut_str: &str) {
+        if let Err(err) = crate::notepad_window::show_notepad_window(app) {
+            error!("Failed to open notepad window from shortcut: {}", err);
+        }
+    }
+
+    fn stop(&self, _app: &AppHandle, _binding_id: &str, _shortcut_str: &str) {
+        // A press just opens the window; nothing to do on release.
+    }
+}
+
 // Test Action
 struct TestAction;
 
@@ -941,6 +1054,10 @@ pub static ACTION_MAP: Lazy<HashMap<String, Arc<dyn ShortcutAction>>> = Lazy::ne
     map.insert(
         "cancel".to_string(),
         Arc::new(CancelAction) as Arc<dyn ShortcutAction>,
+    );
+    map.insert(
+        "open_notepad".to_string(),
+        Arc::new(OpenNotepadAction) as Arc<dyn ShortcutAction>,
     );
     map.insert(
         "test".to_string(),

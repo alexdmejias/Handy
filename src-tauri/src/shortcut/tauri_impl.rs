@@ -33,6 +33,11 @@ pub fn init_shortcuts(app: &AppHandle) {
             .cloned()
             .unwrap_or(default_binding);
 
+        // Unbound (e.g. open_notepad's empty default until the user sets one).
+        if binding.current_binding.trim().is_empty() {
+            continue;
+        }
+
         if let Err(e) = register_shortcut(app, binding) {
             error!("Failed to register shortcut {} during init: {}", id, e);
         }

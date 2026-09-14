@@ -24,6 +24,10 @@ pub struct CliArgs {
     #[arg(long)]
     pub cancel: bool,
 
+    /// Show and focus the notepad window (sent to running instance)
+    #[arg(long)]
+    pub open_notepad: bool,
+
     /// Enable debug mode with verbose logging
     #[arg(long)]
     pub debug: bool,

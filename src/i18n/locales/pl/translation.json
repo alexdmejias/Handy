@@ -7,7 +7,8 @@
     "model": "Model",
     "quit": "Zamknij",
     "cancel": "Anuluj",
-    "secureInputWarning": "⚠ Skróty zablokowane przez Secure Input"
+    "secureInputWarning": "⚠ Skróty zablokowane przez Secure Input",
+    "openNotepad": "Otwórz notatnik"
   },
   "sidebar": {
     "general": "Ogólne",
@@ -16,7 +17,8 @@
     "postProcessing": "Postproces",
     "history": "Historia",
     "debug": "Debugowanie",
-    "about": "O programie"
+    "about": "O programie",
+    "notepad": "Notatnik"
   },
   "onboarding": {
     "subtitle": "Aby rozpocząć, wybierz model transkrypcji",
@@ -199,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Skrót postprocessingu",
             "description": "Opcjonalnie: Dedykowany skrót klawiszowy, który zawsze stosuje postprocessing AI do transkrypcji."
+          },
+          "open_notepad": {
+            "name": "Otwórz notatnik",
+            "description": "Pokazuje i aktywuje okno notatnika."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "Pokaż nowości",
         "description": "Pokazuj informacje o wydaniu po aktualizacjach Handy"
       }
+    },
+    "notepad": {
+      "title": "Notatnik",
+      "description": "Bieżący notatnik do dyktowania, oddzielny od historii.",
+      "captureTitle": "Przechwytuj dyktowanie do notatnika",
+      "captureDescription": "Dodaje każdą transkrypcję do domyślnej notatki notatnika, oprócz zwykłego wklejania lub kopiowania.",
+      "defaultNoteTitle": "Domyślna notatka",
+      "defaultNoteDescription": "Gdzie dodawane jest przechwycone dyktowanie.",
+      "openButton": "Otwórz notatnik",
+      "autoOpenTitle": "Automatycznie otwieraj notatnik przy przechwytywaniu",
+      "autoOpenDescription": "Wysuwa okno notatnika na pierwszy plan za każdym razem, gdy dodawane jest do niego dyktowanie."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "Wczytywanie...",
     "delete": "Usuń",
+    "cancel": "Cancel",
     "close": "Zamknij",
     "open": "Otwórz",
     "copy": "Kopiuj",
@@ -713,5 +731,41 @@
     "learnMore": "Jak to naprawić",
     "recorderBlocked": "Nie można teraz nagrać skrótu — Secure Input w macOS blokuje zdarzenia klawiszy. Najpierw rozwiąż ostrzeżenie o Secure Input.",
     "dismiss": "Odrzuć"
+  },
+  "notepad": {
+    "title": "Notatnik",
+    "newNote": "Nowa notatka",
+    "searchPlaceholder": "Szukaj notatek",
+    "defaultNote": "Domyślna notatka",
+    "makeDefault": "Ustaw jako domyślną notatkę",
+    "captureHint": "Dyktowanie domyślnie trafia tutaj",
+    "untitledNote": "Notatka bez tytułu",
+    "noNotes": "Brak notatek.",
+    "noNotesMatch": "Żadna notatka nie pasuje do wyszukiwania.",
+    "emptyNote": "Ta notatka jest pusta. Podyktuj tekst lub dodaj blok, aby zacząć.",
+    "blockCount_one": "{{count}} blok",
+    "blockCount_other": "{{count}} bloków",
+    "updated": "Zaktualizowano {{time}}",
+    "dictation": "Dyktowanie",
+    "postProcessed": "Przetworzone",
+    "manual": "Ręcznie",
+    "capturing": "Przechwytywanie…",
+    "moveTo": "Przenieś do notatki",
+    "moveToCurrent": "{{title}} (bieżąca)",
+    "moveToNew": "Nowa notatka…",
+    "moveSelection": "Przenieś zaznaczenie do notatki",
+    "postProcessBlock": "Przetwórz ten blok",
+    "postProcessNote": "Przetwórz notatkę",
+    "postProcessing": "Przetwarzanie…",
+    "deleteBlock": "Usuń blok",
+    "addBlockPlaceholder": "Dodaj notatkę ręcznie…",
+    "add": "Dodaj",
+    "moreOptions": "Więcej opcji",
+    "renameNote": "Zmień nazwę notatki",
+    "deleteNote": "Usuń notatkę",
+    "deleteNoteConfirm": "Usunąć „{{title}}” i wszystkie jej bloki?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "Pokaż najstarsze najpierw",
+    "showNewestFirst": "Pokaż najnowsze najpierw"
   }
 }

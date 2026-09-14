@@ -7,7 +7,8 @@
     "model": "Mô hình",
     "quit": "Thoát",
     "cancel": "Hủy",
-    "secureInputWarning": "⚠ Phím tắt bị Secure Input chặn"
+    "secureInputWarning": "⚠ Phím tắt bị Secure Input chặn",
+    "openNotepad": "Mở sổ tay"
   },
   "sidebar": {
     "general": "Chung",
@@ -16,7 +17,8 @@
     "postProcessing": "Xử lý sau",
     "history": "Lịch sử",
     "debug": "Gỡ lỗi",
-    "about": "Giới thiệu"
+    "about": "Giới thiệu",
+    "notepad": "Sổ tay"
   },
   "onboarding": {
     "subtitle": "Để bắt đầu, hãy chọn một mô hình chuyển đổi giọng nói",
@@ -199,6 +201,10 @@
           "transcribe_with_post_process": {
             "name": "Phím tắt xử lý sau",
             "description": "Tùy chọn: Phím tắt chuyên dụng luôn áp dụng xử lý sau bằng AI cho bản chuyển đổi của bạn."
+          },
+          "open_notepad": {
+            "name": "Mở sổ tay",
+            "description": "Hiển thị và đưa cửa sổ sổ tay lên tiêu điểm."
           }
         },
         "errors": {
@@ -635,6 +641,17 @@
         "label": "Hiển thị điểm mới",
         "description": "Hiển thị ghi chú phát hành sau khi Handy cập nhật"
       }
+    },
+    "notepad": {
+      "title": "Sổ tay",
+      "description": "Một sổ tay liên tục cho việc đọc chính tả, tách biệt với lịch sử.",
+      "captureTitle": "Ghi nội dung đọc chính tả vào sổ tay",
+      "captureDescription": "Thêm mỗi bản chép lời vào ghi chú mặc định của sổ tay, ngoài việc dán hoặc sao chép như thường lệ.",
+      "defaultNoteTitle": "Ghi chú mặc định",
+      "defaultNoteDescription": "Nơi nội dung đọc chính tả đã ghi được thêm vào.",
+      "openButton": "Mở sổ tay",
+      "autoOpenTitle": "Tự động mở sổ tay khi ghi",
+      "autoOpenDescription": "Đưa cửa sổ sổ tay lên trước mỗi khi có nội dung đọc chính tả được thêm vào."
     }
   },
   "footer": {
@@ -655,6 +672,7 @@
   "common": {
     "loading": "Đang tải...",
     "delete": "Xóa",
+    "cancel": "Cancel",
     "close": "Đóng",
     "open": "Mở",
     "copy": "Sao chép",
@@ -713,5 +731,41 @@
     "learnMore": "Cách khắc phục",
     "recorderBlocked": "Hiện không thể ghi phím tắt — Secure Input của macOS đang chặn các sự kiện phím. Hãy xử lý cảnh báo Secure Input trước.",
     "dismiss": "Bỏ qua"
+  },
+  "notepad": {
+    "title": "Sổ tay",
+    "newNote": "Ghi chú mới",
+    "searchPlaceholder": "Tìm kiếm ghi chú",
+    "defaultNote": "Ghi chú mặc định",
+    "makeDefault": "Đặt làm ghi chú mặc định",
+    "captureHint": "Nội dung đọc chính tả mặc định sẽ được thêm vào đây",
+    "untitledNote": "Ghi chú chưa đặt tên",
+    "noNotes": "Chưa có ghi chú nào.",
+    "noNotesMatch": "Không có ghi chú nào khớp với tìm kiếm của bạn.",
+    "emptyNote": "Ghi chú này trống. Hãy đọc chính tả hoặc thêm một khối để bắt đầu.",
+    "blockCount_one": "{{count}} khối",
+    "blockCount_other": "{{count}} khối",
+    "updated": "Đã cập nhật {{time}}",
+    "dictation": "Đọc chính tả",
+    "postProcessed": "Đã hậu xử lý",
+    "manual": "Thủ công",
+    "capturing": "Đang ghi…",
+    "moveTo": "Chuyển đến ghi chú",
+    "moveToCurrent": "{{title}} (hiện tại)",
+    "moveToNew": "Ghi chú mới…",
+    "moveSelection": "Chuyển phần đã chọn đến ghi chú",
+    "postProcessBlock": "Hậu xử lý khối này",
+    "postProcessNote": "Hậu xử lý ghi chú",
+    "postProcessing": "Đang hậu xử lý…",
+    "deleteBlock": "Xóa khối",
+    "addBlockPlaceholder": "Thêm ghi chú thủ công…",
+    "add": "Thêm",
+    "moreOptions": "Tùy chọn khác",
+    "renameNote": "Đổi tên ghi chú",
+    "deleteNote": "Xóa ghi chú",
+    "deleteNoteConfirm": "Xóa \"{{title}}\" và tất cả các khối của nó?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
+    "showOldestFirst": "Hiển thị cũ nhất trước",
+    "showNewestFirst": "Hiển thị mới nhất trước"
   }
 }
