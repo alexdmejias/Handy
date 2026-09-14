@@ -1,5 +1,6 @@
-use crate::actions::process_transcription_output;
+use crate::actions::{post_process_readiness_error, process_transcription_output};
 use crate::managers::notes::{Note, NoteBlock, NoteSummary, NoteWithBlocks, NotesManager};
+use crate::settings::get_settings;
 use std::sync::Arc;
 use tauri::{AppHandle, State};
 
@@ -156,7 +157,18 @@ pub async fn post_process_block(
         .map_err(|e| e.to_string())?
         .ok_or_else(|| format!("Block {} not found", id))?;
 
+    let settings = get_settings(&app);
+    if let Some(reason) = post_process_readiness_error(&settings) {
+        return Err(reason);
+    }
+
     let processed = process_transcription_output(&app, &block.content, true).await;
+
+    if processed.post_processed_text.is_none() {
+        return Err(
+            "Post-processing did not run. Check that your provider is reachable and the API key/model are valid.".to_string(),
+        );
+    }
 
     notes_manager
         .apply_post_processed_content(id, processed.final_text)

@@ -119,6 +119,55 @@ fn should_use_streaming_overlay(style: OverlayStyle, is_streaming: bool) -> bool
     style == OverlayStyle::Live && is_streaming
 }
 
+/// Checks the same configuration `post_process_transcription` silently no-ops
+/// on, and returns a human-readable reason when post-processing can't run.
+/// The main dictation pipeline is fine falling back to the original text
+/// without explanation, but callers that expect post-processing to visibly
+/// change something (e.g. the notepad's "post-process this block" action)
+/// need to tell the difference between "ran and produced identical text" and
+/// "didn't run at all".
+pub(crate) fn post_process_readiness_error(settings: &AppSettings) -> Option<String> {
+    let provider = match settings.active_post_process_provider() {
+        Some(provider) => provider,
+        None => {
+            return Some(
+                "No post-processing provider is selected in Settings > Post Process.".to_string(),
+            )
+        }
+    };
+
+    let model = settings
+        .post_process_models
+        .get(&provider.id)
+        .cloned()
+        .unwrap_or_default();
+    if model.trim().is_empty() {
+        return Some(format!(
+            "No model is configured for the '{}' provider in Settings > Post Process.",
+            provider.id
+        ));
+    }
+
+    let selected_prompt_id = match &settings.post_process_selected_prompt_id {
+        Some(id) => id,
+        None => {
+            return Some("No prompt is selected in Settings > Post Process.".to_string());
+        }
+    };
+
+    match settings
+        .post_process_prompts
+        .iter()
+        .find(|prompt| &prompt.id == selected_prompt_id)
+    {
+        None => Some("The selected post-processing prompt no longer exists.".to_string()),
+        Some(prompt) if prompt.prompt.trim().is_empty() => {
+            Some("The selected post-processing prompt is empty.".to_string())
+        }
+        Some(_) => None,
+    }
+}
+
 async fn post_process_transcription(settings: &AppSettings, transcription: &str) -> Option<String> {
     if is_blank_transcription(transcription) {
         debug!("Post-processing skipped because the transcription is empty");
