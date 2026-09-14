@@ -672,6 +672,7 @@
   "common": {
     "loading": "Đang tải...",
     "delete": "Xóa",
+    "cancel": "Cancel",
     "close": "Đóng",
     "open": "Mở",
     "copy": "Sao chép",
@@ -763,6 +764,7 @@
     "renameNote": "Đổi tên ghi chú",
     "deleteNote": "Xóa ghi chú",
     "deleteNoteConfirm": "Xóa \"{{title}}\" và tất cả các khối của nó?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Hiển thị cũ nhất trước",
     "showNewestFirst": "Hiển thị mới nhất trước"
   }

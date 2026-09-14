@@ -672,6 +672,7 @@
   "common": {
     "loading": "加载中...",
     "delete": "删除",
+    "cancel": "Cancel",
     "close": "关闭",
     "open": "打开",
     "copy": "复制",
@@ -763,6 +764,7 @@
     "renameNote": "重命名笔记",
     "deleteNote": "删除笔记",
     "deleteNoteConfirm": "删除“{{title}}”及其所有内容块?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "先显示最旧的",
     "showNewestFirst": "先显示最新的"
   }

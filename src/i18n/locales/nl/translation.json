@@ -675,6 +675,7 @@
   "common": {
     "loading": "Laden...",
     "delete": "Verwijderen",
+    "cancel": "Cancel",
     "close": "Sluiten",
     "open": "Openen",
     "copy": "Kopiëren",
@@ -763,6 +764,7 @@
     "renameNote": "Notitie hernoemen",
     "deleteNote": "Notitie verwijderen",
     "deleteNoteConfirm": "\"{{title}}\" en alle bijbehorende blokken verwijderen?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Oudste eerst weergeven",
     "showNewestFirst": "Nieuwste eerst weergeven"
   }

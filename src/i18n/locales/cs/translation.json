@@ -672,6 +672,7 @@
   "common": {
     "loading": "Načítání...",
     "delete": "Smazat",
+    "cancel": "Cancel",
     "close": "Zavřít",
     "open": "Otevřít",
     "copy": "Kopírovat",
@@ -763,6 +764,7 @@
     "renameNote": "Přejmenovat poznámku",
     "deleteNote": "Odstranit poznámku",
     "deleteNoteConfirm": "Odstranit „{{title}}“ a všechny její bloky?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Zobrazit nejstarší jako první",
     "showNewestFirst": "Zobrazit nejnovější jako první"
   }

@@ -672,6 +672,7 @@
   "common": {
     "loading": "Laddar...",
     "delete": "Ta bort",
+    "cancel": "Cancel",
     "close": "Stäng",
     "open": "Öppna",
     "copy": "Kopiera",
@@ -763,6 +764,7 @@
     "renameNote": "Byt namn på anteckning",
     "deleteNote": "Ta bort anteckning",
     "deleteNoteConfirm": "Ta bort \"{{title}}\" och alla dess block?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Visa äldst först",
     "showNewestFirst": "Visa nyast först"
   }

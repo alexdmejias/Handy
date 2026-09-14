@@ -672,6 +672,7 @@
   "common": {
     "loading": "Wczytywanie...",
     "delete": "Usuń",
+    "cancel": "Cancel",
     "close": "Zamknij",
     "open": "Otwórz",
     "copy": "Kopiuj",
@@ -763,6 +764,7 @@
     "renameNote": "Zmień nazwę notatki",
     "deleteNote": "Usuń notatkę",
     "deleteNoteConfirm": "Usunąć „{{title}}” i wszystkie jej bloki?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Pokaż najstarsze najpierw",
     "showNewestFirst": "Pokaż najnowsze najpierw"
   }

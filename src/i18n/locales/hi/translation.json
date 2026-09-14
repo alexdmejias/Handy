@@ -675,6 +675,7 @@
   "common": {
     "loading": "लोड हो रहा है...",
     "delete": "हटाएं",
+    "cancel": "Cancel",
     "close": "बंद करें",
     "open": "खोलें",
     "copy": "कॉपी करें",
@@ -763,6 +764,7 @@
     "renameNote": "नोट का नाम बदलें",
     "deleteNote": "नोट हटाएं",
     "deleteNoteConfirm": "क्या \"{{title}}\" और उसके सभी ब्लॉक हटाएं?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "सबसे पुराना पहले दिखाएं",
     "showNewestFirst": "सबसे नया पहले दिखाएं"
   }

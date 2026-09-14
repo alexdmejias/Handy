@@ -672,6 +672,7 @@
   "common": {
     "loading": "Завантаження...",
     "delete": "Видалити",
+    "cancel": "Cancel",
     "close": "Закрити",
     "open": "Відкрити",
     "copy": "Копіювати",
@@ -763,6 +764,7 @@
     "renameNote": "Перейменувати нотатку",
     "deleteNote": "Видалити нотатку",
     "deleteNoteConfirm": "Видалити «{{title}}» та всі її блоки?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Спочатку старі",
     "showNewestFirst": "Спочатку нові"
   }

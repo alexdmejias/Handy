@@ -672,6 +672,7 @@
   "common": {
     "loading": "로딩 중...",
     "delete": "삭제",
+    "cancel": "Cancel",
     "close": "닫기",
     "open": "열기",
     "copy": "복사",
@@ -763,6 +764,7 @@
     "renameNote": "메모 이름 바꾸기",
     "deleteNote": "메모 삭제",
     "deleteNoteConfirm": "\"{{title}}\" 및 모든 블록을 삭제하시겠습니까?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "오래된 순으로 표시",
     "showNewestFirst": "최신 순으로 표시"
   }

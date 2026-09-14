@@ -672,6 +672,7 @@
   "common": {
     "loading": "Загрузка...",
     "delete": "Удалить",
+    "cancel": "Cancel",
     "close": "Закрывать",
     "open": "Открыть",
     "copy": "Копировать",
@@ -763,6 +764,7 @@
     "renameNote": "Переименовать заметку",
     "deleteNote": "Удалить заметку",
     "deleteNoteConfirm": "Удалить «{{title}}» и все её блоки?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Сначала старые",
     "showNewestFirst": "Сначала новые"
   }

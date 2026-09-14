@@ -672,6 +672,7 @@
   "common": {
     "loading": "載入中...",
     "delete": "刪除",
+    "cancel": "Cancel",
     "close": "關閉",
     "open": "開啟",
     "copy": "複製",
@@ -763,6 +764,7 @@
     "renameNote": "重新命名筆記",
     "deleteNote": "刪除筆記",
     "deleteNoteConfirm": "要刪除「{{title}}」及其所有區塊嗎?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "先顯示最舊的",
     "showNewestFirst": "先顯示最新的"
   }

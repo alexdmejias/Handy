@@ -672,6 +672,7 @@
   "common": {
     "loading": "Yükleniyor...",
     "delete": "Sil",
+    "cancel": "Cancel",
     "close": "Kapat",
     "open": "Aç",
     "copy": "Kopyala",
@@ -763,6 +764,7 @@
     "renameNote": "Notu yeniden adlandır",
     "deleteNote": "Notu sil",
     "deleteNoteConfirm": "\"{{title}}\" ve tüm blokları silinsin mi?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Önce en eskiyi göster",
     "showNewestFirst": "Önce en yeniyi göster"
   }

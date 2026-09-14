@@ -672,6 +672,7 @@
   "common": {
     "loading": "...جاري التحميل",
     "delete": "حذف",
+    "cancel": "Cancel",
     "close": "إغلاق",
     "open": "فتح",
     "copy": "نسخ",
@@ -763,6 +764,7 @@
     "renameNote": "إعادة تسمية الملاحظة",
     "deleteNote": "حذف الملاحظة",
     "deleteNoteConfirm": "هل تريد حذف \"{{title}}\" وجميع كتلها؟",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "إظهار الأقدم أولاً",
     "showNewestFirst": "إظهار الأحدث أولاً"
   }

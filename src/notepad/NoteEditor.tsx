@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Sparkles, MoreVertical, Pin, Plus, ArrowUpDown } from "lucide-react";
 import type { NoteBlock, NoteSummary, NoteWithBlocks } from "@/bindings";
 import { formatRelativeTime } from "@/utils/dateFormat";
+import { Dialog } from "@/components/ui/Dialog";
+import { Button } from "@/components/ui/Button";
 import Block from "./Block";
 
 interface NoteEditorProps {
@@ -51,6 +53,7 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
   const [editingTitle, setEditingTitle] = useState(false);
   const [titleDraft, setTitleDraft] = useState(note.note.title);
   const [showMenu, setShowMenu] = useState(false);
+  const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false);
   const [draft, setDraft] = useState("");
   // Blocks are stored (and returned by the backend) oldest-first, the order
   // moves/splits append into — newest-first is purely a display reversal.
@@ -60,6 +63,7 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
     setTitleDraft(note.note.title);
     setEditingTitle(false);
     setShowMenu(false);
+    setConfirmDeleteOpen(false);
   }, [note.note.id, note.note.title]);
 
   const commitTitle = () => {
@@ -183,18 +187,17 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
                 )}
                 <button
                   onClick={() => {
+                    if (note.note.is_default) return;
                     setShowMenu(false);
-                    if (
-                      window.confirm(
-                        t("notepad.deleteNoteConfirm", {
-                          title: note.note.title,
-                        }),
-                      )
-                    ) {
-                      onDeleteNote(note.note.id);
-                    }
+                    setConfirmDeleteOpen(true);
                   }}
-                  className="w-full rounded-md px-2 py-1.5 text-left text-sm text-error hover:bg-error/10 cursor-pointer"
+                  disabled={note.note.is_default}
+                  title={
+                    note.note.is_default
+                      ? t("notepad.deleteDefaultDisabled")
+                      : undefined
+                  }
+                  className="w-full rounded-md px-2 py-1.5 text-left text-sm text-error hover:bg-error/10 disabled:cursor-not-allowed disabled:text-mid-gray disabled:hover:bg-transparent cursor-pointer"
                 >
                   {t("notepad.deleteNote")}
                 </button>
@@ -248,6 +251,36 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
           </button>
         </div>
       </div>
+
+      <Dialog
+        open={confirmDeleteOpen}
+        onOpenChange={setConfirmDeleteOpen}
+        title={t("notepad.deleteNote")}
+        closeLabel={t("common.close")}
+        footer={
+          <>
+            <Button
+              variant="secondary"
+              onClick={() => setConfirmDeleteOpen(false)}
+            >
+              {t("common.cancel")}
+            </Button>
+            <Button
+              variant="danger"
+              onClick={() => {
+                setConfirmDeleteOpen(false);
+                onDeleteNote(note.note.id);
+              }}
+            >
+              {t("notepad.deleteNote")}
+            </Button>
+          </>
+        }
+      >
+        <p className="text-sm text-text/70">
+          {t("notepad.deleteNoteConfirm", { title: note.note.title })}
+        </p>
+      </Dialog>
     </div>
   );
 };

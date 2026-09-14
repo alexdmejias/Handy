@@ -675,6 +675,7 @@
   "common": {
     "loading": "लोड गरिँदैछ...",
     "delete": "मेटाउनुहोस्",
+    "cancel": "Cancel",
     "close": "बन्द गर्नुहोस्",
     "open": "खोल्नुहोस्",
     "copy": "कपी गर्नुहोस्",
@@ -763,6 +764,7 @@
     "renameNote": "नोटको नाम बदल्नुहोस्",
     "deleteNote": "नोट मेटाउनुहोस्",
     "deleteNoteConfirm": "\"{{title}}\" र यसका सबै ब्लकहरू मेटाउने हो?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "पुरानो पहिले देखाउनुहोस्",
     "showNewestFirst": "नयाँ पहिले देखाउनुहोस्"
   }

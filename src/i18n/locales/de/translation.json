@@ -672,6 +672,7 @@
   "common": {
     "loading": "Wird geladen...",
     "delete": "Löschen",
+    "cancel": "Cancel",
     "close": "Schließen",
     "open": "Öffnen",
     "copy": "Kopieren",
@@ -763,6 +764,7 @@
     "renameNote": "Notiz umbenennen",
     "deleteNote": "Notiz löschen",
     "deleteNoteConfirm": "„{{title}}“ und alle zugehörigen Blöcke löschen?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Älteste zuerst anzeigen",
     "showNewestFirst": "Neueste zuerst anzeigen"
   }

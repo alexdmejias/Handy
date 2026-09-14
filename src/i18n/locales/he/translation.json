@@ -672,6 +672,7 @@
   "common": {
     "loading": "טוען...",
     "delete": "מחק",
+    "cancel": "Cancel",
     "close": "סגור",
     "open": "פתח",
     "copy": "העתק",
@@ -763,6 +764,7 @@
     "renameNote": "שנה שם לפתק",
     "deleteNote": "מחק פתק",
     "deleteNoteConfirm": "למחוק את \"{{title}}\" ואת כל הבלוקים שלו?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "הצג את הישנים ביותר קודם",
     "showNewestFirst": "הצג את החדשים ביותר קודם"
   }

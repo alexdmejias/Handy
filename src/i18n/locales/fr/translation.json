@@ -672,6 +672,7 @@
   "common": {
     "loading": "Chargement...",
     "delete": "Supprimer",
+    "cancel": "Cancel",
     "close": "Fermer",
     "open": "Ouvrir",
     "copy": "Copier",
@@ -763,6 +764,7 @@
     "renameNote": "Renommer la note",
     "deleteNote": "Supprimer la note",
     "deleteNoteConfirm": "Supprimer « {{title}} » et tous ses blocs ?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Afficher les plus anciens en premier",
     "showNewestFirst": "Afficher les plus récents en premier"
   }

@@ -675,6 +675,7 @@
   "common": {
     "loading": "Indlæser...",
     "delete": "Slet",
+    "cancel": "Cancel",
     "close": "Luk",
     "open": "Åbn",
     "copy": "Kopiér",
@@ -763,6 +764,7 @@
     "renameNote": "Omdøb note",
     "deleteNote": "Slet note",
     "deleteNoteConfirm": "Slet \"{{title}}\" og alle dens blokke?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Vis ældste først",
     "showNewestFirst": "Vis nyeste først"
   }

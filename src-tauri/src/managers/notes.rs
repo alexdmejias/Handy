@@ -160,9 +160,9 @@ impl NotesManager {
     }
 
     /// Guarantees exactly one note is marked default, creating a starter
-    /// "Scratchpad" note the first time this runs. Also self-heals if the
-    /// default note was deleted without a replacement being chosen (should
-    /// not normally happen — `delete_note` re-runs this itself).
+    /// "Scratchpad" note the first time this runs. `delete_note` refuses to
+    /// remove the default note, so the self-heal path below only matters for
+    /// a fresh database or one left without a default some other way.
     fn ensure_default_note(&self) -> Result<i64> {
         let conn = self.get_connection()?;
 
@@ -341,11 +341,16 @@ impl NotesManager {
         Ok(())
     }
 
+    /// Deletes a note and its blocks. The default note can't be deleted —
+    /// it's the fixed landing spot for captured dictation, so removing it
+    /// would silently conjure a fresh "Scratchpad" via `ensure_default_note`
+    /// and lose the user's reference to where their captures go. Callers
+    /// must reassign default to another note first (`set_default_note`).
     pub fn delete_note(&self, note_id: i64) -> Result<()> {
         let mut conn = self.get_connection()?;
         let tx = conn.transaction()?;
 
-        let was_default: bool = tx
+        let is_default: bool = tx
             .query_row(
                 "SELECT is_default FROM notes WHERE id = ?1",
                 params![note_id],
@@ -354,16 +359,16 @@ impl NotesManager {
             .optional()?
             .ok_or_else(|| anyhow!("Note {} not found", note_id))?;
 
+        if is_default {
+            return Err(anyhow!("The default note can't be deleted"));
+        }
+
         tx.execute(
             "DELETE FROM note_blocks WHERE note_id = ?1",
             params![note_id],
         )?;
         tx.execute("DELETE FROM notes WHERE id = ?1", params![note_id])?;
         tx.commit()?;
-
-        if was_default {
-            self.ensure_default_note()?;
-        }
 
         self.notify_notes_changed();
         Ok(())

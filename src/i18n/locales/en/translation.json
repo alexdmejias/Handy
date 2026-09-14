@@ -675,6 +675,7 @@
   "common": {
     "loading": "Loading...",
     "delete": "Delete",
+    "cancel": "Cancel",
     "close": "Close",
     "open": "Open",
     "copy": "Copy",
@@ -762,7 +763,8 @@
     "moreOptions": "More options",
     "renameNote": "Rename note",
     "deleteNote": "Delete note",
-    "deleteNoteConfirm": "Delete \"{{title}}\" and all of its blocks?",
+    "deleteNoteConfirm": "Delete \"{{title}}\" and all of its blocks? This can't be undone.",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "Show oldest first",
     "showNewestFirst": "Show newest first"
   }

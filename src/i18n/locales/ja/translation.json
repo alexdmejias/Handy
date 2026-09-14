@@ -672,6 +672,7 @@
   "common": {
     "loading": "読み込み中…",
     "delete": "削除",
+    "cancel": "Cancel",
     "close": "閉じる",
     "open": "開く",
     "copy": "コピー",
@@ -763,6 +764,7 @@
     "renameNote": "メモの名前を変更",
     "deleteNote": "メモを削除",
     "deleteNoteConfirm": "「{{title}}」とそのすべてのブロックを削除しますか?",
+    "deleteDefaultDisabled": "The default note can't be deleted. Set another note as default first.",
     "showOldestFirst": "古い順に表示",
     "showNewestFirst": "新しい順に表示"
   }
