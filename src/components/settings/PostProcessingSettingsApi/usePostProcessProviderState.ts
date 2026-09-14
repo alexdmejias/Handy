@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSettings } from "../../../hooks/useSettings";
 import { commands, type PostProcessProvider } from "@/bindings";
 import type { ModelOption } from "./types";
@@ -60,6 +60,24 @@ export const usePostProcessProviderState = (): PostProcessProviderState => {
   const [appleIntelligenceUnavailable, setAppleIntelligenceUnavailable] =
     useState(false);
 
+  // Re-check availability any time Apple Intelligence is the active
+  // provider, not just at the moment it's selected. Availability can change
+  // after the fact (Apple Intelligence disabled in System Settings, macOS
+  // updated, etc.), and settings persist the provider choice across
+  // restarts — without this, reopening Settings with Apple Intelligence
+  // already selected can show no error at all even though post-processing
+  // is silently failing every time.
+  useEffect(() => {
+    if (!isAppleProvider) return;
+    let cancelled = false;
+    commands.checkAppleIntelligenceAvailable().then((available) => {
+      if (!cancelled) setAppleIntelligenceUnavailable(!available);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [isAppleProvider]);
+
   // Use settings directly as single source of truth
   const baseUrl = selectedProvider?.base_url ?? "";
   const apiKey = settings?.post_process_api_keys?.[selectedProviderId] ?? "";
@@ -74,21 +92,10 @@ export const usePostProcessProviderState = (): PostProcessProviderState => {
 
   const handleProviderSelect = useCallback(
     async (providerId: string) => {
-      // Clear error state on any selection attempt (allows dismissing the error)
-      setAppleIntelligenceUnavailable(false);
-
       if (providerId === selectedProviderId) return;
 
-      // Check Apple Intelligence availability before selecting
-      if (providerId === APPLE_PROVIDER_ID) {
-        const available = await commands.checkAppleIntelligenceAvailable();
-        if (!available) {
-          setAppleIntelligenceUnavailable(true);
-          // Don't return - still set the provider so dropdown shows the selection
-          // The backend gracefully handles unavailable Apple Intelligence
-        }
-      }
-
+      // Availability for Apple Intelligence is (re)checked by the effect
+      // above whenever it becomes the selected provider.
       await setPostProcessProvider(providerId);
 
       // Auto-fetch available models for the new provider so the model dropdown
